@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsor a Day | World Race 2027–2028</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f0e7;
+      color: #172019;
+    }
+
+    .hero {
+      min-height: 650px;
+      color: white;
+      padding: 25px 7%;
+      background:
+        linear-gradient(rgba(10,20,15,.88), rgba(10,20,15,.78)),
+        linear-gradient(135deg, #17241d, #405c49);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 60px;
+    }
+
+    .logo {
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: bold;
+    }
+
+    .hero-content {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .small-title {
+      color: #d9aa3b;
+      font-weight: bold;
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(65px, 9vw, 115px);
+      line-height: .85;
+      margin: 15px 0 30px;
+    }
+
+    h1 span {
+      color: #d9aa3b;
+      font-style: italic;
+    }
+
+    .hero-text {
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 550px;
+      color: #e5ebe6;
+    }
+
+    .button {
+      display: inline-block;
+      background: #d9aa3b;
+      color: #111;
+      padding: 16px 25px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .goal-card {
+      background: rgba(0,0,0,.45);
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+    }
+
+    .stats strong {
+      font-size: 30px;
+      display: block;
+    }
+
+    .stats small {
+      color: #bfc8c0;
+    }
+
+    .goal-title {
+      color: #d9aa3b;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .money {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .progress {
+      height: 12px;
+      background: #414a44;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: #d9aa3b;
+    }
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-inner {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      color: #b78622;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 48px;
+      margin: 10px 0;
+    }
+
+    .description {
+      color: #68716b;
+      max-width: 650px;
+      line-height: 1.7;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 35px 0 20px;
+    }
+
+    .calendar-header button {
+      border: none;
+      background: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    #monthName {
+      font-size: 30px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background: white;
+      border: 1px solid #d7d2c7;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .weekday {
+      padding: 15px 5px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: bold;
+      color: #777;
+      background: #faf9f5;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .day {
+      min-height: 105px;
+      padding: 12px;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+    }
+
+    .day button {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      text-align: left;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    .available:hover {
+      background: #edf7ef;
+    }
+
+    .available .status {
+      color: #398458;
+    }
+
+    .sponsored {
+      background: #fff7df;
+    }
+
+    .sponsored .status {
+      color: #b78622;
+    }
+
+    .number {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .status {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      font-size: 9px;
+      font-weight: bold;
+    }
+
+    .how {
+      background: #111813;
+      color: white;
+    }
+
+    .how-grid {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      border-radius: 18px;
+      padding: 40px;
+    }
+
+    .light-card {
+      background: #f4f0e7;
+      color: #172019;
+    }
+
+    .dark-card {
+      background: #24352b;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .step-number {
+      color: #d9aa3b;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .step p {
+      color: #aeb8b1;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #0d120f;
+      color: #b8c0ba;
+      padding: 35px 7%;
+      text-align: center;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 10;
+    }
+
+    .modal-box {
+      background: #f4f0e7;
+      color: #172019;
+      padding: 40px;
+      border-radius: 18px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      border: none;
+      background: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .modal-price {
+      font-size: 38px;
+      color: #b78622;
+      font-weight: bold;
+    }
+
+    @media(max-width:800px) {
+      .hero-content,
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .calendar {
+        overflow-x: auto;
+        grid-template-columns: repeat(7, 100px);
+      }
+
+      h2 {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="hero">
+  <nav>
+    <div class="logo">✦ WORLD RACE 2027–2028</div>
+
+    <div class="nav-links">
+      <a href="#days">Sponsor a Day</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+
+    <div>
+      <div class="small-title">305 DAYS • ONE MISSION</div>
+
+      <h1>
+        SPONSOR<br>
+        <span>A DAY</span>
+      </h1>
+
+      <p class="hero-text">
+        Be part of my World Race journey. Choose one of
+        the 305 days I'll be away and help make this mission possible.
+      </p>
+
+      <a class="button" href="#days">
+        ♡ CHOOSE A DAY
+      </a>
+    </div>
+
+    <div class="goal-card">
+
+      <div class="stats">
+        <div>
+          <strong>305</strong>
+          <small>DAYS</small>
+        </div>
+
+        <div>
+          <strong>1</strong>
+          <small>MISSION</small>
+        </div>
+
+        <div>
+          <strong>$20K</strong>
+          <small>GOAL</small>
+        </div>
+      </div>
+
+      <div class="goal-title">
+        FUNDRAISING GOAL
+      </div>
+
+      <div class="money" id="raised">
+        $0
+      </div>
+
+      <div>
+        of $20,000
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" id="progress"></div>
+      </div>
+
+      <p>
+        Every sponsored day helps me get one step closer.
+      </p>
+
+    </div>
+  </div>
+</header>
+
+
+<section id="days">
+
+<div class="section-inner">
+
+<div class="section-title">
+CHOOSE YOUR DAY
+</div>
+
+<h2>SPONSOR A DAY</h2>
+
+<p class="description">
+Click any available day to learn more and sponsor that day
+of my World Race journey.
+</p>
+
+
+<div class="calendar-header">
+
+<button onclick="previousMonth()">←</button>
+
+<h3 id="monthName">
+August 2027
+</h3>
+
+<button onclick="nextMonth()">→</button>
+
+</div>
+
+
+<div class="calendar" id="calendar"></div>
+
+</div>
+
+</section>
+
+
+<section class="how" id="about">
+
+<div class="how-grid">
+
+<div class="card light-card">
+
+<div class="section-title">
+HOW IT WORKS
+</div>
+
+<h2>
+ONE DAY.<br>
+ONE PRAYER.<br>
+ONE MISSION.
+</h2>
+
+
+<div class="step">
+
+<div class="step-number">01</div>
+
+<div>
+<strong>Choose a day</strong>
+<p>
+Pick any available day on the calendar.
+</p>
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">02</div>
+
+<div>
+<strong>Sponsor it</strong>
+<p>
+The suggested sponsorship is $66.
+</p>
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">03</div>
+
+<div>
+<strong>Pray & follow</strong>
+<p>
+Follow the journey and pray for what God is doing.
+</p>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card dark-card">
+
+<div class="section-title">
+WHY IT MATTERS
+</div>
+
+<h2>
+IT'S NOT JUST
+A DONATION.
+</h2>
+
+<p>
+Your support helps make it possible for me to go,
+serve, build relationships, and share the hope of Jesus
+throughout the World Race.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<strong>
+WORLD RACE 2027–2028
+</strong>
+
+<p>
+Thank you for being part of the journey.
+</p>
+
+</footer>
+
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<div class="section-title">
+YOUR DAY
+</div>
+
+<h2 id="modalTitle">
+Day 1
+</h2>
+
+<p id="modalDate"></p>
+
+<div class="modal-price">
+$66
+</div>
+
+<p>
+Suggested sponsorship
+</p>
+
+<p>
+Thank you for considering sponsoring this day
+of my World Race journey.
+</p>
+
+<a
+  class="button"
+  id="sponsorButton"
+  href="#"
+>
+SPONSOR THIS DAY →
+</a>
+
+</div>
+
+</div>
+
+
+<script>
+
+const startDate = new Date(2027, 7, 1);
+const endDate = new Date(2028, 4, 31);
+
+let currentMonth = new Date(2027, 7, 1);
+
+const sponsoredDays = {
+  /*
+  Add sponsored days here later.
+
+  Example:
+
+  "2027-08-05": "The Smith Family",
+  "2027-08-17": "John Doe"
+
+  */
+};
+
+function dateKey(date) {
+
+  return date.toISOString().split("T")[0];
+
+}
+
+
+function getDayNumber(date) {
+
+  return Math.floor(
+    (date - startDate) / (1000 * 60 * 60 * 24)
+  ) + 1;
+
+}
+
+
+function renderCalendar() {
+
+  const calendar =
+    document.getElementById("calendar");
+
+  calendar.innerHTML = "";
+
+  const weekdays =
+    ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+
+  weekdays.forEach(day => {
+
+    const div = document.createElement("div");
+
+    div.className = "weekday";
+
+    div.textContent = day;
+
+    calendar.appendChild(div);
+
+  });
+
+
+  const year = currentMonth.getFullYear();
+
+  const month = currentMonth.getMonth();
+
+  document.getElementById("monthName").textContent =
+    currentMonth.toLocaleDateString(
+      undefined,
+      {
+        month:"long",
+        year:"numeric"
+      }
+    );
+
+
+  const firstDay =
+    new Date(year, month, 1).getDay();
+
+  const daysInMonth =
+    new Date(year, month + 1, 0).getDate();
+
+
+  for(let i = 0; i < firstDay; i++) {
+
+    const blank = document.createElement("div");
+
+    blank.className = "day";
+
+    calendar.appendChild(blank);
+
+  }
+
+
+  for(let d = 1; d <= daysInMonth; d++) {
+
+    const date =
+      new Date(year, month, d);
+
+    if(date < startDate || date > endDate)
+      continue;
+
+
+    const key = dateKey(date);
+
+    const sponsored =
+      sponsoredDays[key];
+
+
+    const cell =
+      document.createElement("div");
+
+    cell.className =
+      sponsored ? "day sponsored" : "day available";
+
+
+    const button =
+      document.createElement("button");
+
+
+    button.innerHTML = `
+      <span class="number">${d}</span>
+      <span class="status">
+        ${
+          sponsored
+          ? "SPONSORED"
+          : "AVAILABLE • $66"
+        }
+      </span>
+    `;
+
+
+    button.onclick = function() {
+
+      openModal(date, sponsored);
+
+    };
+
+
+    cell.appendChild(button);
+
+    calendar.appendChild(cell);
+
+  }
+
+}
+
+
+function openModal(date, sponsored) {
+
+  const modal =
+    document.getElementById("modal");
+
+  document.getElementById("modalTitle").textContent =
+    "Day " + getDayNumber(date);
+
+
+  document.getElementById("modalDate").textContent =
+    date.toLocaleDateString(
+      undefined,
+      {
+        month:"long",
+        day:"numeric",
+        year:"numeric"
+      }
+    );
+
+
+  const button =
+    document.getElementById("sponsorButton");
+
+
+  if(sponsored) {
+
+    button.textContent =
+      "THIS DAY IS ALREADY SPONSORED";
+
+    button.style.pointerEvents = "none";
+
+    button.style.opacity = ".5";
+
+  } else {
+
+    button.textContent =
+      "SPONSOR THIS DAY →";
+
+    button.style.pointerEvents = "auto";
+
+    button.style.opacity = "1";
+
+  }
+
+
+  modal.style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+  document.getElementById("modal").style.display =
+    "none";
+
+}
+
+
+function previousMonth() {
+
+  currentMonth =
+    new Date(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth() - 1,
+      1
+    );
+
+
+  if(currentMonth < startDate)
+
+    currentMonth =
+      new Date(2027,7,1);
+
+
+  renderCalendar();
+
+}
+
+
+function nextMonth() {
+
+  currentMonth =
+    new Date(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth() + 1,
+      1
+    );
+
+
+  if(currentMonth > new Date(2028,4,1))
+
+    currentMonth =
+      new Date(2028,4,1);
+
+
+  renderCalendar();
+
+}
+
+
+renderCalendar();
+
+</script>
+
+</body>
+</html>
