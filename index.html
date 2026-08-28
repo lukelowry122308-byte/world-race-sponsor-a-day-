@@ -6,7 +6,15 @@
 
 <title>World Race 2027–2028 | Sponsor a Day</title>
 
+<!-- Real-world map library -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -34,10 +42,9 @@ body {
   --dark: #0d1711;
 }
 
-
-/* =================================
+/* =========================================================
    NAVIGATION
-================================= */
+========================================================= */
 
 nav {
   height: 78px;
@@ -78,10 +85,9 @@ nav {
   color: var(--gold);
 }
 
-
-/* =================================
+/* =========================================================
    HERO
-================================= */
+========================================================= */
 
 .hero {
   min-height: 650px;
@@ -163,16 +169,17 @@ h1 span {
   font-weight: 800;
 
   letter-spacing: .5px;
+
+  cursor: pointer;
 }
 
 .button:hover {
   transform: translateY(-2px);
 }
 
-
-/* =================================
+/* =========================================================
    FUNDRAISING CARD
-================================= */
+========================================================= */
 
 .goal-card {
   padding: 35px;
@@ -268,10 +275,9 @@ h1 span {
   font-size: 12px;
 }
 
-
-/* =================================
+/* =========================================================
    GENERAL SECTIONS
-================================= */
+========================================================= */
 
 section {
   padding: 85px 6%;
@@ -279,7 +285,6 @@ section {
 
 .section-inner {
   max-width: 1200px;
-
   margin: auto;
 }
 
@@ -310,10 +315,9 @@ h2 {
   line-height: 1.7;
 }
 
-
-/* =================================
-   WAYS TO SUPPORT
-================================= */
+/* =========================================================
+   GIVING
+========================================================= */
 
 .giving-section {
   background: var(--cream);
@@ -341,8 +345,7 @@ h2 {
 
   text-align: center;
 
-  transition:
-    transform .2s;
+  transition: transform .2s;
 }
 
 .give-card:hover {
@@ -372,9 +375,6 @@ h2 {
 
   line-height: 1.5;
 }
-
-
-/* ANY AMOUNT */
 
 .any-amount {
   margin-top: 20px;
@@ -406,10 +406,9 @@ h2 {
   line-height: 1.6;
 }
 
-
-/* =================================
+/* =========================================================
    CALENDAR
-================================= */
+========================================================= */
 
 .calendar-area {
   margin-top: 70px;
@@ -447,7 +446,6 @@ h2 {
 
 .legend-dot {
   width: 13px;
-
   height: 13px;
 
   border-radius: 3px;
@@ -475,7 +473,6 @@ h2 {
 
 .calendar-header button {
   width: 45px;
-
   height: 45px;
 
   border: none;
@@ -501,25 +498,23 @@ h2 {
   font-size: 27px;
 }
 
+/* THE ACTUAL CALENDAR */
+
 .calendar {
   display: grid;
 
   grid-template-columns:
-    repeat(7,1fr);
+    repeat(7, 1fr);
 
-  background: #d9d6cd;
+  gap: 8px;
 
-  border: 1px solid #d0ccc1;
-
-  border-radius: 14px;
-
-  overflow: hidden;
+  background: transparent;
 }
+
+/* WEEKDAYS */
 
 .weekday {
   padding: 13px 4px;
-
-  background: #e9e5dc;
 
   color: #626a64;
 
@@ -528,18 +523,35 @@ h2 {
   font-size: 10px;
 
   font-weight: 800;
+
+  letter-spacing: 1px;
 }
+
+/* EVERY DAY IS ITS OWN BOX */
 
 .day {
   min-height: 105px;
 
   position: relative;
 
-  border-top:
-    1px solid #d9d6cd;
+  border: 2px solid #d1cbc0;
 
-  border-right:
-    1px solid #d9d6cd;
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  background: white;
+
+  transition:
+    transform .15s,
+    box-shadow .15s;
+}
+
+.day:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(0,0,0,.08);
 }
 
 .day button {
@@ -548,7 +560,6 @@ h2 {
   inset: 0;
 
   width: 100%;
-
   height: 100%;
 
   border: none;
@@ -562,32 +573,36 @@ h2 {
   font-family: inherit;
 }
 
+/* AVAILABLE */
+
 .available {
-  background: #fff0f0;
+  border-color: var(--red);
 }
 
 .available button {
-  background: #fff0f0;
+  background: #fff4f4;
 }
 
 .available button:hover {
-  background: #ffe0e0;
+  background: #ffe7e7;
 }
 
 .available .status {
   color: var(--red);
 }
 
+/* SPONSORED */
+
 .sponsored {
-  background: #e8f5ec;
+  border-color: var(--green-light);
 }
 
 .sponsored button {
-  background: #e8f5ec;
+  background: #eaf6ed;
 }
 
 .sponsored button:hover {
-  background: #d8eddf;
+  background: #dcf0e2;
 }
 
 .sponsored .status {
@@ -624,10 +639,9 @@ h2 {
   letter-spacing: .5px;
 }
 
-
-/* =================================
-   WHAT IS THE WORLD RACE?
-================================= */
+/* =========================================================
+   WORLD RACE
+========================================================= */
 
 .world-race-section {
   background: #ffffff;
@@ -697,9 +711,6 @@ h2 {
   letter-spacing: 1.5px;
 }
 
-
-/* RIGHT CARD */
-
 .world-race-card {
   padding: 45px;
 
@@ -759,10 +770,9 @@ h2 {
   font-size: 12px;
 }
 
-
-/* =================================
-   MAP
-================================= */
+/* =========================================================
+   REAL WORLD MAP
+========================================================= */
 
 .map-section {
   background: #f4f0e7;
@@ -782,58 +792,6 @@ h2 {
   overflow: hidden;
 }
 
-.world-map {
-  width: 100%;
-
-  display: block;
-}
-
-.land {
-  fill: #aab9ad;
-
-  stroke: #87998c;
-
-  stroke-width: 1;
-}
-
-.route-line {
-  fill: none;
-
-  stroke: var(--gold);
-
-  stroke-width: 3;
-
-  stroke-dasharray: 9 8;
-
-  stroke-linecap: round;
-}
-
-.country-point {
-  fill: var(--green);
-
-  stroke: white;
-
-  stroke-width: 3;
-}
-
-.map-label {
-  fill: #172019;
-
-  font-size: 13px;
-
-  font-weight: 800;
-
-  paint-order: stroke;
-
-  stroke: white;
-
-  stroke-width: 4;
-
-  stroke-linejoin: round;
-
-  pointer-events: none;
-}
-
 .map-title {
   margin: 0 0 15px;
 
@@ -844,6 +802,62 @@ h2 {
   letter-spacing: 2px;
 }
 
+#worldMap {
+  width: 100%;
+
+  display: block;
+
+  min-height: 400px;
+}
+
+.country-shape {
+  fill: #aab9ad;
+
+  stroke: #7f9185;
+
+  stroke-width: .5px;
+}
+
+.route {
+  fill: none;
+
+  stroke: var(--gold);
+
+  stroke-width: 3;
+
+  stroke-dasharray: 8 7;
+
+  stroke-linecap: round;
+}
+
+.route-point {
+  fill: var(--green);
+
+  stroke: white;
+
+  stroke-width: 3;
+}
+
+.route-label {
+  font-size: 12px;
+
+  font-weight: 800;
+
+  fill: #172019;
+
+  paint-order: stroke;
+
+  stroke: white;
+
+  stroke-width: 4px;
+
+  stroke-linejoin: round;
+}
+
+.plane-symbol {
+  font-size: 25px;
+}
+
 .map-note {
   margin-top: 15px;
 
@@ -852,29 +866,9 @@ h2 {
   font-size: 12px;
 }
 
-.plane {
-  fill: var(--green);
-
-  animation:
-    planePulse 2s ease-in-out infinite;
-}
-
-@keyframes planePulse {
-
-  0%,100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: .6;
-  }
-
-}
-
-
-/* =================================
+/* =========================================================
    PRAYER
-================================= */
+========================================================= */
 
 .prayer-section {
   background: var(--dark);
@@ -949,10 +943,9 @@ h2 {
   margin-top: 10px;
 }
 
-
-/* =================================
+/* =========================================================
    FOOTER
-================================= */
+========================================================= */
 
 footer {
   padding: 45px 7%;
@@ -970,10 +963,9 @@ footer strong {
   letter-spacing: 2px;
 }
 
-
-/* =================================
+/* =========================================================
    MODAL
-================================= */
+========================================================= */
 
 .modal {
   display: none;
@@ -1046,10 +1038,9 @@ footer strong {
   font-weight: bold;
 }
 
-
-/* =================================
+/* =========================================================
    MOBILE
-================================= */
+========================================================= */
 
 @media(max-width:850px) {
 
@@ -1073,27 +1064,20 @@ footer strong {
     display: none;
   }
 
-  .stats {
-    grid-template-columns:
-      repeat(3,1fr);
-  }
-
   .race-details {
     grid-template-columns:
       repeat(3,1fr);
   }
 
   .calendar {
-    overflow-x: auto;
-
     grid-template-columns:
-      repeat(7,105px);
+      repeat(7, minmax(75px, 1fr));
+
+    overflow-x: auto;
   }
 
-  .calendar-top {
-    align-items: start;
-
-    flex-direction: column;
+  .day {
+    min-height: 90px;
   }
 
   .map-wrapper {
@@ -1109,13 +1093,12 @@ footer strong {
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =================================
+<!-- =====================================================
      NAVIGATION
-================================= -->
+===================================================== -->
 
 <nav>
 
@@ -1125,30 +1108,22 @@ footer strong {
 
 <div class="nav-links">
 
-<a href="#give">
-GIVE
-</a>
+<a href="#give">GIVE</a>
 
-<a href="#world-race">
-WORLD RACE
-</a>
+<a href="#world-race">WORLD RACE</a>
 
-<a href="#map">
-JOURNEY
-</a>
+<a href="#map">JOURNEY</a>
 
-<a href="#prayer">
-PRAYER
-</a>
+<a href="#prayer">PRAYER</a>
 
 </div>
 
 </nav>
 
 
-<!-- =================================
-     1. HERO / FUNDRAISING
-================================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <header class="hero">
 
@@ -1175,10 +1150,7 @@ but through prayer and support.
 
 </p>
 
-<a
-href="#give"
-class="button"
->
+<a href="#give" class="button">
 CHOOSE YOUR DAY →
 </a>
 
@@ -1210,10 +1182,7 @@ CHOOSE YOUR DAY →
 FUNDRAISING PROGRESS
 </div>
 
-<div
-class="money"
-id="raised"
->
+<div class="money" id="raised">
 $0
 </div>
 
@@ -1244,9 +1213,9 @@ id="progressPercent"
 </header>
 
 
-<!-- =================================
-     2. GIVING + CALENDAR
-================================= -->
+<!-- =====================================================
+     GIVING + CALENDAR
+===================================================== -->
 
 <section
 class="giving-section"
@@ -1265,10 +1234,10 @@ BE PART OF THE JOURNEY
 
 <p class="description">
 
-There are lots of ways you can support this
-journey. You can sponsor a day, a week,
-a month, or simply give whatever amount
-you feel led to give.
+There are lots of ways you can support
+this journey. You can sponsor a day,
+a week, a month, or simply give whatever
+amount you feel led to give.
 
 </p>
 
@@ -1361,7 +1330,9 @@ GIVE ANY AMOUNT
 </div>
 
 
-<!-- CALENDAR -->
+<!-- =====================================================
+     CALENDAR
+===================================================== -->
 
 <div class="calendar-area">
 
@@ -1378,6 +1349,7 @@ SPONSOR A DAY
 </h2>
 
 </div>
+
 
 <div class="calendar-legend">
 
@@ -1408,9 +1380,7 @@ SPONSORED
 
 <div class="calendar-header">
 
-<button
-onclick="previousMonth()"
->
+<button onclick="previousMonth()">
 ←
 </button>
 
@@ -1418,9 +1388,7 @@ onclick="previousMonth()"
 August 2027
 </h3>
 
-<button
-onclick="nextMonth()"
->
+<button onclick="nextMonth()">
 →
 </button>
 
@@ -1440,9 +1408,9 @@ id="calendar"
 </section>
 
 
-<!-- =================================
-     3. WHAT IS THE WORLD RACE?
-================================= -->
+<!-- =====================================================
+     WORLD RACE
+===================================================== -->
 
 <section
 class="world-race-section"
@@ -1491,39 +1459,27 @@ mission.
 
 <div class="race-detail">
 
-<strong>
-9
-</strong>
+<strong>9</strong>
 
-<span>
-MONTHS
-</span>
+<span>MONTHS</span>
 
 </div>
 
 
 <div class="race-detail">
 
-<strong>
-6
-</strong>
+<strong>6</strong>
 
-<span>
-COUNTRIES
-</span>
+<span>COUNTRIES</span>
 
 </div>
 
 
 <div class="race-detail">
 
-<strong>
-17–20
-</strong>
+<strong>17–20</strong>
 
-<span>
-AGES
-</span>
+<span>AGES</span>
 
 </div>
 
@@ -1556,29 +1512,17 @@ doing around the world.
 
 <div class="country-list">
 
-<span>
-🇿🇦 South Africa
-</span>
+<span>🇿🇦 South Africa</span>
 
-<span>
-🇸🇿 Eswatini
-</span>
+<span>🇸🇿 Eswatini</span>
 
-<span>
-🇰🇪 Kenya
-</span>
+<span>🇰🇪 Kenya</span>
 
-<span>
-🇪🇹 Ethiopia
-</span>
+<span>🇪🇹 Ethiopia</span>
 
-<span>
-🇳🇵 Nepal
-</span>
+<span>🇳🇵 Nepal</span>
 
-<span>
-🇹🇭 Thailand
-</span>
+<span>🇹🇭 Thailand</span>
 
 </div>
 
@@ -1591,9 +1535,9 @@ doing around the world.
 </section>
 
 
-<!-- =================================
-     4. JOURNEY / MAP
-================================= -->
+<!-- =====================================================
+     REAL WORLD MAP
+===================================================== -->
 
 <section
 class="map-section"
@@ -1625,318 +1569,12 @@ countries.
 ✈️ MY WORLD RACE ROUTE
 </p>
 
-
 <svg
-class="world-map"
-viewBox="0 0 1200 600"
-xmlns="http://www.w3.org/2000/svg"
+id="worldMap"
+viewBox="0 0 1000 520"
+preserveAspectRatio="xMidYMid meet"
 >
-
-<rect
-x="0"
-y="0"
-width="1200"
-height="600"
-fill="#dce9e2"
-/>
-
-
-<!-- NORTH AMERICA -->
-
-<path
-class="land"
-d="
-M75 120
-L130 75
-L215 70
-L280 105
-L310 160
-L275 205
-L220 220
-L190 270
-L135 245
-L100 205
-L70 165
-Z
-"
-/>
-
-
-<!-- SOUTH AMERICA -->
-
-<path
-class="land"
-d="
-M300 300
-L350 275
-L390 315
-L400 365
-L380 425
-L350 500
-L310 530
-L280 480
-L290 420
-L275 360
-Z
-"
-/>
-
-
-<!-- EUROPE -->
-
-<path
-class="land"
-d="
-M500 115
-L540 90
-L580 100
-L605 125
-L580 150
-L535 145
-L505 135
-Z
-"
-/>
-
-
-<!-- AFRICA -->
-
-<path
-class="land"
-d="
-M500 175
-L555 160
-L610 190
-L625 245
-L605 320
-L575 390
-L525 420
-L485 380
-L465 320
-L475 260
-Z
-"
-/>
-
-
-<!-- ASIA -->
-
-<path
-class="land"
-d="
-M600 125
-L665 90
-L755 95
-L850 115
-L945 145
-L1010 190
-L980 235
-L910 245
-L850 220
-L780 240
-L720 215
-L665 190
-L620 170
-Z
-"
-/>
-
-
-<!-- INDIA -->
-
-<path
-class="land"
-d="
-M720 220
-L760 230
-L780 280
-L750 325
-L715 290
-Z
-"
-/>
-
-
-<!-- SOUTHEAST ASIA -->
-
-<path
-class="land"
-d="
-M825 245
-L870 250
-L900 290
-L875 335
-L840 310
-L820 275
-Z
-"
-/>
-
-
-<!-- AUSTRALIA -->
-
-<path
-class="land"
-d="
-M925 365
-L1000 345
-L1070 365
-L1100 420
-L1070 470
-L1000 480
-L940 450
-L915 405
-Z
-"/>
-
-
-<!-- ROUTE -->
-
-<path
-class="route-line"
-d="
-M535 375
-C535 375 545 360 550 350
-C565 325 585 300 600 280
-C620 250 650 220 690 200
-C750 180 800 230 850 285
-"
-id="routePath"
-/>
-
-
-<!-- SOUTH AFRICA -->
-
-<circle
-class="country-point"
-cx="535"
-cy="375"
-r="10"
-/>
-
-<text
-class="map-label"
-x="550"
-y="395"
->
-South Africa
-</text>
-
-
-<!-- ESWATINI -->
-
-<circle
-class="country-point"
-cx="550"
-cy="350"
-r="8"
-/>
-
-<text
-class="map-label"
-x="565"
-y="345"
->
-Eswatini
-</text>
-
-
-<!-- KENYA -->
-
-<circle
-class="country-point"
-cx="600"
-cy="280"
-r="9"
-/>
-
-<text
-class="map-label"
-x="615"
-y="275"
->
-Kenya
-</text>
-
-
-<!-- ETHIOPIA -->
-
-<circle
-class="country-point"
-cx="620"
-cy="250"
-r="9"
-/>
-
-<text
-class="map-label"
-x="635"
-y="245"
->
-Ethiopia
-</text>
-
-
-<!-- NEPAL -->
-
-<circle
-class="country-point"
-cx="750"
-cy="190"
-r="9"
-/>
-
-<text
-class="map-label"
-x="765"
-y="185"
->
-Nepal
-</text>
-
-
-<!-- THAILAND -->
-
-<circle
-class="country-point"
-cx="850"
-cy="285"
-r="9"
-/>
-
-<text
-class="map-label"
-x="865"
-y="300"
->
-Thailand
-</text>
-
-
-<!-- AIRPLANE -->
-
-<g class="plane">
-
-<text font-size="30">
-✈
-</text>
-
-<animateMotion
-dur="10s"
-repeatCount="indefinite"
-rotate="auto"
->
-
-<mpath
-href="#routePath"
-/>
-
-</animateMotion>
-
-</g>
-
 </svg>
-
 
 <p class="map-note">
 
@@ -1953,9 +1591,9 @@ exact flight paths.
 </section>
 
 
-<!-- =================================
-     5. PRAYER
-================================= -->
+<!-- =====================================================
+     PRAYER
+===================================================== -->
 
 <section
 class="prayer-section"
@@ -1976,7 +1614,6 @@ PRAY WITH ME
 <h2>
 JOIN ME IN PRAYER
 </h2>
-
 
 <!--
 EDIT THIS MESSAGE ANYTIME
@@ -2016,7 +1653,6 @@ this journey? I'd love to hear it.
 
 </p>
 
-
 <iframe
 class="google-form"
 src="https://docs.google.com/forms/d/e/1FAIpQLSfnIuqkdsoHZDc9llg4JcL-EG1vuWZoPw8kMJ5ivYV-unh8vQ/viewform?embedded=true"
@@ -2034,9 +1670,9 @@ Loading…
 </section>
 
 
-<!-- =================================
+<!-- =====================================================
      FOOTER
-================================= -->
+===================================================== -->
 
 <footer>
 
@@ -2051,9 +1687,9 @@ Thank you for being part of the journey.
 </footer>
 
 
-<!-- =================================
+<!-- =====================================================
      SPONSOR MODAL
-================================= -->
+===================================================== -->
 
 <div
 class="modal"
@@ -2077,8 +1713,7 @@ YOUR DAY
 Day 1
 </h2>
 
-<p id="modalDate">
-</p>
+<p id="modalDate"></p>
 
 <div class="modal-price">
 $73
@@ -2114,19 +1749,19 @@ SPONSOR THIS DAY →
 
 <script>
 
-
-/* =================================
+/* =========================================================
    SPONSORED DAYS
-================================= */
+========================================================= */
 
 /*
-Add sponsored days here later.
+Later, when the payment system is connected,
+these can automatically be updated.
 
 Example:
 
 const sponsoredDays = {
   "2027-08-21": "John",
-  "2027-08-22": "Smith Family"
+  "2027-09-05": "Smith Family"
 };
 
 */
@@ -2134,18 +1769,18 @@ const sponsoredDays = {
 const sponsoredDays = {};
 
 
-/* =================================
-   FUNDRAISING SETTINGS
-================================= */
+/* =========================================================
+   FUNDRAISING
+========================================================= */
 
 const DAY_PRICE = 73;
 
 const GOAL = 20000;
 
 
-/* =================================
+/* =========================================================
    TRIP DATES
-================================= */
+========================================================= */
 
 const startDate =
 new Date(2027, 7, 21);
@@ -2154,17 +1789,17 @@ const endDate =
 new Date(2028, 4, 21);
 
 
-/* =================================
-   CURRENT MONTH
-================================= */
+/* =========================================================
+   CURRENT CALENDAR MONTH
+========================================================= */
 
 let currentMonth =
 new Date(2027, 7, 1);
 
 
-/* =================================
+/* =========================================================
    DATE KEY
-================================= */
+========================================================= */
 
 function dateKey(date) {
 
@@ -2186,9 +1821,9 @@ function dateKey(date) {
 }
 
 
-/* =================================
+/* =========================================================
    DAY NUMBER
-================================= */
+========================================================= */
 
 function dayNumber(date) {
 
@@ -2203,9 +1838,9 @@ function dayNumber(date) {
 }
 
 
-/* =================================
-   RENDER CALENDAR
-================================= */
+/* =========================================================
+   CALENDAR
+========================================================= */
 
 function renderCalendar() {
 
@@ -2281,6 +1916,8 @@ function renderCalendar() {
     ).getDate();
 
 
+  /* EMPTY CELLS BEFORE MONTH */
+
   for (
     let i = 0;
     i < firstDay;
@@ -2295,10 +1932,17 @@ function renderCalendar() {
     blank.className =
       "day";
 
-    calendar.appendChild(blank);
+    blank.style.visibility =
+      "hidden";
+
+    calendar.appendChild(
+      blank
+    );
 
   }
 
+
+  /* ACTUAL DAYS */
 
   for (
     let d = 1;
@@ -2327,7 +1971,12 @@ function renderCalendar() {
       blank.className =
         "day";
 
-      calendar.appendChild(blank);
+      blank.style.visibility =
+        "hidden";
+
+      calendar.appendChild(
+        blank
+      );
 
       continue;
 
@@ -2403,6 +2052,7 @@ function renderCalendar() {
       button
     );
 
+
     calendar.appendChild(
       cell
     );
@@ -2412,9 +2062,9 @@ function renderCalendar() {
 }
 
 
-/* =================================
-   PREVIOUS MONTH
-================================= */
+/* =========================================================
+   CALENDAR NAVIGATION
+========================================================= */
 
 function previousMonth() {
 
@@ -2449,10 +2099,6 @@ function previousMonth() {
 }
 
 
-/* =================================
-   NEXT MONTH
-================================= */
-
 function nextMonth() {
 
   currentMonth =
@@ -2486,9 +2132,9 @@ function nextMonth() {
 }
 
 
-/* =================================
-   OPEN MODAL
-================================= */
+/* =========================================================
+   SPONSOR MODAL
+========================================================= */
 
 function openModal(
   date,
@@ -2577,10 +2223,6 @@ function openModal(
 }
 
 
-/* =================================
-   CLOSE MODAL
-================================= */
-
 function closeModal() {
 
   document.getElementById(
@@ -2590,10 +2232,6 @@ function closeModal() {
 
 }
 
-
-/* =================================
-   CLICK OUTSIDE MODAL
-================================= */
 
 window.addEventListener(
   "click",
@@ -2616,9 +2254,9 @@ window.addEventListener(
 );
 
 
-/* =================================
+/* =========================================================
    FUNDRAISING PROGRESS
-================================= */
+========================================================= */
 
 function updateProgress() {
 
@@ -2662,13 +2300,311 @@ function updateProgress() {
 }
 
 
-/* =================================
-   START
-================================= */
+/* =========================================================
+   REAL WORLD MAP
+========================================================= */
+
+async function createWorldMap() {
+
+  const svg =
+    d3.select("#worldMap");
+
+  const width = 1000;
+  const height = 520;
+
+
+  /*
+    Natural Earth country geometry.
+
+    This is actual geographic data rather
+    than hand-drawn continent shapes.
+  */
+
+  const world =
+    await d3.json(
+      "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
+    );
+
+
+  const countries =
+    topojson.feature(
+      world,
+      world.objects.countries
+    );
+
+
+  const projection =
+    d3.geoNaturalEarth1()
+      .fitSize(
+        [width, height],
+        countries
+      );
+
+
+  const path =
+    d3.geoPath()
+      .projection(
+        projection
+      );
+
+
+  /* DRAW COUNTRIES */
+
+  svg.selectAll(".country-shape")
+    .data(countries.features)
+    .enter()
+    .append("path")
+    .attr(
+      "class",
+      "country-shape"
+    )
+    .attr(
+      "d",
+      path
+    );
+
+
+  /*
+    COUNTRY COORDINATES
+
+    longitude, latitude
+  */
+
+  const locations = {
+
+    "South Africa": [
+      24.0,
+      -30.6
+    ],
+
+    "Eswatini": [
+      31.5,
+      -26.5
+    ],
+
+    "Kenya": [
+      37.9,
+      0.2
+    ],
+
+    "Ethiopia": [
+      40.5,
+      9.1
+    ],
+
+    "Nepal": [
+      84.1,
+      28.4
+    ],
+
+    "Thailand": [
+      100.5,
+      15.8
+    ]
+
+  };
+
+
+  const route =
+    Object.values(
+      locations
+    ).map(
+      coords =>
+        projection(coords)
+    );
+
+
+  /*
+    DRAW ROUTE LINE
+  */
+
+  const line =
+    d3.line()
+      .curve(
+        d3.curveCatmullRom.alpha(.5)
+      );
+
+
+  svg.append("path")
+    .datum(route)
+    .attr(
+      "class",
+      "route"
+    )
+    .attr(
+      "d",
+      line
+    );
+
+
+  /*
+    COUNTRY POINTS
+  */
+
+  Object.entries(
+    locations
+  ).forEach(
+    ([name, coords]) => {
+
+      const point =
+        projection(coords);
+
+
+      svg.append("circle")
+        .attr(
+          "class",
+          "route-point"
+        )
+        .attr(
+          "cx",
+          point[0]
+        )
+        .attr(
+          "cy",
+          point[1]
+        )
+        .attr(
+          "r",
+          7
+        );
+
+
+      svg.append("text")
+        .attr(
+          "class",
+          "route-label"
+        )
+        .attr(
+          "x",
+          point[0] + 10
+        )
+        .attr(
+          "y",
+          point[1] - 10
+        )
+        .text(name);
+
+    }
+  );
+
+
+  /*
+    AIRPLANE
+
+    Moves along the entire route.
+  */
+
+  const routePath =
+    svg.append("path")
+      .datum(route)
+      .attr(
+        "d",
+        line
+      )
+      .attr(
+        "fill",
+        "none"
+      )
+      .attr(
+        "stroke",
+        "transparent"
+      )
+      .attr(
+        "id",
+        "flightPath"
+      );
+
+
+  const plane =
+    svg.append("text")
+      .attr(
+        "class",
+        "plane-symbol"
+      )
+      .text("✈")
+      .attr(
+        "x",
+        -20
+      )
+      .attr(
+        "y",
+        -20
+      );
+
+
+  const pathNode =
+    routePath.node();
+
+
+  const totalLength =
+    pathNode.getTotalLength();
+
+
+  function animatePlane() {
+
+    const duration = 12000;
+
+    const start =
+      performance.now();
+
+
+    function move(now) {
+
+      const elapsed =
+        now - start;
+
+
+      const progress =
+        (elapsed % duration) /
+        duration;
+
+
+      const point =
+        pathNode.getPointAtLength(
+          progress *
+          totalLength
+        );
+
+
+      plane
+        .attr(
+          "x",
+          point.x - 12
+        )
+        .attr(
+          "y",
+          point.y + 8
+        );
+
+
+      requestAnimationFrame(
+        move
+      );
+
+    }
+
+
+    requestAnimationFrame(
+      move
+    );
+
+  }
+
+
+  animatePlane();
+
+}
+
+
+/* =========================================================
+   START EVERYTHING
+========================================================= */
 
 renderCalendar();
 
 updateProgress();
+
+createWorldMap();
 
 </script>
 
