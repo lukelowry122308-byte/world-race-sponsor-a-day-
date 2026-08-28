@@ -12,7 +12,7 @@
 <style>
 
 /* =========================================================
-   COLORS
+   GLOBAL
 ========================================================= */
 
 :root {
@@ -29,11 +29,6 @@
   --border: #d5cfc3;
 }
 
-
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -48,10 +43,6 @@ body {
   background: var(--cream);
   color: var(--text);
   overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
 }
 
 button,
@@ -88,7 +79,6 @@ nav {
 
 .nav-links {
   display: flex;
-  align-items: center;
   gap: 28px;
 }
 
@@ -134,7 +124,9 @@ nav {
   margin: auto;
 
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(320px, .85fr);
 
   gap: 70px;
   align-items: center;
@@ -142,10 +134,8 @@ nav {
 
 .eyebrow {
   color: var(--gold);
-
   font-size: 11px;
   font-weight: 800;
-
   letter-spacing: 3px;
 }
 
@@ -154,7 +144,6 @@ h1 {
 
   font-size: clamp(65px, 9vw, 115px);
   line-height: .84;
-
   letter-spacing: -4px;
 }
 
@@ -234,7 +223,6 @@ h1 span {
 
 .stats small {
   color: #b9c5bd;
-
   font-size: 9px;
   letter-spacing: 1px;
 }
@@ -428,7 +416,6 @@ h2 {
 .calendar-legend {
   display: flex;
   flex-wrap: wrap;
-
   gap: 18px;
 
   font-size: 10px;
@@ -500,23 +487,15 @@ h2 {
    CALENDAR GRID
 ========================================================= */
 
-.calendar-scroll {
-  width: 100%;
-
-  overflow-x: auto;
-
-  padding-bottom: 8px;
-}
-
 .calendar {
   display: grid;
 
   grid-template-columns:
-    repeat(7, minmax(105px, 1fr));
+    repeat(7, minmax(0, 1fr));
 
   gap: 8px;
 
-  min-width: 770px;
+  width: 100%;
 }
 
 .weekday {
@@ -534,9 +513,10 @@ h2 {
 }
 
 
-/* EVERY CALENDAR CELL IS A BOX */
+/* EVERY DAY IS A BOX */
 
 .day {
+  min-width: 0;
   min-height: 105px;
 
   position: relative;
@@ -550,56 +530,27 @@ h2 {
   background: #f9f7f2;
 }
 
-
-/* EMPTY DAYS BEFORE/AFTER MONTH */
-
 .day.empty {
   background: #ebe6dc;
-
   border-color: #d9d2c6;
-
   opacity: .75;
 }
 
-
-/* DAYS OUTSIDE TRIP */
-
 .day.inactive {
   background: #eeeae2;
-
   border-color: #d8d1c5;
-
   color: #aaa59c;
 }
 
-
-/* ACTUAL AVAILABLE DAY */
-
 .day.available {
   border-color: var(--red);
-
   background: #fff4f4;
 }
 
-.day.available button:hover {
-  background: #ffe7e7;
-}
-
-
-/* SPONSORED */
-
 .day.sponsored {
   border-color: var(--green-light);
-
   background: #eaf6ed;
 }
-
-.day.sponsored button:hover {
-  background: #dcf0e2;
-}
-
-
-/* CALENDAR BUTTON */
 
 .day button {
   position: absolute;
@@ -626,18 +577,12 @@ h2 {
   cursor: default;
 }
 
-
-/* DATE NUMBER */
-
 .number {
   display: block;
 
   font-size: 21px;
   font-weight: 800;
 }
-
-
-/* DATE DESCRIPTION */
 
 .date-small {
   display: block;
@@ -648,9 +593,6 @@ h2 {
 
   font-size: 9px;
 }
-
-
-/* STATUS */
 
 .status {
   position: absolute;
@@ -797,7 +739,7 @@ h2 {
 
 
 /* =========================================================
-   MAP
+   WORLD MAP
 ========================================================= */
 
 .map-section {
@@ -830,6 +772,7 @@ h2 {
 
 #worldMap {
   width: 100%;
+  height: auto;
 
   display: block;
 }
@@ -1076,14 +1019,6 @@ footer strong {
     gap: 45px;
   }
 
-  .hero-text {
-    max-width: 700px;
-  }
-
-  .goal-card {
-    max-width: 650px;
-  }
-
   .world-race-grid {
     grid-template-columns: 1fr;
   }
@@ -1101,19 +1036,18 @@ footer strong {
 
 @media (max-width: 650px) {
 
-  /* NAV */
+  /* -----------------------------------------
+     NAV
+  ----------------------------------------- */
 
   nav {
     min-height: 64px;
-
-    padding:
-      0 20px;
+    padding: 0 18px;
   }
 
   .logo {
-    font-size: 11px;
-
-    letter-spacing: 1.2px;
+    font-size: 10px;
+    letter-spacing: 1px;
   }
 
   .nav-links {
@@ -1121,47 +1055,44 @@ footer strong {
   }
 
 
-  /* HERO */
+  /* -----------------------------------------
+     HERO
+  ----------------------------------------- */
 
   .hero {
     min-height: auto;
 
     padding:
-      65px 20px
-      55px;
+      55px 18px
+      45px;
   }
 
   .hero-content {
     display: flex;
-
     flex-direction: column;
 
-    align-items: stretch;
-
-    gap: 40px;
+    gap: 35px;
   }
 
   .eyebrow {
-    font-size: 9px;
-
-    letter-spacing: 2px;
+    font-size: 8px;
+    letter-spacing: 1.8px;
   }
 
   h1 {
     margin:
-      18px 0 25px;
+      17px 0 23px;
 
     font-size:
-      clamp(55px, 18vw, 78px);
+      clamp(50px, 17vw, 72px);
 
-    line-height: .87;
+    line-height: .88;
 
     letter-spacing: -2px;
   }
 
   .hero-text {
-    font-size: 16px;
-
+    font-size: 15px;
     line-height: 1.65;
   }
 
@@ -1170,84 +1101,90 @@ footer strong {
 
     text-align: center;
 
-    padding:
-      17px 20px;
+    padding: 16px;
   }
 
 
-  /* FUNDRAISING CARD */
+  /* -----------------------------------------
+     FUNDRAISING
+  ----------------------------------------- */
 
   .goal-card {
-    padding: 25px 20px;
+    padding: 24px 18px;
 
     border-radius: 18px;
   }
 
   .stats {
-    gap: 8px;
+    gap: 5px;
   }
 
   .stats strong {
-    font-size: 23px;
+    font-size: 21px;
   }
 
   .stats small {
-    font-size: 8px;
+    font-size: 7px;
   }
 
   .money {
-    font-size: 38px;
+    font-size: 36px;
   }
 
 
-  /* SECTIONS */
+  /* -----------------------------------------
+     SECTIONS
+  ----------------------------------------- */
 
   section {
     padding:
-      60px 20px;
+      55px 18px;
   }
 
   h2 {
     font-size:
-      clamp(34px, 11vw, 48px);
+      clamp(33px, 10vw, 46px);
 
-    line-height: 1.02;
+    line-height: 1.03;
   }
 
   .description {
     font-size: 15px;
-
     line-height: 1.7;
   }
 
 
-  /* GIVING */
+  /* -----------------------------------------
+     GIVING
+  ----------------------------------------- */
 
   .giving-options {
     grid-template-columns: 1fr;
 
     gap: 12px;
 
-    margin-top: 30px;
+    margin-top: 28px;
   }
 
   .give-card {
-    padding: 24px;
+    padding: 22px;
   }
 
   .price {
-    font-size: 36px;
+    font-size: 35px;
   }
 
   .any-amount {
-    padding: 25px 20px;
+    padding: 24px 18px;
   }
 
 
-  /* CALENDAR */
+  /* -----------------------------------------
+     CALENDAR
+  ----------------------------------------- */
 
   .calendar-area {
-    margin-top: 55px;
+    margin-top: 50px;
   }
 
   .calendar-top {
@@ -1255,20 +1192,31 @@ footer strong {
   }
 
   .calendar-legend {
-    margin-top: 20px;
+    margin-top: 18px;
+
+    gap: 12px;
+
+    font-size: 8px;
+  }
+
+  .legend-dot {
+    width: 11px;
+    height: 11px;
   }
 
   .calendar-header {
-    gap: 15px;
+    gap: 8px;
 
-    margin-top: 30px;
+    margin-top: 28px;
   }
 
   .calendar-header button {
-    flex: 0 0 42px;
+    flex: 0 0 38px;
 
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
+
+    font-size: 17px;
   }
 
   #monthName {
@@ -1276,142 +1224,188 @@ footer strong {
 
     flex: 1;
 
-    font-size: 22px;
-  }
-
-  .calendar-scroll {
-    margin-left: -2px;
-    margin-right: -2px;
-
-    padding-bottom: 12px;
+    font-size: 19px;
   }
 
   /*
-     The calendar remains a true 7-column
-     grid. On phones it scrolls horizontally
-     rather than shrinking into unreadable boxes.
+     IMPORTANT:
+     The calendar now FITS the phone width.
+     There is NO horizontal scrolling.
   */
 
   .calendar {
-    min-width: 720px;
-
     grid-template-columns:
-      repeat(7, 1fr);
+      repeat(7, minmax(0, 1fr));
 
-    gap: 6px;
-  }
-
-  .day {
-    min-height: 92px;
-
-    border-width: 1.5px;
+    gap: 3px;
   }
 
   .weekday {
-    min-height: 34px;
+    min-height: 30px;
 
-    font-size: 9px;
+    font-size: 7px;
+
+    letter-spacing: .2px;
+  }
+
+  .day {
+    min-height: 67px;
+
+    border-width: 1px;
+
+    border-radius: 6px;
+  }
+
+  .day button {
+    padding: 6px;
+  }
+
+  .day > div {
+    padding: 6px !important;
   }
 
   .number {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .date-small {
-    font-size: 8px;
+    margin-top: 2px;
+
+    font-size: 6px;
   }
 
   .status {
-    left: 9px;
-    bottom: 9px;
+    left: 5px;
+    bottom: 5px;
 
-    font-size: 8px;
+    font-size: 5.5px;
+
+    letter-spacing: 0;
   }
 
 
-  /* WORLD RACE */
+  /* -----------------------------------------
+     WORLD RACE
+  ----------------------------------------- */
 
   .world-race-grid {
-    gap: 30px;
+    gap: 28px;
   }
 
   .world-race-card {
-    padding: 30px 24px;
+    padding: 28px 20px;
 
-    border-radius: 19px;
+    border-radius: 18px;
+  }
+
+  .race-card-icon {
+    font-size: 38px;
+  }
+
+  .world-race-card h3 {
+    font-size: 22px;
+  }
+
+  .world-race-card p {
+    font-size: 14px;
   }
 
   .race-details {
     grid-template-columns:
       repeat(3, 1fr);
 
-    gap: 8px;
+    gap: 7px;
 
     margin-top: 25px;
   }
 
   .race-detail {
     padding:
-      18px 7px;
+      16px 5px;
   }
 
   .race-detail strong {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .race-detail span {
-    font-size: 7px;
+    font-size: 6px;
+    letter-spacing: .8px;
   }
 
   .country-list {
-    gap: 8px;
+    gap: 7px;
   }
 
   .country-list span {
-    font-size: 10px;
+    padding: 9px 6px;
+
+    font-size: 9px;
   }
 
 
-  /* MAP */
+  /* -----------------------------------------
+     MAP
+  ----------------------------------------- */
 
   .map-wrapper {
     margin-top: 30px;
 
-    padding: 10px;
+    padding:
+      8px 6px 12px;
 
     border-radius: 17px;
   }
 
-  #worldMap {
-    min-width: 600px;
-
-    height: auto;
-  }
-
   /*
-     The map can be swiped sideways
-     on very small screens.
+     The SVG is now allowed to shrink
+     naturally with the phone screen.
   */
 
-  .map-wrapper {
-    overflow-x: auto;
+  #worldMap {
+    width: 100%;
+    height: auto;
+
+    min-width: 0;
+  }
+
+  .map-title {
+    padding-left: 5px;
+
+    font-size: 11px;
   }
 
   .map-note {
-    font-size: 10px;
+    padding: 0 5px;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+  }
+
+  .route-label {
+    font-size: 8px;
+
+    stroke-width: 3px;
+  }
+
+  .plane-symbol {
+    font-size: 18px;
   }
 
 
-  /* PRAYER */
+  /* -----------------------------------------
+     PRAYER
+  ----------------------------------------- */
 
   .prayer-grid {
     grid-template-columns: 1fr;
 
-    gap: 20px;
+    gap: 18px;
   }
 
   .prayer-message {
-    padding: 30px 23px;
+    padding: 28px 20px;
 
     border-radius: 18px;
   }
@@ -1423,7 +1417,7 @@ footer strong {
   }
 
   .prayer-form-card {
-    padding: 23px 15px;
+    padding: 22px 12px;
 
     border-radius: 18px;
   }
@@ -1433,53 +1427,71 @@ footer strong {
   }
 
 
-  /* MODAL */
+  /* -----------------------------------------
+     MODAL
+  ----------------------------------------- */
 
   .modal {
-    padding: 15px;
+    padding: 14px;
   }
 
   .modal-box {
     padding:
-      32px 23px;
+      30px 20px;
   }
 
 }
 
 
 /* =========================================================
-   VERY SMALL PHONES
+   EXTRA SMALL PHONES
 ========================================================= */
 
 @media (max-width: 380px) {
 
   .logo {
-    font-size: 9px;
-  }
-
-  .hero {
-    padding-left: 17px;
-    padding-right: 17px;
+    font-size: 8px;
   }
 
   section {
-    padding-left: 17px;
-    padding-right: 17px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   h1 {
-    font-size: 53px;
+    font-size: 51px;
   }
 
-  .stats strong {
-    font-size: 20px;
+  .calendar {
+    gap: 2px;
+  }
+
+  .day {
+    min-height: 61px;
+  }
+
+  .day button {
+    padding: 5px;
+  }
+
+  .number {
+    font-size: 12px;
+  }
+
+  .status {
+    font-size: 5px;
   }
 
 }
 
 
 /* =========================================================
-   REDUCE MOTION
+   ACCESSIBILITY
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1658,7 +1670,6 @@ amount you feel led to give.
 
 <div class="giving-options">
 
-
 <div class="give-card">
 
 <h3>
@@ -1815,19 +1826,9 @@ aria-label="Next month"
 </div>
 
 
-<!--
-  This wrapper lets the calendar remain
-  perfectly symmetrical on phones while
-  allowing horizontal scrolling.
--->
+<div class="calendar">
 
-<div class="calendar-scroll">
-
-<div
-class="calendar"
-id="calendar"
->
-</div>
+<div id="calendar"></div>
 
 </div>
 
@@ -1886,33 +1887,20 @@ mission.
 
 <div class="race-details">
 
-
 <div class="race-detail">
-
 <strong>9</strong>
-
 <span>MONTHS</span>
-
 </div>
 
-
 <div class="race-detail">
-
 <strong>6</strong>
-
 <span>COUNTRIES</span>
-
 </div>
-
 
 <div class="race-detail">
-
 <strong>17–20</strong>
-
 <span>AGES</span>
-
 </div>
-
 
 </div>
 
@@ -1934,8 +1922,8 @@ SERVE. LIVE. GO.
 This isn't just about traveling to
 different places. It's about serving
 people, building relationships, growing
-in faith, and being part of what God is
-doing around the world.
+in faith, and being part of what God
+is doing around the world.
 
 </p>
 
@@ -1943,15 +1931,10 @@ doing around the world.
 <div class="country-list">
 
 <span>🇿🇦 South Africa</span>
-
 <span>🇸🇿 Eswatini</span>
-
 <span>🇰🇪 Kenya</span>
-
 <span>🇪🇹 Ethiopia</span>
-
 <span>🇳🇵 Nepal</span>
-
 <span>🇹🇭 Thailand</span>
 
 </div>
@@ -1966,7 +1949,7 @@ doing around the world.
 
 
 <!-- =====================================================
-     MAP
+     WORLD MAP
 ===================================================== -->
 
 <section
@@ -2044,10 +2027,6 @@ PRAY WITH ME
 <h2>
 JOIN ME IN PRAYER
 </h2>
-
-<!--
-  EDIT THIS SECTION ANY TIME.
--->
 
 <p class="prayer-message-text">
 
@@ -2184,20 +2163,6 @@ SPONSOR THIS DAY →
    SPONSORED DAYS
 ========================================================= */
 
-/*
-   Later, when payments are connected,
-   these dates can automatically become
-   sponsored.
-
-   Example:
-
-   const sponsoredDays = {
-     "2027-08-21": "John",
-     "2027-09-05": "Smith Family"
-   };
-
-*/
-
 const sponsoredDays = {};
 
 
@@ -2284,8 +2249,6 @@ function renderCalendar() {
   calendar.innerHTML = "";
 
 
-  /* WEEKDAY HEADERS */
-
   const weekdays = [
     "SUN",
     "MON",
@@ -2336,17 +2299,6 @@ function renderCalendar() {
     );
 
 
-  /*
-     FIRST DAY OF MONTH
-
-     Sunday = 0
-     Monday = 1
-     etc.
-
-     This creates the blank boxes
-     BEFORE the first day.
-  */
-
   const firstDay =
     new Date(
       year,
@@ -2354,10 +2306,6 @@ function renderCalendar() {
       1
     ).getDay();
 
-
-  /*
-     NUMBER OF DAYS IN MONTH
-  */
 
   const daysInMonth =
     new Date(
@@ -2367,22 +2315,13 @@ function renderCalendar() {
     ).getDate();
 
 
-  /*
-     NUMBER OF ROWS NEEDED
-
-     Every calendar gets complete
-     symmetrical rows.
-  */
-
   const totalCells =
     Math.ceil(
       (firstDay + daysInMonth) / 7
     ) * 7;
 
 
-  /* =====================================================
-     BLANK CELLS BEFORE MONTH
-  ===================================================== */
+  /* BLANK BOXES BEFORE MONTH */
 
   for (
     let i = 0;
@@ -2405,9 +2344,7 @@ function renderCalendar() {
   }
 
 
-  /* =====================================================
-     ACTUAL DAYS
-  ===================================================== */
+  /* ACTUAL DAYS */
 
   for (
     let d = 1;
@@ -2442,23 +2379,16 @@ function renderCalendar() {
       );
 
 
-    /*
-       DAYS BEFORE OR AFTER THE TRIP
-       GET A NORMAL BOX BUT ARE
-       NOT CLICKABLE.
-    */
+    /* DAYS OUTSIDE TRIP */
 
     if (!isTripDay) {
 
       cell.className =
         "day inactive";
 
-
       cell.innerHTML = `
 
-        <div style="
-          padding:11px;
-        ">
+        <div style="padding:11px">
 
           <span class="number">
             ${d}
@@ -2478,7 +2408,6 @@ function renderCalendar() {
 
       `;
 
-
       calendar.appendChild(
         cell
       );
@@ -2488,9 +2417,7 @@ function renderCalendar() {
     }
 
 
-    /* =================================================
-       TRIP DAY
-    ================================================= */
+    /* TRIP DAY */
 
     cell.className =
       sponsored
@@ -2556,12 +2483,7 @@ function renderCalendar() {
   }
 
 
-  /* =====================================================
-     BLANK CELLS AFTER MONTH
-
-     THIS MAKES EVERY MONTH A PERFECT
-     RECTANGULAR GRID.
-  ===================================================== */
+  /* BLANK BOXES AFTER MONTH */
 
   for (
     let i =
@@ -2591,7 +2513,7 @@ function renderCalendar() {
 
 
 /* =========================================================
-   PREVIOUS MONTH
+   MONTH NAVIGATION
 ========================================================= */
 
 function previousMonth() {
@@ -2626,10 +2548,6 @@ function previousMonth() {
 }
 
 
-/* =========================================================
-   NEXT MONTH
-========================================================= */
-
 function nextMonth() {
 
   const maximum =
@@ -2663,7 +2581,7 @@ function nextMonth() {
 
 
 /* =========================================================
-   SPONSOR MODAL
+   MODAL
 ========================================================= */
 
 function openModal(
@@ -2831,13 +2749,15 @@ function updateProgress() {
 
 
 /* =========================================================
-   REAL WORLD MAP
+   WORLD MAP
 ========================================================= */
 
 async function createWorldMap() {
 
   const svg =
-    d3.select("#worldMap");
+    d3.select(
+      "#worldMap"
+    );
 
 
   const width = 1000;
@@ -2874,7 +2794,9 @@ async function createWorldMap() {
 
   /* DRAW COUNTRIES */
 
-  svg.selectAll(".country-shape")
+  svg.selectAll(
+    ".country-shape"
+  )
     .data(
       countries.features
     )
@@ -2936,7 +2858,7 @@ async function createWorldMap() {
     );
 
 
-  /* ROUTE LINE */
+  /* ROUTE */
 
   const line =
     d3.line()
@@ -2958,7 +2880,7 @@ async function createWorldMap() {
     );
 
 
-  /* COUNTRY POINTS + LABELS */
+  /* COUNTRY POINTS */
 
   Object.entries(
     locations
@@ -3007,7 +2929,7 @@ async function createWorldMap() {
   );
 
 
-  /* INVISIBLE PATH FOR AIRPLANE */
+  /* INVISIBLE PATH */
 
   const routePath =
     svg.append("path")
@@ -3115,7 +3037,7 @@ async function createWorldMap() {
 
 
 /* =========================================================
-   START
+   START EVERYTHING
 ========================================================= */
 
 renderCalendar();
