@@ -6,14 +6,32 @@
 
 <title>World Race 2027–2028 | Sponsor a Day</title>
 
-<!-- Real-world map library -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
 
 <style>
 
 /* =========================================================
-   GLOBAL
+   COLORS
+========================================================= */
+
+:root {
+  --green: #1f5137;
+  --green-dark: #10291c;
+  --green-light: #4f9468;
+  --gold: #d6a637;
+  --red: #b83b3b;
+  --cream: #f4f0e7;
+  --white: #ffffff;
+  --dark: #0d1711;
+  --text: #172019;
+  --muted: #68716b;
+  --border: #d5cfc3;
+}
+
+
+/* =========================================================
+   RESET
 ========================================================= */
 
 * {
@@ -27,63 +45,65 @@ html {
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f0e7;
-  color: #172019;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
 }
 
-:root {
-  --green: #1f5137;
-  --green-light: #4f9468;
-  --green-dark: #10291c;
-  --gold: #d6a637;
-  --red: #b83b3b;
-  --cream: #f4f0e7;
-  --white: #ffffff;
-  --dark: #0d1711;
+img {
+  max-width: 100%;
 }
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 
 /* =========================================================
    NAVIGATION
 ========================================================= */
 
 nav {
-  height: 78px;
+  min-height: 76px;
   padding: 0 6%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: #0d1711;
+  background: var(--dark);
   color: white;
 
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
 }
 
 .logo {
   font-weight: 800;
-  letter-spacing: 2px;
   font-size: 14px;
+  letter-spacing: 2px;
 }
 
 .nav-links {
   display: flex;
-  gap: 25px;
+  align-items: center;
+  gap: 28px;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 11px;
+  font-weight: 800;
   letter-spacing: 1px;
 }
 
 .nav-links a:hover {
   color: var(--gold);
 }
+
 
 /* =========================================================
    HERO
@@ -95,7 +115,7 @@ nav {
 
   background:
     radial-gradient(
-      circle at 80% 20%,
+      circle at 82% 18%,
       #315b42 0%,
       transparent 35%
     ),
@@ -109,14 +129,14 @@ nav {
 }
 
 .hero-content {
+  width: 100%;
   max-width: 1200px;
   margin: auto;
 
   display: grid;
-  grid-template-columns: 1.15fr .85fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
 
   gap: 70px;
-
   align-items: center;
 }
 
@@ -124,17 +144,18 @@ nav {
   color: var(--gold);
 
   font-size: 11px;
-  font-weight: bold;
+  font-weight: 800;
 
   letter-spacing: 3px;
 }
 
 h1 {
-  font-size: clamp(65px, 9vw, 115px);
-
-  line-height: .83;
-
   margin: 20px 0 30px;
+
+  font-size: clamp(65px, 9vw, 115px);
+  line-height: .84;
+
+  letter-spacing: -4px;
 }
 
 h1 span {
@@ -148,7 +169,6 @@ h1 span {
   color: #dbe5dd;
 
   font-size: 18px;
-
   line-height: 1.75;
 }
 
@@ -156,7 +176,6 @@ h1 span {
   display: inline-block;
 
   margin-top: 20px;
-
   padding: 16px 25px;
 
   border-radius: 8px;
@@ -167,21 +186,24 @@ h1 span {
   text-decoration: none;
 
   font-weight: 800;
-
-  letter-spacing: .5px;
+  font-size: 13px;
 
   cursor: pointer;
+
+  transition: .2s ease;
 }
 
 .button:hover {
   transform: translateY(-2px);
 }
 
+
 /* =========================================================
    FUNDRAISING CARD
 ========================================================= */
 
 .goal-card {
+  width: 100%;
   padding: 35px;
 
   background: rgba(0,0,0,.35);
@@ -195,23 +217,18 @@ h1 span {
 
 .stats {
   display: grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 15px;
 
   padding-bottom: 25px;
-
   margin-bottom: 25px;
 
-  border-bottom:
-    1px solid rgba(255,255,255,.2);
+  border-bottom: 1px solid rgba(255,255,255,.2);
 }
 
 .stats strong {
   display: block;
-
   font-size: 29px;
 }
 
@@ -219,7 +236,6 @@ h1 span {
   color: #b9c5bd;
 
   font-size: 9px;
-
   letter-spacing: 1px;
 }
 
@@ -227,9 +243,7 @@ h1 span {
   color: var(--gold);
 
   font-size: 11px;
-
-  font-weight: bold;
-
+  font-weight: 800;
   letter-spacing: 2px;
 }
 
@@ -237,7 +251,6 @@ h1 span {
   margin-top: 5px;
 
   font-size: 45px;
-
   font-weight: 800;
 }
 
@@ -247,7 +260,6 @@ h1 span {
 
 .progress {
   height: 15px;
-
   margin-top: 15px;
 
   background: #3a493f;
@@ -259,7 +271,6 @@ h1 span {
 
 .progress-bar {
   height: 100%;
-
   width: 0%;
 
   background: var(--gold);
@@ -271,12 +282,12 @@ h1 span {
   margin-top: 10px;
 
   color: #cbd5ce;
-
   font-size: 12px;
 }
 
+
 /* =========================================================
-   GENERAL SECTIONS
+   SECTIONS
 ========================================================= */
 
 section {
@@ -284,6 +295,7 @@ section {
 }
 
 .section-inner {
+  width: 100%;
   max-width: 1200px;
   margin: auto;
 }
@@ -292,28 +304,27 @@ section {
   color: #a67e20;
 
   font-size: 11px;
-
   font-weight: 800;
-
   letter-spacing: 3px;
 }
 
 h2 {
   margin: 10px 0 20px;
 
-  font-size:
-    clamp(38px, 5vw, 58px);
-
+  font-size: clamp(38px, 5vw, 58px);
   line-height: 1;
+
+  letter-spacing: -1px;
 }
 
 .description {
   max-width: 720px;
 
-  color: #68716b;
+  color: var(--muted);
 
   line-height: 1.7;
 }
+
 
 /* =========================================================
    GIVING
@@ -325,9 +336,7 @@ h2 {
 
 .giving-options {
   display: grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 18px;
 
@@ -340,12 +349,11 @@ h2 {
   background: white;
 
   border: 1px solid #ded8cc;
-
   border-radius: 17px;
 
   text-align: center;
 
-  transition: transform .2s;
+  transition: transform .2s ease;
 }
 
 .give-card:hover {
@@ -356,7 +364,6 @@ h2 {
   margin: 0;
 
   font-size: 12px;
-
   letter-spacing: 2px;
 }
 
@@ -366,19 +373,16 @@ h2 {
   color: #a67e20;
 
   font-size: 40px;
-
   font-weight: 800;
 }
 
 .give-card p {
-  color: #6b736d;
-
+  color: var(--muted);
   line-height: 1.5;
 }
 
 .any-amount {
   margin-top: 20px;
-
   padding: 28px;
 
   background: var(--green);
@@ -386,61 +390,54 @@ h2 {
   border-radius: 17px;
 
   color: white;
-
   text-align: center;
 }
 
 .any-amount h3 {
   margin: 0 0 10px;
-
   font-size: 25px;
 }
 
 .any-amount p {
   max-width: 650px;
-
   margin: auto;
 
   color: #dbe5de;
-
   line-height: 1.6;
 }
+
 
 /* =========================================================
    CALENDAR
 ========================================================= */
 
 .calendar-area {
-  margin-top: 70px;
+  margin-top: 75px;
 }
 
 .calendar-top {
   display: flex;
-
   justify-content: space-between;
+  align-items: flex-end;
 
-  align-items: end;
-
-  gap: 20px;
+  gap: 25px;
 
   margin-bottom: 25px;
 }
 
 .calendar-legend {
   display: flex;
+  flex-wrap: wrap;
 
   gap: 18px;
 
-  font-size: 11px;
-
-  font-weight: bold;
+  font-size: 10px;
+  font-weight: 800;
 }
 
 .legend {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
 }
 
@@ -461,9 +458,7 @@ h2 {
 
 .calendar-header {
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
   gap: 35px;
@@ -472,20 +467,22 @@ h2 {
 }
 
 .calendar-header button {
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
 
   border: none;
-
   border-radius: 50%;
 
   background: var(--green);
-
   color: white;
 
-  font-size: 22px;
+  font-size: 21px;
 
   cursor: pointer;
+}
+
+.calendar-header button:hover {
+  background: var(--green-dark);
 }
 
 #monthName {
@@ -498,61 +495,111 @@ h2 {
   font-size: 27px;
 }
 
-/* THE ACTUAL CALENDAR */
+
+/* =========================================================
+   CALENDAR GRID
+========================================================= */
+
+.calendar-scroll {
+  width: 100%;
+
+  overflow-x: auto;
+
+  padding-bottom: 8px;
+}
 
 .calendar {
   display: grid;
 
   grid-template-columns:
-    repeat(7, 1fr);
+    repeat(7, minmax(105px, 1fr));
 
   gap: 8px;
 
-  background: transparent;
+  min-width: 770px;
 }
 
-/* WEEKDAYS */
-
 .weekday {
-  padding: 13px 4px;
+  min-height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   color: #626a64;
 
-  text-align: center;
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 1px;
 }
 
-/* EVERY DAY IS ITS OWN BOX */
+
+/* EVERY CALENDAR CELL IS A BOX */
 
 .day {
   min-height: 105px;
 
   position: relative;
 
-  border: 2px solid #d1cbc0;
+  border: 2px solid var(--border);
 
   border-radius: 10px;
 
   overflow: hidden;
 
-  background: white;
-
-  transition:
-    transform .15s,
-    box-shadow .15s;
+  background: #f9f7f2;
 }
 
-.day:hover {
-  transform: translateY(-2px);
 
-  box-shadow:
-    0 6px 15px rgba(0,0,0,.08);
+/* EMPTY DAYS BEFORE/AFTER MONTH */
+
+.day.empty {
+  background: #ebe6dc;
+
+  border-color: #d9d2c6;
+
+  opacity: .75;
 }
+
+
+/* DAYS OUTSIDE TRIP */
+
+.day.inactive {
+  background: #eeeae2;
+
+  border-color: #d8d1c5;
+
+  color: #aaa59c;
+}
+
+
+/* ACTUAL AVAILABLE DAY */
+
+.day.available {
+  border-color: var(--red);
+
+  background: #fff4f4;
+}
+
+.day.available button:hover {
+  background: #ffe7e7;
+}
+
+
+/* SPONSORED */
+
+.day.sponsored {
+  border-color: var(--green-light);
+
+  background: #eaf6ed;
+}
+
+.day.sponsored button:hover {
+  background: #dcf0e2;
+}
+
+
+/* CALENDAR BUTTON */
 
 .day button {
   position: absolute;
@@ -564,56 +611,33 @@ h2 {
 
   border: none;
 
-  cursor: pointer;
+  background: transparent;
+
+  padding: 11px;
 
   text-align: left;
 
-  padding: 12px;
-
   font-family: inherit;
+
+  cursor: pointer;
 }
 
-/* AVAILABLE */
-
-.available {
-  border-color: var(--red);
+.day.inactive button {
+  cursor: default;
 }
 
-.available button {
-  background: #fff4f4;
-}
 
-.available button:hover {
-  background: #ffe7e7;
-}
-
-.available .status {
-  color: var(--red);
-}
-
-/* SPONSORED */
-
-.sponsored {
-  border-color: var(--green-light);
-}
-
-.sponsored button {
-  background: #eaf6ed;
-}
-
-.sponsored button:hover {
-  background: #dcf0e2;
-}
-
-.sponsored .status {
-  color: var(--green);
-}
+/* DATE NUMBER */
 
 .number {
-  font-size: 21px;
+  display: block;
 
+  font-size: 21px;
   font-weight: 800;
 }
+
+
+/* DATE DESCRIPTION */
 
 .date-small {
   display: block;
@@ -625,33 +649,44 @@ h2 {
   font-size: 9px;
 }
 
+
+/* STATUS */
+
 .status {
   position: absolute;
 
-  bottom: 12px;
-
-  left: 12px;
+  left: 11px;
+  bottom: 11px;
 
   font-size: 9px;
-
   font-weight: 800;
 
-  letter-spacing: .5px;
+  letter-spacing: .4px;
 }
+
+.available .status {
+  color: var(--red);
+}
+
+.sponsored .status {
+  color: var(--green);
+}
+
 
 /* =========================================================
    WORLD RACE
 ========================================================= */
 
 .world-race-section {
-  background: #ffffff;
+  background: white;
 }
 
 .world-race-grid {
   display: grid;
 
   grid-template-columns:
-    1.15fr .85fr;
+    minmax(0, 1.15fr)
+    minmax(320px, .85fr);
 
   gap: 60px;
 
@@ -660,7 +695,6 @@ h2 {
 
 .world-race-text h2 span {
   color: var(--green);
-
   font-style: italic;
 }
 
@@ -670,9 +704,7 @@ h2 {
 
 .race-details {
   display: grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 14px;
 
@@ -682,7 +714,7 @@ h2 {
 .race-detail {
   padding: 22px 15px;
 
-  background: #f4f0e7;
+  background: var(--cream);
 
   border: 1px solid #ded8cc;
 
@@ -705,9 +737,7 @@ h2 {
   color: #777d78;
 
   font-size: 9px;
-
   font-weight: 800;
-
   letter-spacing: 1.5px;
 }
 
@@ -726,7 +756,6 @@ h2 {
 
 .race-card-icon {
   font-size: 45px;
-
   margin-bottom: 20px;
 }
 
@@ -736,21 +765,18 @@ h2 {
   color: var(--gold);
 
   font-size: 25px;
-
   letter-spacing: 2px;
 }
 
 .world-race-card p {
   color: #dce6df;
-
   line-height: 1.75;
 }
 
 .country-list {
   display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   gap: 10px;
 
@@ -760,8 +786,7 @@ h2 {
 .country-list span {
   padding: 10px;
 
-  background:
-    rgba(255,255,255,.09);
+  background: rgba(255,255,255,.09);
 
   border-radius: 8px;
 
@@ -770,12 +795,13 @@ h2 {
   font-size: 12px;
 }
 
+
 /* =========================================================
-   REAL WORLD MAP
+   MAP
 ========================================================= */
 
 .map-section {
-  background: #f4f0e7;
+  background: var(--cream);
 }
 
 .map-wrapper {
@@ -806,8 +832,6 @@ h2 {
   width: 100%;
 
   display: block;
-
-  min-height: 400px;
 }
 
 .country-shape {
@@ -866,6 +890,7 @@ h2 {
   font-size: 12px;
 }
 
+
 /* =========================================================
    PRAYER
 ========================================================= */
@@ -879,8 +904,7 @@ h2 {
 .prayer-grid {
   display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   gap: 35px;
 
@@ -914,7 +938,7 @@ h2 {
 
   border-radius: 22px;
 
-  color: #172019;
+  color: var(--text);
 
   overflow: hidden;
 }
@@ -928,7 +952,7 @@ h2 {
 }
 
 .prayer-form-card p {
-  color: #68716b;
+  color: var(--muted);
 
   line-height: 1.6;
 }
@@ -942,6 +966,7 @@ h2 {
 
   margin-top: 10px;
 }
+
 
 /* =========================================================
    FOOTER
@@ -963,6 +988,7 @@ footer strong {
   letter-spacing: 2px;
 }
 
+
 /* =========================================================
    MODAL
 ========================================================= */
@@ -974,13 +1000,11 @@ footer strong {
 
   inset: 0;
 
-  z-index: 100;
+  z-index: 200;
 
-  background:
-    rgba(0,0,0,.72);
+  background: rgba(0,0,0,.72);
 
   align-items: center;
-
   justify-content: center;
 
   padding: 20px;
@@ -988,7 +1012,6 @@ footer strong {
 
 .modal-box {
   width: 100%;
-
   max-width: 480px;
 
   padding: 38px;
@@ -1004,7 +1027,6 @@ footer strong {
   position: absolute;
 
   top: 10px;
-
   right: 15px;
 
   border: none;
@@ -1038,14 +1060,28 @@ footer strong {
   font-weight: bold;
 }
 
+
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
-@media(max-width:850px) {
+@media (max-width: 950px) {
+
+  .hero {
+    padding: 70px 5%;
+  }
 
   .hero-content {
     grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .hero-text {
+    max-width: 700px;
+  }
+
+  .goal-card {
+    max-width: 650px;
   }
 
   .world-race-grid {
@@ -1056,42 +1092,414 @@ footer strong {
     grid-template-columns: 1fr;
   }
 
-  .giving-options {
-    grid-template-columns: 1fr;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  /* NAV */
+
+  nav {
+    min-height: 64px;
+
+    padding:
+      0 20px;
+  }
+
+  .logo {
+    font-size: 11px;
+
+    letter-spacing: 1.2px;
   }
 
   .nav-links {
     display: none;
   }
 
-  .race-details {
-    grid-template-columns:
-      repeat(3,1fr);
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    padding:
+      65px 20px
+      55px;
   }
 
-  .calendar {
-    grid-template-columns:
-      repeat(7, minmax(75px, 1fr));
+  .hero-content {
+    display: flex;
 
-    overflow-x: auto;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 40px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    margin:
+      18px 0 25px;
+
+    font-size:
+      clamp(55px, 18vw, 78px);
+
+    line-height: .87;
+
+    letter-spacing: -2px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+
+    line-height: 1.65;
+  }
+
+  .button {
+    width: 100%;
+
+    text-align: center;
+
+    padding:
+      17px 20px;
+  }
+
+
+  /* FUNDRAISING CARD */
+
+  .goal-card {
+    padding: 25px 20px;
+
+    border-radius: 18px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stats strong {
+    font-size: 23px;
+  }
+
+  .stats small {
+    font-size: 8px;
+  }
+
+  .money {
+    font-size: 38px;
+  }
+
+
+  /* SECTIONS */
+
+  section {
+    padding:
+      60px 20px;
+  }
+
+  h2 {
+    font-size:
+      clamp(34px, 11vw, 48px);
+
+    line-height: 1.02;
+  }
+
+  .description {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  /* GIVING */
+
+  .giving-options {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    margin-top: 30px;
+  }
+
+  .give-card {
+    padding: 24px;
+  }
+
+  .price {
+    font-size: 36px;
+  }
+
+  .any-amount {
+    padding: 25px 20px;
+  }
+
+
+  /* CALENDAR */
+
+  .calendar-area {
+    margin-top: 55px;
+  }
+
+  .calendar-top {
+    display: block;
+  }
+
+  .calendar-legend {
+    margin-top: 20px;
+  }
+
+  .calendar-header {
+    gap: 15px;
+
+    margin-top: 30px;
+  }
+
+  .calendar-header button {
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+  }
+
+  #monthName {
+    width: auto;
+
+    flex: 1;
+
+    font-size: 22px;
+  }
+
+  .calendar-scroll {
+    margin-left: -2px;
+    margin-right: -2px;
+
+    padding-bottom: 12px;
+  }
+
+  /*
+     The calendar remains a true 7-column
+     grid. On phones it scrolls horizontally
+     rather than shrinking into unreadable boxes.
+  */
+
+  .calendar {
+    min-width: 720px;
+
+    grid-template-columns:
+      repeat(7, 1fr);
+
+    gap: 6px;
   }
 
   .day {
-    min-height: 90px;
+    min-height: 92px;
+
+    border-width: 1.5px;
   }
 
-  .map-wrapper {
-    padding: 8px;
+  .weekday {
+    min-height: 34px;
+
+    font-size: 9px;
+  }
+
+  .number {
+    font-size: 18px;
+  }
+
+  .date-small {
+    font-size: 8px;
+  }
+
+  .status {
+    left: 9px;
+    bottom: 9px;
+
+    font-size: 8px;
+  }
+
+
+  /* WORLD RACE */
+
+  .world-race-grid {
+    gap: 30px;
   }
 
   .world-race-card {
-    padding: 30px;
+    padding: 30px 24px;
+
+    border-radius: 19px;
+  }
+
+  .race-details {
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-top: 25px;
+  }
+
+  .race-detail {
+    padding:
+      18px 7px;
+  }
+
+  .race-detail strong {
+    font-size: 22px;
+  }
+
+  .race-detail span {
+    font-size: 7px;
+  }
+
+  .country-list {
+    gap: 8px;
+  }
+
+  .country-list span {
+    font-size: 10px;
+  }
+
+
+  /* MAP */
+
+  .map-wrapper {
+    margin-top: 30px;
+
+    padding: 10px;
+
+    border-radius: 17px;
+  }
+
+  #worldMap {
+    min-width: 600px;
+
+    height: auto;
+  }
+
+  /*
+     The map can be swiped sideways
+     on very small screens.
+  */
+
+  .map-wrapper {
+    overflow-x: auto;
+  }
+
+  .map-note {
+    font-size: 10px;
+  }
+
+
+  /* PRAYER */
+
+  .prayer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .prayer-message {
+    padding: 30px 23px;
+
+    border-radius: 18px;
+  }
+
+  .prayer-message-text {
+    font-size: 15px;
+
+    line-height: 1.75;
+  }
+
+  .prayer-form-card {
+    padding: 23px 15px;
+
+    border-radius: 18px;
+  }
+
+  .google-form {
+    min-height: 700px;
+  }
+
+
+  /* MODAL */
+
+  .modal {
+    padding: 15px;
+  }
+
+  .modal-box {
+    padding:
+      32px 23px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .logo {
+    font-size: 9px;
+  }
+
+  .hero {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  section {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  h1 {
+    font-size: 53px;
+  }
+
+  .stats strong {
+    font-size: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
   }
 
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -1150,7 +1558,10 @@ but through prayer and support.
 
 </p>
 
-<a href="#give" class="button">
+<a
+href="#give"
+class="button"
+>
 CHOOSE YOUR DAY →
 </a>
 
@@ -1182,7 +1593,10 @@ CHOOSE YOUR DAY →
 FUNDRAISING PROGRESS
 </div>
 
-<div class="money" id="raised">
+<div
+class="money"
+id="raised"
+>
 $0
 </div>
 
@@ -1380,7 +1794,10 @@ SPONSORED
 
 <div class="calendar-header">
 
-<button onclick="previousMonth()">
+<button
+onclick="previousMonth()"
+aria-label="Previous month"
+>
 ←
 </button>
 
@@ -1388,17 +1805,30 @@ SPONSORED
 August 2027
 </h3>
 
-<button onclick="nextMonth()">
+<button
+onclick="nextMonth()"
+aria-label="Next month"
+>
 →
 </button>
 
 </div>
 
 
+<!--
+  This wrapper lets the calendar remain
+  perfectly symmetrical on phones while
+  allowing horizontal scrolling.
+-->
+
+<div class="calendar-scroll">
+
 <div
 class="calendar"
 id="calendar"
 >
+</div>
+
 </div>
 
 </div>
@@ -1536,7 +1966,7 @@ doing around the world.
 
 
 <!-- =====================================================
-     REAL WORLD MAP
+     MAP
 ===================================================== -->
 
 <section
@@ -1616,7 +2046,7 @@ JOIN ME IN PRAYER
 </h2>
 
 <!--
-EDIT THIS MESSAGE ANYTIME
+  EDIT THIS SECTION ANY TIME.
 -->
 
 <p class="prayer-message-text">
@@ -1701,6 +2131,7 @@ id="modal"
 <button
 class="close"
 onclick="closeModal()"
+aria-label="Close"
 >
 ×
 </button>
@@ -1754,15 +2185,16 @@ SPONSOR THIS DAY →
 ========================================================= */
 
 /*
-Later, when the payment system is connected,
-these can automatically be updated.
+   Later, when payments are connected,
+   these dates can automatically become
+   sponsored.
 
-Example:
+   Example:
 
-const sponsoredDays = {
-  "2027-08-21": "John",
-  "2027-09-05": "Smith Family"
-};
+   const sponsoredDays = {
+     "2027-08-21": "John",
+     "2027-09-05": "Smith Family"
+   };
 
 */
 
@@ -1790,7 +2222,7 @@ new Date(2028, 4, 21);
 
 
 /* =========================================================
-   CURRENT CALENDAR MONTH
+   CURRENT MONTH
 ========================================================= */
 
 let currentMonth =
@@ -1852,6 +2284,8 @@ function renderCalendar() {
   calendar.innerHTML = "";
 
 
+  /* WEEKDAY HEADERS */
+
   const weekdays = [
     "SUN",
     "MON",
@@ -1876,7 +2310,9 @@ function renderCalendar() {
     div.textContent =
       day;
 
-    calendar.appendChild(div);
+    calendar.appendChild(
+      div
+    );
 
   });
 
@@ -1900,6 +2336,17 @@ function renderCalendar() {
     );
 
 
+  /*
+     FIRST DAY OF MONTH
+
+     Sunday = 0
+     Monday = 1
+     etc.
+
+     This creates the blank boxes
+     BEFORE the first day.
+  */
+
   const firstDay =
     new Date(
       year,
@@ -1907,6 +2354,10 @@ function renderCalendar() {
       1
     ).getDay();
 
+
+  /*
+     NUMBER OF DAYS IN MONTH
+  */
 
   const daysInMonth =
     new Date(
@@ -1916,7 +2367,22 @@ function renderCalendar() {
     ).getDate();
 
 
-  /* EMPTY CELLS BEFORE MONTH */
+  /*
+     NUMBER OF ROWS NEEDED
+
+     Every calendar gets complete
+     symmetrical rows.
+  */
+
+  const totalCells =
+    Math.ceil(
+      (firstDay + daysInMonth) / 7
+    ) * 7;
+
+
+  /* =====================================================
+     BLANK CELLS BEFORE MONTH
+  ===================================================== */
 
   for (
     let i = 0;
@@ -1930,10 +2396,7 @@ function renderCalendar() {
       );
 
     blank.className =
-      "day";
-
-    blank.style.visibility =
-      "hidden";
+      "day empty";
 
     calendar.appendChild(
       blank
@@ -1942,7 +2405,9 @@ function renderCalendar() {
   }
 
 
-  /* ACTUAL DAYS */
+  /* =====================================================
+     ACTUAL DAYS
+  ===================================================== */
 
   for (
     let d = 1;
@@ -1958,33 +2423,14 @@ function renderCalendar() {
       );
 
 
-    if (
-      date < startDate ||
-      date > endDate
-    ) {
-
-      const blank =
-        document.createElement(
-          "div"
-        );
-
-      blank.className =
-        "day";
-
-      blank.style.visibility =
-        "hidden";
-
-      calendar.appendChild(
-        blank
-      );
-
-      continue;
-
-    }
-
-
     const key =
       dateKey(date);
+
+
+    const isTripDay =
+      date >= startDate &&
+      date <= endDate;
+
 
     const sponsored =
       sponsoredDays[key];
@@ -1995,6 +2441,56 @@ function renderCalendar() {
         "div"
       );
 
+
+    /*
+       DAYS BEFORE OR AFTER THE TRIP
+       GET A NORMAL BOX BUT ARE
+       NOT CLICKABLE.
+    */
+
+    if (!isTripDay) {
+
+      cell.className =
+        "day inactive";
+
+
+      cell.innerHTML = `
+
+        <div style="
+          padding:11px;
+        ">
+
+          <span class="number">
+            ${d}
+          </span>
+
+          <span class="date-small">
+            ${date.toLocaleDateString(
+              undefined,
+              {
+                month: "short",
+                day: "numeric"
+              }
+            )}
+          </span>
+
+        </div>
+
+      `;
+
+
+      calendar.appendChild(
+        cell
+      );
+
+      continue;
+
+    }
+
+
+    /* =================================================
+       TRIP DAY
+    ================================================= */
 
     cell.className =
       sponsored
@@ -2059,22 +2555,46 @@ function renderCalendar() {
 
   }
 
+
+  /* =====================================================
+     BLANK CELLS AFTER MONTH
+
+     THIS MAKES EVERY MONTH A PERFECT
+     RECTANGULAR GRID.
+  ===================================================== */
+
+  for (
+    let i =
+      firstDay +
+      daysInMonth;
+
+    i < totalCells;
+
+    i++
+  ) {
+
+    const blank =
+      document.createElement(
+        "div"
+      );
+
+    blank.className =
+      "day empty";
+
+    calendar.appendChild(
+      blank
+    );
+
+  }
+
 }
 
 
 /* =========================================================
-   CALENDAR NAVIGATION
+   PREVIOUS MONTH
 ========================================================= */
 
 function previousMonth() {
-
-  currentMonth =
-    new Date(
-      currentMonth.getFullYear(),
-      currentMonth.getMonth() - 1,
-      1
-    );
-
 
   const minimum =
     new Date(
@@ -2084,30 +2604,33 @@ function previousMonth() {
     );
 
 
+  const newMonth =
+    new Date(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth() - 1,
+      1
+    );
+
+
   if (
-    currentMonth < minimum
+    newMonth >= minimum
   ) {
 
     currentMonth =
-      minimum;
+      newMonth;
+
+    renderCalendar();
 
   }
-
-
-  renderCalendar();
 
 }
 
 
+/* =========================================================
+   NEXT MONTH
+========================================================= */
+
 function nextMonth() {
-
-  currentMonth =
-    new Date(
-      currentMonth.getFullYear(),
-      currentMonth.getMonth() + 1,
-      1
-    );
-
 
   const maximum =
     new Date(
@@ -2117,17 +2640,24 @@ function nextMonth() {
     );
 
 
+  const newMonth =
+    new Date(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth() + 1,
+      1
+    );
+
+
   if (
-    currentMonth > maximum
+    newMonth <= maximum
   ) {
 
     currentMonth =
-      maximum;
+      newMonth;
+
+    renderCalendar();
 
   }
-
-
-  renderCalendar();
 
 }
 
@@ -2309,16 +2839,10 @@ async function createWorldMap() {
   const svg =
     d3.select("#worldMap");
 
+
   const width = 1000;
   const height = 520;
 
-
-  /*
-    Natural Earth country geometry.
-
-    This is actual geographic data rather
-    than hand-drawn continent shapes.
-  */
 
   const world =
     await d3.json(
@@ -2351,7 +2875,9 @@ async function createWorldMap() {
   /* DRAW COUNTRIES */
 
   svg.selectAll(".country-shape")
-    .data(countries.features)
+    .data(
+      countries.features
+    )
     .enter()
     .append("path")
     .attr(
@@ -2364,11 +2890,7 @@ async function createWorldMap() {
     );
 
 
-  /*
-    COUNTRY COORDINATES
-
-    longitude, latitude
-  */
+  /* COUNTRY LOCATIONS */
 
   const locations = {
 
@@ -2414,14 +2936,13 @@ async function createWorldMap() {
     );
 
 
-  /*
-    DRAW ROUTE LINE
-  */
+  /* ROUTE LINE */
 
   const line =
     d3.line()
       .curve(
-        d3.curveCatmullRom.alpha(.5)
+        d3.curveCatmullRom
+          .alpha(.5)
       );
 
 
@@ -2437,9 +2958,7 @@ async function createWorldMap() {
     );
 
 
-  /*
-    COUNTRY POINTS
-  */
+  /* COUNTRY POINTS + LABELS */
 
   Object.entries(
     locations
@@ -2488,11 +3007,7 @@ async function createWorldMap() {
   );
 
 
-  /*
-    AIRPLANE
-
-    Moves along the entire route.
-  */
+  /* INVISIBLE PATH FOR AIRPLANE */
 
   const routePath =
     svg.append("path")
@@ -2514,6 +3029,8 @@ async function createWorldMap() {
         "flightPath"
       );
 
+
+  /* AIRPLANE */
 
   const plane =
     svg.append("text")
@@ -2542,7 +3059,8 @@ async function createWorldMap() {
 
   function animatePlane() {
 
-    const duration = 12000;
+    const duration =
+      12000;
 
     const start =
       performance.now();
@@ -2597,7 +3115,7 @@ async function createWorldMap() {
 
 
 /* =========================================================
-   START EVERYTHING
+   START
 ========================================================= */
 
 renderCalendar();
