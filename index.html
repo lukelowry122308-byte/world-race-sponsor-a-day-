@@ -37,9 +37,7 @@ body {
   overflow-x:hidden;
 }
 
-/* =========================
-   NAV
-========================= */
+/* NAVIGATION */
 
 nav {
   position:sticky;
@@ -70,9 +68,7 @@ nav {
   font-weight:900;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
   background:linear-gradient(135deg,#0b1710,#285338);
@@ -130,12 +126,10 @@ h1 span {
 }
 
 .button:hover {
-  transform:translateY(-2px);
+  opacity:.9;
 }
 
-/* =========================
-   GOAL
-========================= */
+/* GOAL */
 
 .goal {
   padding:30px;
@@ -183,9 +177,7 @@ h1 span {
   transition:width .5s;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section {
   padding:80px 6%;
@@ -208,9 +200,7 @@ h2 {
   line-height:1.75;
 }
 
-/* =========================
-   SUPPORT
-========================= */
+/* SUPPORT */
 
 .giving {
   display:grid;
@@ -242,13 +232,7 @@ h2 {
   text-align:center;
 }
 
-.any p {
-  line-height:1.6;
-}
-
-/* =========================
-   CALENDAR
-========================= */
+/* CALENDAR */
 
 .calendar-wrap {
   margin-top:65px;
@@ -273,7 +257,6 @@ h2 {
   height:12px;
   border-radius:3px;
   margin-right:5px;
-  vertical-align:middle;
 }
 
 .red {
@@ -332,16 +315,10 @@ h2 {
   border-radius:9px;
   overflow:hidden;
   background:#faf8f3;
-  transition:.2s;
-}
-
-.day:hover {
-  transform:translateY(-2px);
 }
 
 .day.empty {
   background:#ebe6dc;
-  border-color:#d2ccc0;
 }
 
 .day.inactive {
@@ -391,9 +368,7 @@ h2 {
   color:#245a38;
 }
 
-/* =========================
-   WORLD RACE
-========================= */
+/* WORLD RACE */
 
 .race {
   background:white;
@@ -456,9 +431,7 @@ h2 {
   font-weight:bold;
 }
 
-/* =========================
-   MAP
-========================= */
+/* MAP */
 
 .map-box {
   margin-top:40px;
@@ -507,9 +480,7 @@ h2 {
   font-size:24px;
 }
 
-/* =========================
-   PRAYER
-========================= */
+/* PRAYER */
 
 .prayer {
   background:var(--dark);
@@ -547,9 +518,7 @@ h2 {
   border:none;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
   background:#080e0a;
@@ -558,9 +527,7 @@ footer {
   padding:40px;
 }
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal {
   display:none;
@@ -574,11 +541,11 @@ footer {
 }
 
 .modalbox {
-  max-width:450px;
+  max-width:470px;
   width:100%;
   background:var(--cream);
   border-radius:18px;
-  padding:30px;
+  padding:32px;
   position:relative;
   box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
@@ -593,33 +560,52 @@ footer {
   cursor:pointer;
 }
 
-.sponsored-message {
-  background:var(--light-green);
-  border:1px solid #8eb79b;
-  border-radius:12px;
-  padding:15px;
-  margin:15px 0;
-  color:#24543a;
-  font-weight:bold;
+.modal-actions {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:20px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+.donate-button {
+  display:block;
+  width:100%;
+  padding:16px;
+  background:var(--gold);
+  color:#111;
+  text-align:center;
+  text-decoration:none;
+  font-weight:900;
+  border-radius:9px;
+}
+
+.complete-button {
+  display:block;
+  width:100%;
+  padding:16px;
+  background:var(--green);
+  color:white;
+  border:none;
+  font-weight:900;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+.complete-button:hover,
+.donate-button:hover {
+  opacity:.9;
+}
+
+.note {
+  font-size:12px;
+  color:#68716b;
+  line-height:1.5;
+  margin-top:15px;
+}
+
+/* MOBILE */
 
 @media(max-width:800px) {
-
-  nav {
-    padding:15px 18px;
-  }
-
-  .logo {
-    font-size:12px;
-  }
-
-  .nav-links {
-    display:none;
-  }
 
   .hero-grid,
   .race-grid,
@@ -649,23 +635,22 @@ footer {
 
   .legend {
     margin-top:16px;
-    flex-wrap:wrap;
   }
 
   .calendar {
     width:100%;
     grid-template-columns:repeat(7,minmax(0,1fr));
-    gap:5px;
+    gap:4px;
   }
 
   .weekday {
-    min-height:34px;
-    font-size:9px;
+    min-height:32px;
+    font-size:8px;
   }
 
   .day {
-    height:92px;
-    border-width:2px;
+    height:82px;
+    border-width:1.5px;
     border-radius:7px;
   }
 
@@ -678,8 +663,8 @@ footer {
   }
 
   .status {
-    font-size:clamp(6px,1.8vw,9px);
-    line-height:1.15;
+    font-size:clamp(5px,1.7vw,8px);
+    line-height:1.1;
   }
 
   .map-box {
@@ -701,11 +686,13 @@ footer {
   .plane {
     font-size:21px;
   }
+
+  .nav-links {
+    display:none;
+  }
 }
 
-/* =========================
-   SMALL PHONES
-========================= */
+/* SMALL PHONES */
 
 @media(max-width:430px) {
 
@@ -714,26 +701,17 @@ footer {
     padding-right:10px;
   }
 
-  .hero {
-    padding-left:14px;
-    padding-right:14px;
-  }
-
-  h1 {
-    letter-spacing:-3px;
-  }
-
   .calendar {
     gap:3px;
   }
 
   .weekday {
     font-size:7px;
-    min-height:30px;
+    min-height:28px;
   }
 
   .day {
-    height:78px;
+    height:73px;
     border-radius:6px;
   }
 
@@ -746,7 +724,7 @@ footer {
   }
 
   .status {
-    font-size:6px;
+    font-size:5.5px;
   }
 
   .cal-head {
@@ -794,16 +772,18 @@ footer {
   .detail strong {
     font-size:20px;
   }
+
+  .modalbox {
+    padding:25px 20px;
+  }
 }
 
-/* =========================
-   VERY SMALL PHONES
-========================= */
+/* VERY SMALL PHONES */
 
 @media(max-width:360px) {
 
   .day {
-    height:70px;
+    height:66px;
   }
 
   .number {
@@ -828,9 +808,7 @@ footer {
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAV -->
 
 <nav>
 
@@ -848,9 +826,7 @@ footer {
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <header class="hero">
 
@@ -928,9 +904,7 @@ footer {
 </header>
 
 
-<!-- =========================
-     SUPPORT + CALENDAR
-========================= -->
+<!-- SUPPORT -->
 
 <section id="give">
 
@@ -946,58 +920,30 @@ footer {
 
     <p class="desc">
       Sponsor a day, a week, a month, or give any amount.
-      Every gift helps make this journey possible.
+      Every gift helps.
     </p>
-
 
     <div class="giving">
 
       <div class="give">
-
         <b>ONE DAY</b>
-
-        <div class="price">
-          $73
-        </div>
-
-        <p>
-          One day of the journey.
-        </p>
-
+        <div class="price">$73</div>
+        <p>One day of the journey.</p>
       </div>
 
-
       <div class="give">
-
         <b>ONE WEEK</b>
-
-        <div class="price">
-          $511
-        </div>
-
-        <p>
-          Seven days of the journey.
-        </p>
-
+        <div class="price">$511</div>
+        <p>Seven days of the journey.</p>
       </div>
 
-
       <div class="give">
-
         <b>ONE MONTH</b>
-
-        <div class="price">
-          $2,190
-        </div>
-
-        <p>
-          Thirty days of the journey.
-        </p>
-
+        <div class="price">$2,190</div>
+        <p>Thirty days of the journey.</p>
       </div>
 
     </div>
-
 
     <div class="any">
 
@@ -1021,9 +967,7 @@ footer {
     </div>
 
 
-    <!-- =========================
-         CALENDAR
-    ========================= -->
+    <!-- CALENDAR -->
 
     <div class="calendar-wrap">
 
@@ -1057,12 +1001,9 @@ footer {
 
       </div>
 
-
       <div class="cal-head">
 
-        <button
-          onclick="prev()"
-          aria-label="Previous month">
+        <button onclick="prev()" aria-label="Previous month">
           ←
         </button>
 
@@ -1070,19 +1011,13 @@ footer {
           August 2027
         </h3>
 
-        <button
-          onclick="next()"
-          aria-label="Next month">
+        <button onclick="next()" aria-label="Next month">
           →
         </button>
 
       </div>
 
-
-      <div
-        class="calendar"
-        id="calendar">
-      </div>
+      <div class="calendar" id="calendar"></div>
 
     </div>
 
@@ -1091,9 +1026,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     WORLD RACE
-========================= -->
+<!-- WORLD RACE -->
 
 <section class="race" id="race">
 
@@ -1145,7 +1078,6 @@ footer {
 
       </div>
 
-
       <div class="race-card">
 
         <div style="font-size:42px">
@@ -1183,9 +1115,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     MAP
-========================= -->
+<!-- MAP -->
 
 <section id="map">
 
@@ -1219,9 +1149,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     PRAYER
-========================= -->
+<!-- PRAYER -->
 
 <section class="prayer" id="prayer">
 
@@ -1249,7 +1177,6 @@ footer {
 
       </div>
 
-
       <div class="form-card">
 
         <h2 style="font-size:28px">
@@ -1276,9 +1203,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1293,19 +1218,13 @@ footer {
 </footer>
 
 
-<!-- =========================
-     SPONSOR MODAL
-========================= -->
+<!-- SPONSOR MODAL -->
 
-<div
-  class="modal"
-  id="modal">
+<div class="modal" id="modal">
 
   <div class="modalbox">
 
-    <button
-      class="close"
-      onclick="closeModal()">
+    <button class="close" onclick="closeModal()">
       ×
     </button>
 
@@ -1313,55 +1232,43 @@ footer {
       YOUR DAY
     </div>
 
-    <h2 id="mday">
-    </h2>
+    <h2 id="mday"></h2>
 
-    <p id="mdate">
-    </p>
+    <p id="mdate"></p>
 
+    <div class="price">
+      $73
+    </div>
 
-    <div
-      id="availableContent">
+    <p id="mmsg"></p>
 
-      <div class="price">
-        $73
-      </div>
+    <div class="modal-actions">
 
-      <p>
-        Sponsor this day of the journey and help
-        make the World Race possible.
-      </p>
-
-      <p>
-        After choosing this day, use the donation
-        page to complete your gift.
-      </p>
-
+      <!-- THIS OPENS THE REAL DONATION PAGE -->
       <a
-        id="sponsorButton"
-        class="button"
-        href="#"
+        class="donate-button"
+        id="donateLink"
+        href="https://adventuresinmissions.servicereef.com/events/adventures-in-missions-3/2027-world-race-gap-year-27g0903-mend/participants/luke-lowrya0"
         target="_blank"
         rel="noopener">
-        SPONSOR THIS DAY →
+        💳 DONATE $73
       </a>
 
-    </div>
-
-
-    <div
-      id="sponsoredContent"
-      style="display:none">
-
-      <div class="sponsored-message">
-        ✓ THIS DAY HAS BEEN SPONSORED
-      </div>
-
-      <p>
-        Thank you for helping make this journey possible!
-      </p>
+      <!-- THIS IS THE ONLY THING THAT MARKS THE DAY GREEN -->
+      <button
+        class="complete-button"
+        id="completeButton"
+        onclick="completeSponsorship()">
+        ✓ I COMPLETED MY DONATION
+      </button>
 
     </div>
+
+    <p class="note">
+      Please click the green button only after completing
+      your donation. Clicking the donation button by itself
+      will not mark this day as sponsored.
+    </p>
 
   </div>
 
@@ -1374,59 +1281,46 @@ footer {
    SETTINGS
 ===================================================== */
 
-const start =
-  new Date(2027,7,21);
-
-const end =
-  new Date(2028,4,21);
+const start = new Date(2027,7,21);
+const end = new Date(2028,4,21);
 
 const price = 73;
-
 const goal = 20000;
 
-
-/*
-   YOUR REAL DONATION PAGE
-*/
-
 const donationURL =
-  "https://adventuresinmissions.servicereef.com/events/adventures-in-missions-3/2027-world-race-gap-year-27g0903-mend/participants/luke-lowrya0";
+"https://adventuresinmissions.servicereef.com/events/adventures-in-missions-3/2027-world-race-gap-year-27g0903-mend/participants/luke-lowrya0";
 
-
-/* =====================================================
-   CALENDAR STATE
-===================================================== */
-
-let month =
-  new Date(2027,7,1);
-
+let month = new Date(2027,7,1);
 
 /*
-   Load sponsored days from this browser.
+   LOAD PREVIOUSLY SPONSORED DAYS
 
-   IMPORTANT:
-   This is local browser storage.
-   Later we can connect this to Google Sheets
-   so EVERY visitor sees the same sponsored days.
+   These are stored only in the browser.
 */
 
 let sponsored =
   JSON.parse(
-    localStorage.getItem(
-      "worldRaceSponsoredDays"
-    ) || "{}"
+    localStorage.getItem("worldRaceSponsoredDays") || "{}"
   );
+
+let selectedDate = null;
 
 
 /* =====================================================
-   DATE HELPERS
+   CALENDAR HELPERS
 ===================================================== */
 
 function key(date) {
 
-  return date
-    .toISOString()
-    .slice(0,10);
+  const year = date.getFullYear();
+
+  const month =
+    String(date.getMonth()+1).padStart(2,"0");
+
+  const day =
+    String(date.getDate()).padStart(2,"0");
+
+  return `${year}-${month}-${day}`;
 
 }
 
@@ -1441,7 +1335,7 @@ function num(date) {
 
 
 /* =====================================================
-   CALENDAR RENDER
+   CALENDAR
 ===================================================== */
 
 function render() {
@@ -1451,28 +1345,19 @@ function render() {
 
   calendar.innerHTML = "";
 
-
   const weekdays = [
-    "SUN",
-    "MON",
-    "TUE",
-    "WED",
-    "THU",
-    "FRI",
-    "SAT"
+    "SUN","MON","TUE","WED",
+    "THU","FRI","SAT"
   ];
-
 
   weekdays.forEach(day => {
 
     const element =
       document.createElement("div");
 
-    element.className =
-      "weekday";
+    element.className = "weekday";
 
-    element.textContent =
-      day;
+    element.textContent = day;
 
     calendar.appendChild(element);
 
@@ -1497,15 +1382,15 @@ function render() {
   const daysInMonth =
     new Date(
       year,
-      monthNumber + 1,
+      monthNumber+1,
       0
     ).getDate();
 
 
   const totalCells =
     Math.ceil(
-      (firstDay + daysInMonth) / 7
-    ) * 7;
+      (firstDay+daysInMonth)/7
+    )*7;
 
 
   document.getElementById("month")
@@ -1519,13 +1404,9 @@ function render() {
       );
 
 
-  /* EMPTY CELLS BEFORE MONTH */
+  /* EMPTY CELLS BEFORE */
 
-  for(
-    let i=0;
-    i<firstDay;
-    i++
-  ) {
+  for(let i=0;i<firstDay;i++) {
 
     const cell =
       document.createElement("div");
@@ -1555,15 +1436,13 @@ function render() {
 
 
     const active =
-      date >= start &&
-      date <= end;
+      date>=start &&
+      date<=end;
 
 
     const cell =
       document.createElement("div");
 
-
-    /* DAYS OUTSIDE WORLD RACE */
 
     if(!active) {
 
@@ -1572,18 +1451,11 @@ function render() {
 
       cell.innerHTML = `
         <div style="padding:10px">
-          <span class="number">
-            ${day}
-          </span>
+          <span class="number">${day}</span>
         </div>
       `;
 
-    }
-
-
-    /* WORLD RACE DAYS */
-
-    else {
+    } else {
 
       const isSponsored =
         !!sponsored[key(date)];
@@ -1642,7 +1514,7 @@ function render() {
   }
 
 
-  /* EMPTY CELLS AFTER MONTH */
+  /* EMPTY CELLS AFTER */
 
   for(
     let i=firstDay+daysInMonth;
@@ -1678,7 +1550,7 @@ function prev() {
 
 
   if(
-    newMonth >=
+    newMonth>=
     new Date(2027,7,1)
   ) {
 
@@ -1703,7 +1575,7 @@ function next() {
 
 
   if(
-    newMonth <=
+    newMonth<=
     new Date(2028,4,1)
   ) {
 
@@ -1726,13 +1598,13 @@ function openDay(
   alreadySponsored
 ) {
 
-  const dateKey =
-    key(date);
+  selectedDate =
+    date;
 
 
   document.getElementById("mday")
     .textContent =
-      "Day " + num(date);
+      "Day "+num(date);
 
 
   document.getElementById("mdate")
@@ -1748,86 +1620,38 @@ function openDay(
       );
 
 
-  const button =
+  document.getElementById("donateLink")
+    .href =
+      donationURL;
+
+
+  const message =
+    document.getElementById("mmsg");
+
+
+  const completeButton =
     document.getElementById(
-      "sponsorButton"
-    );
-
-
-  /*
-     Pass the selected date to
-     the donation page through the URL.
-
-     The donation page may not use this
-     parameter, but it gives us a way to
-     track which day was selected later.
-  */
-
-  button.href =
-    donationURL +
-    "?sponsorDay=" +
-    encodeURIComponent(
-      dateKey
+      "completeButton"
     );
 
 
   if(alreadySponsored) {
 
-    document.getElementById(
-      "availableContent"
-    ).style.display =
+    message.textContent =
+      "This day has already been marked as sponsored. Thank you for supporting this journey!";
+
+
+    completeButton.style.display =
       "none";
 
+  } else {
 
-    document.getElementById(
-      "sponsoredContent"
-    ).style.display =
+    message.textContent =
+      "Sponsor this day of the journey for $73. First complete your donation, then return here and confirm your sponsorship.";
+
+
+    completeButton.style.display =
       "block";
-
-  }
-
-  else {
-
-    document.getElementById(
-      "availableContent"
-    ).style.display =
-      "block";
-
-
-    document.getElementById(
-      "sponsoredContent"
-    ).style.display =
-      "none";
-
-
-    /*
-       For this version, when someone
-       clicks the sponsorship button,
-       we mark the day as sponsored
-       locally before sending them
-       to the donation page.
-    */
-
-    button.onclick =
-      function() {
-
-        sponsored[dateKey] =
-          true;
-
-
-        localStorage.setItem(
-          "worldRaceSponsoredDays",
-          JSON.stringify(
-            sponsored
-          )
-        );
-
-
-        render();
-
-        progress();
-
-      };
 
   }
 
@@ -1845,17 +1669,73 @@ function closeModal() {
     .style.display =
       "none";
 
+  selectedDate =
+    null;
+
 }
 
 
-/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+/* =====================================================
+   THIS IS THE ONLY FUNCTION THAT TURNS A DAY GREEN
+===================================================== */
+
+function completeSponsorship() {
+
+  if(!selectedDate) {
+    return;
+  }
+
+
+  const dateKey =
+    key(selectedDate);
+
+
+  sponsored[dateKey] =
+    true;
+
+
+  /*
+     SAVE IT IN THIS BROWSER
+  */
+
+  localStorage.setItem(
+    "worldRaceSponsoredDays",
+    JSON.stringify(sponsored)
+  );
+
+
+  /*
+     UPDATE CALENDAR
+  */
+
+  render();
+
+
+  /*
+     UPDATE FUNDRAISING DISPLAY
+  */
+
+  progress();
+
+
+  /*
+     CLOSE POPUP
+  */
+
+  closeModal();
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+===================================================== */
 
 window.onclick =
   function(event) {
 
     if(
-      event.target.id ===
-      "modal"
+      event.target.id === "modal"
     ) {
 
       closeModal();
@@ -1866,38 +1746,36 @@ window.onclick =
 
 
 /* =====================================================
-   FUNDRAISING PROGRESS
+   FUNDRAISING
 ===================================================== */
 
 function progress() {
 
   const raised =
-    Object.keys(
-      sponsored
-    ).length * price;
+    Object.keys(sponsored).length *
+    price;
 
 
   const percentage =
     Math.min(
       100,
-      raised / goal * 100
+      raised/goal*100
     );
 
 
   document.getElementById("raised")
     .textContent =
-      "$" +
-      raised.toLocaleString();
+      "$"+raised.toLocaleString();
 
 
   document.getElementById("bar")
     .style.width =
-      percentage + "%";
+      percentage+"%";
 
 
   document.getElementById("percent")
     .textContent =
-      percentage.toFixed(1) +
+      percentage.toFixed(1)+
       "% funded";
 
 }
@@ -1936,18 +1814,14 @@ async function buildMap() {
 
   const path =
     d3.geoPath()
-      .projection(
-        projection
-      );
+      .projection(projection);
 
 
-  /* WORLD COUNTRIES */
+  /* COUNTRIES */
 
   svg
     .selectAll(".country-shape")
-    .data(
-      countries.features
-    )
+    .data(countries.features)
     .enter()
     .append("path")
     .attr(
@@ -1986,11 +1860,8 @@ async function buildMap() {
 
 
   const points =
-    Object.values(
-      locations
-    ).map(
-      projection
-    );
+    Object.values(locations)
+      .map(projection);
 
 
   /* ROUTE */
@@ -2016,196 +1887,170 @@ async function buildMap() {
     );
 
 
-  /* COUNTRY POINTS + LABELS */
+  /* LABELS */
 
-  Object.entries(
-    locations
-  ).forEach(
-    ([name,coordinates]) => {
+  Object.entries(locations)
+    .forEach(
+      ([name,coordinates]) => {
 
-
-      const point =
-        projection(
-          coordinates
-        );
+        const point =
+          projection(
+            coordinates
+          );
 
 
-      let x =
-        point[0] + 10;
+        let x =
+          point[0]+10;
 
-      let y =
-        point[1] - 10;
+        let y =
+          point[1]-10;
 
-      let anchor =
-        "start";
-
-
-      /* SOUTH AFRICA */
-
-      if(
-        name ===
-        "South Africa"
-      ) {
-
-        x =
-          point[0] - 3;
-
-        y =
-          point[1] + 32;
-
-        anchor =
-          "middle";
-
-      }
-
-
-      /* ESWATINI */
-
-      if(
-        name ===
-        "Eswatini"
-      ) {
-
-        x =
-          point[0] + 18;
-
-        y =
-          point[1] - 16;
-
-      }
-
-
-      /* KENYA */
-
-      if(
-        name ===
-        "Kenya"
-      ) {
-
-        x =
-          point[0] - 18;
-
-        y =
-          point[1] + 28;
-
-        anchor =
-          "end";
-
-      }
-
-
-      /* ETHIOPIA */
-
-      if(
-        name ===
-        "Ethiopia"
-      ) {
-
-        x =
-          point[0] + 22;
-
-        y =
-          point[1] - 24;
-
-        anchor =
+        let anchor =
           "start";
 
+
+        /* SOUTH AFRICA */
+
+        if(name==="South Africa") {
+
+          x =
+            point[0]-3;
+
+          y =
+            point[1]+32;
+
+          anchor =
+            "middle";
+
+        }
+
+
+        /* ESWATINI */
+
+        if(name==="Eswatini") {
+
+          x =
+            point[0]+18;
+
+          y =
+            point[1]-16;
+
+        }
+
+
+        /* KENYA */
+
+        if(name==="Kenya") {
+
+          x =
+            point[0]-18;
+
+          y =
+            point[1]+28;
+
+          anchor =
+            "end";
+
+        }
+
+
+        /* ETHIOPIA */
+
+        if(name==="Ethiopia") {
+
+          x =
+            point[0]+22;
+
+          y =
+            point[1]-24;
+
+          anchor =
+            "start";
+
+        }
+
+
+        /* NEPAL */
+
+        if(name==="Nepal") {
+
+          x =
+            point[0]+12;
+
+          y =
+            point[1]-12;
+
+        }
+
+
+        /* THAILAND */
+
+        if(name==="Thailand") {
+
+          x =
+            point[0]+12;
+
+          y =
+            point[1]+22;
+
+        }
+
+
+        /* DOT */
+
+        svg
+          .append("circle")
+          .attr(
+            "class",
+            "route-point"
+          )
+          .attr(
+            "cx",
+            point[0]
+          )
+          .attr(
+            "cy",
+            point[1]
+          )
+          .attr(
+            "r",
+            7
+          );
+
+
+        /* LABEL */
+
+        svg
+          .append("text")
+          .attr(
+            "class",
+            "route-label"
+          )
+          .attr(
+            "x",
+            x
+          )
+          .attr(
+            "y",
+            y
+          )
+          .attr(
+            "text-anchor",
+            anchor
+          )
+          .text(name);
+
       }
+    );
 
 
-      /* NEPAL */
-
-      if(
-        name ===
-        "Nepal"
-      ) {
-
-        x =
-          point[0] + 12;
-
-        y =
-          point[1] - 12;
-
-      }
-
-
-      /* THAILAND */
-
-      if(
-        name ===
-        "Thailand"
-      ) {
-
-        x =
-          point[0] + 12;
-
-        y =
-          point[1] + 22;
-
-      }
-
-
-      /* POINT */
-
-      svg
-        .append("circle")
-        .attr(
-          "class",
-          "route-point"
-        )
-        .attr(
-          "cx",
-          point[0]
-        )
-        .attr(
-          "cy",
-          point[1]
-        )
-        .attr(
-          "r",
-          7
-        );
-
-
-      /* LABEL */
-
-      svg
-        .append("text")
-        .attr(
-          "class",
-          "route-label"
-        )
-        .attr(
-          "x",
-          x
-        )
-        .attr(
-          "y",
-          y
-        )
-        .attr(
-          "text-anchor",
-          anchor
-        )
-        .text(
-          name
-        );
-
-    });
-
-
-  /* =====================================================
-     AIRPLANE ANIMATION
-  ===================================================== */
+  /* INVISIBLE ROUTE FOR PLANE */
 
   const animatedRoute =
     svg
       .append("path")
       .datum(points)
-      .attr(
-        "d",
-        line
-      )
+      .attr("d",line)
       .attr(
         "fill",
         "none"
@@ -2224,6 +2069,8 @@ async function buildMap() {
     routeNode.getTotalLength();
 
 
+  /* AIRPLANE */
+
   const plane =
     svg
       .append("text")
@@ -2237,8 +2084,7 @@ async function buildMap() {
   function animate(time) {
 
     const animationProgress =
-      (time % 12000) /
-      12000;
+      (time%12000)/12000;
 
 
     const point =
@@ -2251,11 +2097,11 @@ async function buildMap() {
     plane
       .attr(
         "x",
-        point.x - 10
+        point.x-10
       )
       .attr(
         "y",
-        point.y + 8
+        point.y+8
       );
 
 
