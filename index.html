@@ -7,6 +7,7 @@
 <title>World Race 2027–2028 | Sponsor a Day</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -27,18 +28,16 @@ body {
   --green-light: #4f9468;
   --green-dark: #10291c;
   --gold: #d6a637;
-  --gold-light: #f0d486;
   --red: #b83b3b;
-  --red-light: #fff0f0;
   --cream: #f4f0e7;
   --white: #ffffff;
   --dark: #0d1711;
 }
 
 
-/* ==============================
+/* =================================
    NAVIGATION
-============================== */
+================================= */
 
 nav {
   height: 78px;
@@ -80,17 +79,25 @@ nav {
 }
 
 
-/* ==============================
+/* =================================
    HERO
-============================== */
+================================= */
 
 .hero {
   min-height: 650px;
   padding: 90px 7%;
 
   background:
-    radial-gradient(circle at 80% 20%, #315b42 0%, transparent 35%),
-    linear-gradient(135deg, #0c1810, #23432f);
+    radial-gradient(
+      circle at 80% 20%,
+      #315b42 0%,
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #0c1810,
+      #23432f
+    );
 
   color: white;
 }
@@ -103,18 +110,22 @@ nav {
   grid-template-columns: 1.15fr .85fr;
 
   gap: 70px;
+
   align-items: center;
 }
 
 .eyebrow {
   color: var(--gold);
+
   font-size: 11px;
   font-weight: bold;
+
   letter-spacing: 3px;
 }
 
 h1 {
   font-size: clamp(65px, 9vw, 115px);
+
   line-height: .83;
 
   margin: 20px 0 30px;
@@ -131,6 +142,7 @@ h1 span {
   color: #dbe5dd;
 
   font-size: 18px;
+
   line-height: 1.75;
 }
 
@@ -138,6 +150,7 @@ h1 span {
   display: inline-block;
 
   margin-top: 20px;
+
   padding: 16px 25px;
 
   border-radius: 8px;
@@ -148,6 +161,7 @@ h1 span {
   text-decoration: none;
 
   font-weight: 800;
+
   letter-spacing: .5px;
 }
 
@@ -156,9 +170,9 @@ h1 span {
 }
 
 
-/* ==============================
+/* =================================
    FUNDRAISING CARD
-============================== */
+================================= */
 
 .goal-card {
   padding: 35px;
@@ -174,24 +188,31 @@ h1 span {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
 
   gap: 15px;
 
   padding-bottom: 25px;
+
   margin-bottom: 25px;
 
-  border-bottom: 1px solid rgba(255,255,255,.2);
+  border-bottom:
+    1px solid rgba(255,255,255,.2);
 }
 
 .stats strong {
   display: block;
+
   font-size: 29px;
 }
 
 .stats small {
   color: #b9c5bd;
+
   font-size: 9px;
+
   letter-spacing: 1px;
 }
 
@@ -199,6 +220,7 @@ h1 span {
   color: var(--gold);
 
   font-size: 11px;
+
   font-weight: bold;
 
   letter-spacing: 2px;
@@ -208,6 +230,7 @@ h1 span {
   margin-top: 5px;
 
   font-size: 45px;
+
   font-weight: 800;
 }
 
@@ -229,6 +252,7 @@ h1 span {
 
 .progress-bar {
   height: 100%;
+
   width: 0%;
 
   background: var(--gold);
@@ -245,9 +269,9 @@ h1 span {
 }
 
 
-/* ==============================
+/* =================================
    GENERAL SECTIONS
-============================== */
+================================= */
 
 section {
   padding: 85px 6%;
@@ -255,6 +279,7 @@ section {
 
 .section-inner {
   max-width: 1200px;
+
   margin: auto;
 }
 
@@ -262,6 +287,7 @@ section {
   color: #a67e20;
 
   font-size: 11px;
+
   font-weight: 800;
 
   letter-spacing: 3px;
@@ -270,7 +296,8 @@ section {
 h2 {
   margin: 10px 0 20px;
 
-  font-size: clamp(38px, 5vw, 58px);
+  font-size:
+    clamp(38px, 5vw, 58px);
 
   line-height: 1;
 }
@@ -284,9 +311,9 @@ h2 {
 }
 
 
-/* ==============================
-   COMBINED GIVING + CALENDAR
-============================== */
+/* =================================
+   WAYS TO SUPPORT
+================================= */
 
 .giving-section {
   background: var(--cream);
@@ -295,7 +322,8 @@ h2 {
 .giving-options {
   display: grid;
 
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 
   gap: 18px;
 
@@ -313,7 +341,8 @@ h2 {
 
   text-align: center;
 
-  transition: transform .2s;
+  transition:
+    transform .2s;
 }
 
 .give-card:hover {
@@ -378,9 +407,9 @@ h2 {
 }
 
 
-/* ==============================
+/* =================================
    CALENDAR
-============================== */
+================================= */
 
 .calendar-area {
   margin-top: 70px;
@@ -404,6 +433,7 @@ h2 {
   gap: 18px;
 
   font-size: 11px;
+
   font-weight: bold;
 }
 
@@ -417,6 +447,7 @@ h2 {
 
 .legend-dot {
   width: 13px;
+
   height: 13px;
 
   border-radius: 3px;
@@ -444,6 +475,7 @@ h2 {
 
 .calendar-header button {
   width: 45px;
+
   height: 45px;
 
   border: none;
@@ -472,7 +504,8 @@ h2 {
 .calendar {
   display: grid;
 
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns:
+    repeat(7,1fr);
 
   background: #d9d6cd;
 
@@ -502,8 +535,11 @@ h2 {
 
   position: relative;
 
-  border-top: 1px solid #d9d6cd;
-  border-right: 1px solid #d9d6cd;
+  border-top:
+    1px solid #d9d6cd;
+
+  border-right:
+    1px solid #d9d6cd;
 }
 
 .day button {
@@ -512,6 +548,7 @@ h2 {
   inset: 0;
 
   width: 100%;
+
   height: 100%;
 
   border: none;
@@ -526,11 +563,11 @@ h2 {
 }
 
 .available {
-  background: var(--red-light);
+  background: #fff0f0;
 }
 
 .available button {
-  background: var(--red-light);
+  background: #fff0f0;
 }
 
 .available button:hover {
@@ -559,6 +596,7 @@ h2 {
 
 .number {
   font-size: 21px;
+
   font-weight: 800;
 }
 
@@ -576,21 +614,158 @@ h2 {
   position: absolute;
 
   bottom: 12px;
+
   left: 12px;
 
   font-size: 9px;
+
   font-weight: 800;
 
   letter-spacing: .5px;
 }
 
 
-/* ==============================
-   WORLD MAP
-============================== */
+/* =================================
+   WHAT IS THE WORLD RACE?
+================================= */
+
+.world-race-section {
+  background: #ffffff;
+}
+
+.world-race-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.15fr .85fr;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+.world-race-text h2 span {
+  color: var(--green);
+
+  font-style: italic;
+}
+
+.world-race-text .description {
+  margin-bottom: 20px;
+}
+
+.race-details {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 14px;
+
+  margin-top: 35px;
+}
+
+.race-detail {
+  padding: 22px 15px;
+
+  background: #f4f0e7;
+
+  border: 1px solid #ded8cc;
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.race-detail strong {
+  display: block;
+
+  color: var(--green);
+
+  font-size: 27px;
+
+  margin-bottom: 5px;
+}
+
+.race-detail span {
+  color: #777d78;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* RIGHT CARD */
+
+.world-race-card {
+  padding: 45px;
+
+  background: var(--green);
+
+  color: white;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 45px rgba(20,45,30,.12);
+}
+
+.race-card-icon {
+  font-size: 45px;
+
+  margin-bottom: 20px;
+}
+
+.world-race-card h3 {
+  margin: 0 0 15px;
+
+  color: var(--gold);
+
+  font-size: 25px;
+
+  letter-spacing: 2px;
+}
+
+.world-race-card p {
+  color: #dce6df;
+
+  line-height: 1.75;
+}
+
+.country-list {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.country-list span {
+  padding: 10px;
+
+  background:
+    rgba(255,255,255,.09);
+
+  border-radius: 8px;
+
+  color: #edf3ee;
+
+  font-size: 12px;
+}
+
+
+/* =================================
+   MAP
+================================= */
 
 .map-section {
-  background: white;
+  background: #f4f0e7;
 }
 
 .map-wrapper {
@@ -609,6 +784,7 @@ h2 {
 
 .world-map {
   width: 100%;
+
   display: block;
 }
 
@@ -638,12 +814,6 @@ h2 {
   stroke: white;
 
   stroke-width: 3;
-
-  cursor: pointer;
-}
-
-.country-point:hover {
-  fill: var(--gold);
 }
 
 .map-label {
@@ -682,13 +852,11 @@ h2 {
   font-size: 12px;
 }
 
-
-/* AIRPLANE */
-
 .plane {
   fill: var(--green);
 
-  animation: planePulse 2s ease-in-out infinite;
+  animation:
+    planePulse 2s ease-in-out infinite;
 }
 
 @keyframes planePulse {
@@ -704,9 +872,9 @@ h2 {
 }
 
 
-/* ==============================
+/* =================================
    PRAYER
-============================== */
+================================= */
 
 .prayer-section {
   background: var(--dark);
@@ -717,7 +885,8 @@ h2 {
 .prayer-grid {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 35px;
 
@@ -736,27 +905,6 @@ h2 {
   color: white;
 }
 
-.editable-prayer {
-  color: #d9e3dc;
-
-  font-size: 17px;
-
-  line-height: 1.85;
-}
-
-
-/*
-==================================
-EDIT YOUR PRAYER MESSAGE HERE
-==================================
-
-Change the paragraph below whenever
-you want to change what appears in
-your prayer section.
-
-==================================
-*/
-
 .prayer-message-text {
   color: #d9e3dc;
 
@@ -764,9 +912,6 @@ your prayer section.
 
   line-height: 1.85;
 }
-
-
-/* GOOGLE FORM */
 
 .prayer-form-card {
   padding: 30px;
@@ -805,9 +950,9 @@ your prayer section.
 }
 
 
-/* ==============================
+/* =================================
    FOOTER
-============================== */
+================================= */
 
 footer {
   padding: 45px 7%;
@@ -826,9 +971,9 @@ footer strong {
 }
 
 
-/* ==============================
+/* =================================
    MODAL
-============================== */
+================================= */
 
 .modal {
   display: none;
@@ -839,9 +984,11 @@ footer strong {
 
   z-index: 100;
 
-  background: rgba(0,0,0,.72);
+  background:
+    rgba(0,0,0,.72);
 
   align-items: center;
+
   justify-content: center;
 
   padding: 20px;
@@ -865,6 +1012,7 @@ footer strong {
   position: absolute;
 
   top: 10px;
+
   right: 15px;
 
   border: none;
@@ -899,13 +1047,17 @@ footer strong {
 }
 
 
-/* ==============================
+/* =================================
    MOBILE
-============================== */
+================================= */
 
 @media(max-width:850px) {
 
   .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .world-race-grid {
     grid-template-columns: 1fr;
   }
 
@@ -922,13 +1074,20 @@ footer strong {
   }
 
   .stats {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+  .race-details {
+    grid-template-columns:
+      repeat(3,1fr);
   }
 
   .calendar {
     overflow-x: auto;
 
-    grid-template-columns: repeat(7, 105px);
+    grid-template-columns:
+      repeat(7,105px);
   }
 
   .calendar-top {
@@ -941,6 +1100,10 @@ footer strong {
     padding: 8px;
   }
 
+  .world-race-card {
+    padding: 30px;
+  }
+
 }
 
 </style>
@@ -950,9 +1113,9 @@ footer strong {
 <body>
 
 
-<!-- =====================================
+<!-- =================================
      NAVIGATION
-===================================== -->
+================================= -->
 
 <nav>
 
@@ -964,6 +1127,10 @@ footer strong {
 
 <a href="#give">
 GIVE
+</a>
+
+<a href="#world-race">
+WORLD RACE
 </a>
 
 <a href="#map">
@@ -979,9 +1146,9 @@ PRAYER
 </nav>
 
 
-<!-- =====================================
-     1. TITLE / FUNDRAISING
-===================================== -->
+<!-- =================================
+     1. HERO / FUNDRAISING
+================================= -->
 
 <header class="hero">
 
@@ -1077,9 +1244,9 @@ id="progressPercent"
 </header>
 
 
-<!-- =====================================
-     2. WAYS TO GIVE + CALENDAR
-===================================== -->
+<!-- =================================
+     2. GIVING + CALENDAR
+================================= -->
 
 <section
 class="giving-section"
@@ -1105,8 +1272,6 @@ you feel led to give.
 
 </p>
 
-
-<!-- GIVING OPTIONS -->
 
 <div class="giving-options">
 
@@ -1164,8 +1329,6 @@ Sponsor thirty days of the journey.
 </div>
 
 
-<!-- ANY AMOUNT -->
-
 <div class="any-amount">
 
 <h3>
@@ -1185,7 +1348,12 @@ support.
 <a
 href="#"
 class="button"
-onclick="alert('We will connect the donation/payment link here next!'); return false;"
+onclick="
+alert(
+'We will connect the donation/payment system here next!'
+);
+return false;
+"
 >
 GIVE ANY AMOUNT
 </a>
@@ -1215,7 +1383,9 @@ SPONSOR A DAY
 
 <div class="legend">
 
-<div class="legend-dot legend-available"></div>
+<div
+class="legend-dot legend-available"
+></div>
 
 AVAILABLE
 
@@ -1223,7 +1393,9 @@ AVAILABLE
 
 <div class="legend">
 
-<div class="legend-dot legend-sponsored"></div>
+<div
+class="legend-dot legend-sponsored"
+></div>
 
 SPONSORED
 
@@ -1268,9 +1440,160 @@ id="calendar"
 </section>
 
 
-<!-- =====================================
-     3. WORLD MAP
-===================================== -->
+<!-- =================================
+     3. WHAT IS THE WORLD RACE?
+================================= -->
+
+<section
+class="world-race-section"
+id="world-race"
+>
+
+<div class="section-inner">
+
+<div class="world-race-grid">
+
+
+<div class="world-race-text">
+
+<div class="section-label">
+THE WORLD RACE
+</div>
+
+<h2>
+NINE MONTHS.<br>
+<span>ONE MISSION.</span>
+</h2>
+
+<p class="description">
+
+The World Race is a nine-month mission
+journey where young adults travel to
+different countries, live in community
+with a team, and spend their time serving
+others and sharing the love of Jesus.
+
+</p>
+
+<p class="description">
+
+I'll be traveling through South Africa,
+Eswatini, Kenya, Ethiopia, Nepal, and
+Thailand, serving alongside others and
+learning what it looks like to live on
+mission.
+
+</p>
+
+
+<div class="race-details">
+
+
+<div class="race-detail">
+
+<strong>
+9
+</strong>
+
+<span>
+MONTHS
+</span>
+
+</div>
+
+
+<div class="race-detail">
+
+<strong>
+6
+</strong>
+
+<span>
+COUNTRIES
+</span>
+
+</div>
+
+
+<div class="race-detail">
+
+<strong>
+17–20
+</strong>
+
+<span>
+AGES
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="world-race-card">
+
+<div class="race-card-icon">
+✈️
+</div>
+
+<h3>
+SERVE. LIVE. GO.
+</h3>
+
+<p>
+
+This isn't just about traveling to
+different places. It's about serving
+people, building relationships, growing
+in faith, and being part of what God is
+doing around the world.
+
+</p>
+
+
+<div class="country-list">
+
+<span>
+🇿🇦 South Africa
+</span>
+
+<span>
+🇸🇿 Eswatini
+</span>
+
+<span>
+🇰🇪 Kenya
+</span>
+
+<span>
+🇪🇹 Ethiopia
+</span>
+
+<span>
+🇳🇵 Nepal
+</span>
+
+<span>
+🇹🇭 Thailand
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     4. JOURNEY / MAP
+================================= -->
 
 <section
 class="map-section"
@@ -1303,30 +1626,11 @@ countries.
 </p>
 
 
-<!--
-=========================================
-WORLD MAP SVG
-=========================================
-
-The map is built directly into the HTML.
-No image is required.
-
-The green dots are the approximate
-locations of the countries.
-
-The gold route connects the locations.
-
-=========================================
--->
-
 <svg
 class="world-map"
 viewBox="0 0 1200 600"
 xmlns="http://www.w3.org/2000/svg"
 >
-
-
-<!-- OCEAN -->
 
 <rect
 x="0"
@@ -1483,13 +1787,10 @@ L1000 480
 L940 450
 L915 405
 Z
-"
-/>
+"/>
 
 
-<!-- ==================================
-     ROUTE LINE
-================================== -->
+<!-- ROUTE -->
 
 <path
 class="route-line"
@@ -1502,11 +1803,6 @@ C750 180 800 230 850 285
 "
 id="routePath"
 />
-
-
-<!-- ==================================
-     COUNTRY POINTS
-================================== -->
 
 
 <!-- SOUTH AFRICA -->
@@ -1617,15 +1913,11 @@ Thailand
 </text>
 
 
-<!-- ==================================
-     AIRPLANE
-================================== -->
+<!-- AIRPLANE -->
 
 <g class="plane">
 
-<text
-font-size="30"
->
+<text font-size="30">
 ✈
 </text>
 
@@ -1635,20 +1927,23 @@ repeatCount="indefinite"
 rotate="auto"
 >
 
-<mpath href="#routePath"/>
+<mpath
+href="#routePath"
+/>
 
 </animateMotion>
 
 </g>
 
-
 </svg>
 
 
 <p class="map-note">
+
 The route shown is a visual representation
 of the journey and is not intended to show
 exact flight paths.
+
 </p>
 
 </div>
@@ -1658,9 +1953,9 @@ exact flight paths.
 </section>
 
 
-<!-- =====================================
-     4. PRAYER
-===================================== -->
+<!-- =================================
+     5. PRAYER
+================================= -->
 
 <section
 class="prayer-section"
@@ -1671,8 +1966,6 @@ id="prayer"
 
 <div class="prayer-grid">
 
-
-<!-- EDITABLE MESSAGE -->
 
 <div class="prayer-message">
 
@@ -1686,13 +1979,7 @@ JOIN ME IN PRAYER
 
 
 <!--
-=========================================
-EDIT THIS ENTIRE PARAGRAPH.
-
-You can change everything between the
-paragraph tags whenever you want.
-
-=========================================
+EDIT THIS MESSAGE ANYTIME
 -->
 
 <p class="prayer-message-text">
@@ -1716,8 +2003,6 @@ will do throughout these nine months.
 </div>
 
 
-<!-- PRAYER FORM -->
-
 <div class="prayer-form-card">
 
 <h3>
@@ -1731,18 +2016,6 @@ this journey? I'd love to hear it.
 
 </p>
 
-
-<!--
-GOOGLE FORM
-
-Your existing Google Form is embedded
-below.
-
-Submissions will appear in your Google
-Form's Responses section and connected
-Google Sheet.
-
--->
 
 <iframe
 class="google-form"
@@ -1761,9 +2034,9 @@ Loading…
 </section>
 
 
-<!-- =====================================
+<!-- =================================
      FOOTER
-===================================== -->
+================================= -->
 
 <footer>
 
@@ -1778,9 +2051,9 @@ Thank you for being part of the journey.
 </footer>
 
 
-<!-- =====================================
-     DAY MODAL
-===================================== -->
+<!-- =================================
+     SPONSOR MODAL
+================================= -->
 
 <div
 class="modal"
@@ -1822,7 +2095,12 @@ possible.
 <a
 href="#"
 class="button"
-onclick="alert('We will connect the secure sponsorship/payment system here next!'); return false;"
+onclick="
+alert(
+'We will connect the secure sponsorship/payment system here next!'
+);
+return false;
+"
 >
 SPONSOR THIS DAY →
 </a>
@@ -1837,12 +2115,12 @@ SPONSOR THIS DAY →
 <script>
 
 
-/* =====================================
-   SPONSOR SETTINGS
-===================================== */
+/* =================================
+   SPONSORED DAYS
+================================= */
 
 /*
-When a day becomes sponsored, add it here.
+Add sponsored days here later.
 
 Example:
 
@@ -1851,27 +2129,23 @@ const sponsoredDays = {
   "2027-08-22": "Smith Family"
 };
 
-The calendar will automatically turn
-those days GREEN.
 */
 
-const sponsoredDays = {
-
-};
+const sponsoredDays = {};
 
 
-/* =====================================
-   BASIC SETTINGS
-===================================== */
+/* =================================
+   FUNDRAISING SETTINGS
+================================= */
 
 const DAY_PRICE = 73;
 
 const GOAL = 20000;
 
 
-/* =====================================
+/* =================================
    TRIP DATES
-===================================== */
+================================= */
 
 const startDate =
 new Date(2027, 7, 21);
@@ -1880,17 +2154,17 @@ const endDate =
 new Date(2028, 4, 21);
 
 
-/* =====================================
-   CURRENT CALENDAR MONTH
-===================================== */
+/* =================================
+   CURRENT MONTH
+================================= */
 
 let currentMonth =
 new Date(2027, 7, 1);
 
 
-/* =====================================
+/* =================================
    DATE KEY
-===================================== */
+================================= */
 
 function dateKey(date) {
 
@@ -1912,9 +2186,9 @@ function dateKey(date) {
 }
 
 
-/* =====================================
+/* =================================
    DAY NUMBER
-===================================== */
+================================= */
 
 function dayNumber(date) {
 
@@ -1929,14 +2203,16 @@ function dayNumber(date) {
 }
 
 
-/* =====================================
-   CALENDAR
-===================================== */
+/* =================================
+   RENDER CALENDAR
+================================= */
 
 function renderCalendar() {
 
   const calendar =
-    document.getElementById("calendar");
+    document.getElementById(
+      "calendar"
+    );
 
   calendar.innerHTML = "";
 
@@ -1955,7 +2231,9 @@ function renderCalendar() {
   weekdays.forEach(day => {
 
     const div =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
     div.className =
       "weekday";
@@ -2010,7 +2288,9 @@ function renderCalendar() {
   ) {
 
     const blank =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
     blank.className =
       "day";
@@ -2040,7 +2320,9 @@ function renderCalendar() {
     ) {
 
       const blank =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
       blank.className =
         "day";
@@ -2060,7 +2342,9 @@ function renderCalendar() {
 
 
     const cell =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
 
     cell.className =
@@ -2070,7 +2354,9 @@ function renderCalendar() {
 
 
     const button =
-      document.createElement("button");
+      document.createElement(
+        "button"
+      );
 
 
     button.innerHTML = `
@@ -2090,11 +2376,13 @@ function renderCalendar() {
       </span>
 
       <span class="status">
+
         ${
           sponsored
           ? "✓ SPONSORED"
           : "AVAILABLE • $73"
         }
+
       </span>
 
     `;
@@ -2111,18 +2399,22 @@ function renderCalendar() {
       };
 
 
-    cell.appendChild(button);
+    cell.appendChild(
+      button
+    );
 
-    calendar.appendChild(cell);
+    calendar.appendChild(
+      cell
+    );
 
   }
 
 }
 
 
-/* =====================================
+/* =================================
    PREVIOUS MONTH
-===================================== */
+================================= */
 
 function previousMonth() {
 
@@ -2157,9 +2449,9 @@ function previousMonth() {
 }
 
 
-/* =====================================
+/* =================================
    NEXT MONTH
-===================================== */
+================================= */
 
 function nextMonth() {
 
@@ -2194,9 +2486,9 @@ function nextMonth() {
 }
 
 
-/* =====================================
-   DAY MODAL
-===================================== */
+/* =================================
+   OPEN MODAL
+================================= */
 
 function openModal(
   date,
@@ -2206,7 +2498,8 @@ function openModal(
   document.getElementById(
     "modalTitle"
   ).textContent =
-    "Day " + dayNumber(date);
+    "Day " +
+    dayNumber(date);
 
 
   document.getElementById(
@@ -2234,7 +2527,10 @@ function openModal(
     message.innerHTML = `
 
       <div class="sponsor-note">
-        ✓ This day has already been sponsored.
+
+        ✓ This day has already been
+        sponsored.
+
       </div>
 
     `;
@@ -2246,9 +2542,11 @@ function openModal(
     message.innerHTML = `
 
       <p>
+
         Sponsor this day of my World Race
         journey and help make this adventure
         possible.
+
       </p>
 
       <a
@@ -2261,7 +2559,9 @@ function openModal(
           return false;
         "
       >
+
         SPONSOR THIS DAY →
+
       </a>
 
     `;
@@ -2277,9 +2577,9 @@ function openModal(
 }
 
 
-/* =====================================
+/* =================================
    CLOSE MODAL
-===================================== */
+================================= */
 
 function closeModal() {
 
@@ -2291,9 +2591,9 @@ function closeModal() {
 }
 
 
-/* =====================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
-===================================== */
+/* =================================
+   CLICK OUTSIDE MODAL
+================================= */
 
 window.addEventListener(
   "click",
@@ -2316,9 +2616,9 @@ window.addEventListener(
 );
 
 
-/* =====================================
+/* =================================
    FUNDRAISING PROGRESS
-===================================== */
+================================= */
 
 function updateProgress() {
 
@@ -2362,9 +2662,9 @@ function updateProgress() {
 }
 
 
-/* =====================================
-   START WEBSITE
-===================================== */
+/* =================================
+   START
+================================= */
 
 renderCalendar();
 
