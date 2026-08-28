@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,21 +12,16 @@
 <style>
 
 /* =========================================================
-   GLOBAL
+   GENERAL
 ========================================================= */
 
 :root {
-  --green: #1f5137;
-  --green-dark: #10291c;
-  --green-light: #4f9468;
-  --gold: #d6a637;
-  --red: #b83b3b;
-  --cream: #f4f0e7;
-  --white: #ffffff;
-  --dark: #0d1711;
-  --text: #172019;
-  --muted: #68716b;
-  --border: #d5cfc3;
+  --green: #24543a;
+  --dark: #0c1710;
+  --gold: #d4a638;
+  --red: #b93636;
+  --cream: #f5f0e6;
+  --border: #d4cec1;
 }
 
 * {
@@ -39,15 +34,10 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   background: var(--cream);
-  color: var(--text);
+  color: #172019;
+  font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -56,42 +46,35 @@ a {
 ========================================================= */
 
 nav {
-  min-height: 76px;
-  padding: 0 6%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   background: var(--dark);
   color: white;
 
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 20px 6%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 2px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 25px;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.nav-links a:hover {
-  color: var(--gold);
+  font-weight: bold;
 }
 
 
@@ -100,50 +83,44 @@ nav {
 ========================================================= */
 
 .hero {
-  min-height: 650px;
-  padding: 90px 7%;
-
   background:
-    radial-gradient(
-      circle at 82% 18%,
-      #315b42 0%,
-      transparent 35%
-    ),
     linear-gradient(
       135deg,
-      #0c1810,
-      #23432f
+      #0b1710,
+      #285338
     );
 
   color: white;
+
+  padding: 80px 7%;
 }
 
-.hero-content {
-  width: 100%;
+.hero-grid {
   max-width: 1200px;
   margin: auto;
 
   display: grid;
-  grid-template-columns:
-    minmax(0, 1.15fr)
-    minmax(320px, .85fr);
+  grid-template-columns: 1.15fr .85fr;
 
-  gap: 70px;
+  gap: 55px;
+
   align-items: center;
 }
 
-.eyebrow {
-  color: var(--gold);
+.eyebrow,
+.label {
   font-size: 11px;
-  font-weight: 800;
   letter-spacing: 3px;
+  font-weight: 900;
+  color: var(--gold);
 }
 
 h1 {
-  margin: 20px 0 30px;
+  font-size: clamp(60px, 9vw, 110px);
+  line-height: .85;
 
-  font-size: clamp(65px, 9vw, 115px);
-  line-height: .84;
+  margin: 20px 0 28px;
+
   letter-spacing: -4px;
 }
 
@@ -152,38 +129,32 @@ h1 span {
   font-style: italic;
 }
 
-.hero-text {
-  max-width: 600px;
-
-  color: #dbe5dd;
-
+.hero p {
   font-size: 18px;
-  line-height: 1.75;
+  line-height: 1.7;
+
+  max-width: 650px;
+
+  color: #dce6df;
 }
 
 .button {
   display: inline-block;
 
-  margin-top: 20px;
-  padding: 16px 25px;
+  margin-top: 18px;
 
-  border-radius: 8px;
+  padding: 15px 23px;
 
   background: var(--gold);
-  color: #101510;
+  color: #111;
 
   text-decoration: none;
 
-  font-weight: 800;
-  font-size: 13px;
+  font-weight: 900;
+
+  border-radius: 8px;
 
   cursor: pointer;
-
-  transition: .2s ease;
-}
-
-.button:hover {
-  transform: translateY(-2px);
 }
 
 
@@ -191,86 +162,65 @@ h1 span {
    FUNDRAISING CARD
 ========================================================= */
 
-.goal-card {
-  width: 100%;
-  padding: 35px;
+.goal {
+  padding: 30px;
 
-  background: rgba(0,0,0,.35);
+  background: #0005;
 
-  border: 1px solid rgba(255,255,255,.18);
+  border: 1px solid #fff3;
 
-  border-radius: 22px;
-
-  backdrop-filter: blur(8px);
+  border-radius: 20px;
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  gap: 15px;
+  gap: 12px;
 
-  padding-bottom: 25px;
-  margin-bottom: 25px;
+  border-bottom: 1px solid #fff3;
 
-  border-bottom: 1px solid rgba(255,255,255,.2);
+  padding-bottom: 20px;
+
+  margin-bottom: 22px;
 }
 
 .stats strong {
   display: block;
-  font-size: 29px;
+  font-size: 28px;
 }
 
 .stats small {
-  color: #b9c5bd;
   font-size: 9px;
-  letter-spacing: 1px;
-}
-
-.goal-label {
-  color: var(--gold);
-
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  color: #cbd5ce;
 }
 
 .money {
-  margin-top: 5px;
+  font-size: 42px;
+  font-weight: 900;
 
-  font-size: 45px;
-  font-weight: 800;
-}
-
-.goal-total {
-  color: #c4cec7;
+  margin-top: 6px;
 }
 
 .progress {
-  height: 15px;
-  margin-top: 15px;
+  height: 14px;
 
-  background: #3a493f;
+  background: #3b493f;
 
   border-radius: 20px;
+
+  margin-top: 12px;
 
   overflow: hidden;
 }
 
-.progress-bar {
+.bar {
   height: 100%;
-  width: 0%;
+  width: 0;
 
   background: var(--gold);
 
-  transition: width .5s ease;
-}
-
-.progress-percent {
-  margin-top: 10px;
-
-  color: #cbd5ce;
-  font-size: 12px;
+  transition: width .5s;
 }
 
 
@@ -279,119 +229,77 @@ h1 span {
 ========================================================= */
 
 section {
-  padding: 85px 6%;
+  padding: 80px 6%;
 }
 
-.section-inner {
-  width: 100%;
+.inner {
   max-width: 1200px;
   margin: auto;
 }
 
-.section-label {
-  color: #a67e20;
-
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
 h2 {
-  margin: 10px 0 20px;
+  font-size: clamp(36px, 5vw, 58px);
 
-  font-size: clamp(38px, 5vw, 58px);
   line-height: 1;
 
-  letter-spacing: -1px;
+  margin: 10px 0 20px;
 }
 
-.description {
-  max-width: 720px;
+.desc {
+  max-width: 750px;
 
-  color: var(--muted);
+  color: #68716b;
 
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 
 /* =========================================================
-   GIVING
+   GIVING OPTIONS
 ========================================================= */
 
-.giving-section {
-  background: var(--cream);
-}
-
-.giving-options {
+.giving {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
 
   gap: 18px;
 
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
-.give-card {
-  padding: 30px;
-
+.give {
   background: white;
 
   border: 1px solid #ded8cc;
-  border-radius: 17px;
+
+  border-radius: 16px;
+
+  padding: 25px;
 
   text-align: center;
-
-  transition: transform .2s ease;
-}
-
-.give-card:hover {
-  transform: translateY(-4px);
-}
-
-.give-card h3 {
-  margin: 0;
-
-  font-size: 12px;
-  letter-spacing: 2px;
 }
 
 .price {
-  margin: 12px 0;
-
-  color: #a67e20;
-
   font-size: 40px;
-  font-weight: 800;
+
+  font-weight: 900;
+
+  color: #a57b1c;
 }
 
-.give-card p {
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.any-amount {
-  margin-top: 20px;
-  padding: 28px;
+.any {
+  margin-top: 18px;
 
   background: var(--green);
 
-  border-radius: 17px;
-
   color: white;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
   text-align: center;
-}
-
-.any-amount h3 {
-  margin: 0 0 10px;
-  font-size: 25px;
-}
-
-.any-amount p {
-  max-width: 650px;
-  margin: auto;
-
-  color: #dbe5de;
-  line-height: 1.6;
 }
 
 
@@ -399,93 +307,81 @@ h2 {
    CALENDAR
 ========================================================= */
 
-.calendar-area {
-  margin-top: 75px;
+.calendar-wrap {
+  margin-top: 65px;
 }
 
-.calendar-top {
+.cal-top {
   display: flex;
+
   justify-content: space-between;
-  align-items: flex-end;
 
-  gap: 25px;
-
-  margin-bottom: 25px;
-}
-
-.calendar-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-
-  font-size: 10px;
-  font-weight: 800;
+  align-items: end;
 }
 
 .legend {
   display: flex;
-  align-items: center;
-  gap: 7px;
+
+  gap: 14px;
+
+  font-size: 10px;
+
+  font-weight: bold;
 }
 
-.legend-dot {
-  width: 13px;
-  height: 13px;
+.dot {
+  display: inline-block;
+
+  width: 12px;
+  height: 12px;
 
   border-radius: 3px;
+
+  margin-right: 5px;
 }
 
-.legend-available {
+.red {
   background: var(--red);
 }
 
-.legend-sponsored {
-  background: var(--green-light);
+.green {
+  background: #36734d;
 }
 
-.calendar-header {
-  display: flex;
-  justify-content: center;
+.cal-head {
+  display: grid;
+
+  grid-template-columns: 48px 1fr 48px;
+
+  gap: 10px;
+
   align-items: center;
 
-  gap: 35px;
-
-  margin-bottom: 20px;
+  margin: 22px 0;
 }
 
-.calendar-header button {
-  width: 44px;
-  height: 44px;
+.cal-head button {
+  width: 48px;
+  height: 48px;
 
-  border: none;
+  border: 0;
+
   border-radius: 50%;
 
   background: var(--green);
+
   color: white;
 
-  font-size: 21px;
+  font-size: 20px;
 
   cursor: pointer;
 }
 
-.calendar-header button:hover {
-  background: var(--green-dark);
-}
-
-#monthName {
-  width: 250px;
-
-  margin: 0;
-
+.cal-head h3 {
   text-align: center;
 
-  font-size: 27px;
+  font-size: 25px;
 }
-
-
-/* =========================================================
-   CALENDAR GRID
-========================================================= */
 
 .calendar {
   display: grid;
@@ -493,117 +389,89 @@ h2 {
   grid-template-columns:
     repeat(7, minmax(0, 1fr));
 
-  gap: 8px;
-
-  width: 100%;
+  gap: 6px;
 }
 
 .weekday {
-  min-height: 38px;
+  text-align: center;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  min-height: 35px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   color: #626a64;
-
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1px;
 }
 
-
-/* EVERY DAY IS A BOX */
-
 .day {
-  min-width: 0;
-  min-height: 105px;
-
-  position: relative;
+  height: 105px;
 
   border: 2px solid var(--border);
 
-  border-radius: 10px;
+  border-radius: 9px;
 
   overflow: hidden;
 
-  background: #f9f7f2;
+  background: #faf8f3;
 }
 
-.day.empty {
+.day.empty,
+.inactive {
   background: #ebe6dc;
-  border-color: #d9d2c6;
-  opacity: .75;
 }
 
-.day.inactive {
-  background: #eeeae2;
-  border-color: #d8d1c5;
-  color: #aaa59c;
-}
-
-.day.available {
+.available {
   border-color: var(--red);
-  background: #fff4f4;
+
+  background: #fff0f0;
 }
 
-.day.sponsored {
-  border-color: var(--green-light);
-  background: #eaf6ed;
+.sponsored {
+  border-color: #36734d;
+
+  background: #e5f3e8;
 }
 
 .day button {
-  position: absolute;
+  border: 0;
 
-  inset: 0;
+  background: transparent;
 
   width: 100%;
   height: 100%;
 
-  border: none;
+  padding: 10px;
 
-  background: transparent;
+  display: flex;
 
-  padding: 11px;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
 
   text-align: left;
-
-  font-family: inherit;
 
   cursor: pointer;
 }
 
-.day.inactive button {
-  cursor: default;
-}
-
 .number {
-  display: block;
-
   font-size: 21px;
-  font-weight: 800;
-}
 
-.date-small {
-  display: block;
-
-  margin-top: 4px;
-
-  color: #747a75;
-
-  font-size: 9px;
+  font-weight: 900;
 }
 
 .status {
-  position: absolute;
-
-  left: 11px;
-  bottom: 11px;
-
   font-size: 9px;
-  font-weight: 800;
 
-  letter-spacing: .4px;
+  font-weight: 900;
 }
 
 .available .status {
@@ -611,130 +479,94 @@ h2 {
 }
 
 .sponsored .status {
-  color: var(--green);
+  color: #245a38;
 }
 
 
 /* =========================================================
-   WORLD RACE
+   WORLD RACE SECTION
 ========================================================= */
 
-.world-race-section {
+.race {
   background: white;
 }
 
-.world-race-grid {
+.race-grid {
   display: grid;
 
-  grid-template-columns:
-    minmax(0, 1.15fr)
-    minmax(320px, .85fr);
+  grid-template-columns: 1.1fr .9fr;
 
-  gap: 60px;
+  gap: 45px;
 
   align-items: center;
 }
 
-.world-race-text h2 span {
-  color: var(--green);
-  font-style: italic;
-}
-
-.world-race-text .description {
-  margin-bottom: 20px;
-}
-
-.race-details {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 14px;
-
-  margin-top: 35px;
-}
-
-.race-detail {
-  padding: 22px 15px;
-
-  background: var(--cream);
-
-  border: 1px solid #ded8cc;
-
-  border-radius: 14px;
-
-  text-align: center;
-}
-
-.race-detail strong {
-  display: block;
-
-  color: var(--green);
-
-  font-size: 27px;
-
-  margin-bottom: 5px;
-}
-
-.race-detail span {
-  color: #777d78;
-
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-}
-
-.world-race-card {
-  padding: 45px;
-
+.race-card {
   background: var(--green);
 
   color: white;
 
-  border-radius: 24px;
+  border-radius: 22px;
 
-  box-shadow:
-    0 20px 45px rgba(20,45,30,.12);
+  padding: 38px;
 }
 
-.race-card-icon {
-  font-size: 45px;
-  margin-bottom: 20px;
-}
-
-.world-race-card h3 {
-  margin: 0 0 15px;
-
-  color: var(--gold);
-
-  font-size: 25px;
-  letter-spacing: 2px;
-}
-
-.world-race-card p {
+.race-card p {
   color: #dce6df;
-  line-height: 1.75;
+
+  line-height: 1.7;
 }
 
-.country-list {
+.countries {
   display: grid;
 
   grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+}
+
+.countries span {
+  background: #ffffff17;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+}
+
+.details {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 10px;
 
   margin-top: 30px;
 }
 
-.country-list span {
-  padding: 10px;
+.detail {
+  background: var(--cream);
 
-  background: rgba(255,255,255,.09);
+  padding: 18px;
 
-  border-radius: 8px;
+  text-align: center;
 
-  color: #edf3ee;
+  border-radius: 12px;
+}
 
-  font-size: 12px;
+.detail strong {
+  display: block;
+
+  color: var(--green);
+
+  font-size: 24px;
+}
+
+.detail small {
+  font-size: 8px;
+
+  font-weight: bold;
 }
 
 
@@ -742,45 +574,32 @@ h2 {
    WORLD MAP
 ========================================================= */
 
-.map-section {
-  background: var(--cream);
-}
+.map-box {
+  margin-top: 40px;
 
-.map-wrapper {
-  margin-top: 50px;
-
-  padding: 20px;
+  padding: 10px;
 
   background: #dce9e2;
 
-  border-radius: 25px;
-
   border: 1px solid #c8d8ce;
+
+  border-radius: 22px;
 
   overflow: hidden;
 }
 
-.map-title {
-  margin: 0 0 15px;
-
-  color: var(--green);
-
-  font-weight: 800;
-
-  letter-spacing: 2px;
-}
-
 #worldMap {
-  width: 100%;
-  height: auto;
-
   display: block;
+
+  width: 100%;
+
+  height: auto;
 }
 
 .country-shape {
-  fill: #aab9ad;
+  fill: #a9b8ad;
 
-  stroke: #7f9185;
+  stroke: #7d8e83;
 
   stroke-width: .5px;
 }
@@ -793,8 +612,6 @@ h2 {
   stroke-width: 3;
 
   stroke-dasharray: 8 7;
-
-  stroke-linecap: round;
 }
 
 .route-point {
@@ -806,9 +623,9 @@ h2 {
 }
 
 .route-label {
-  font-size: 12px;
+  font-size: 13px;
 
-  font-weight: 800;
+  font-weight: 900;
 
   fill: #172019;
 
@@ -817,20 +634,10 @@ h2 {
   stroke: white;
 
   stroke-width: 4px;
-
-  stroke-linejoin: round;
 }
 
-.plane-symbol {
-  font-size: 25px;
-}
-
-.map-note {
-  margin-top: 15px;
-
-  color: #68716b;
-
-  font-size: 12px;
+.plane {
+  font-size: 24px;
 }
 
 
@@ -838,7 +645,7 @@ h2 {
    PRAYER
 ========================================================= */
 
-.prayer-section {
+.prayer {
   background: var(--dark);
 
   color: white;
@@ -849,55 +656,33 @@ h2 {
 
   grid-template-columns: 1fr 1fr;
 
-  gap: 35px;
+  gap: 45px;
 
-  align-items: stretch;
+  align-items: center;
 }
 
-.prayer-message {
-  padding: 45px;
+.prayer-card {
+  padding: 35px;
 
   background: #1d3425;
 
-  border-radius: 22px;
+  border-radius: 20px;
 }
 
-.prayer-message h2 {
-  color: white;
-}
-
-.prayer-message-text {
+.prayer-card p {
   color: #d9e3dc;
 
-  font-size: 17px;
-
-  line-height: 1.85;
+  line-height: 1.8;
 }
 
-.prayer-form-card {
-  padding: 30px;
-
+.form-card {
   background: white;
 
-  border-radius: 22px;
+  color: #172019;
 
-  color: var(--text);
+  border-radius: 20px;
 
-  overflow: hidden;
-}
-
-.prayer-form-card h3 {
-  margin-top: 0;
-
-  color: var(--green);
-
-  font-size: 27px;
-}
-
-.prayer-form-card p {
-  color: var(--muted);
-
-  line-height: 1.6;
+  padding: 20px;
 }
 
 .google-form {
@@ -905,9 +690,7 @@ h2 {
 
   min-height: 650px;
 
-  border: none;
-
-  margin-top: 10px;
+  border: 0;
 }
 
 
@@ -916,19 +699,13 @@ h2 {
 ========================================================= */
 
 footer {
-  padding: 45px 7%;
-
   background: #080e0a;
 
   color: #aeb8b1;
 
   text-align: center;
-}
 
-footer strong {
-  color: white;
-
-  letter-spacing: 2px;
+  padding: 40px;
 }
 
 
@@ -943,25 +720,27 @@ footer strong {
 
   inset: 0;
 
-  z-index: 200;
+  background: #000b;
 
-  background: rgba(0,0,0,.72);
+  z-index: 30;
 
   align-items: center;
+
   justify-content: center;
 
   padding: 20px;
 }
 
-.modal-box {
-  width: 100%;
-  max-width: 480px;
+.modalbox {
+  max-width: 450px;
 
-  padding: 38px;
+  width: 100%;
 
   background: var(--cream);
 
-  border-radius: 20px;
+  border-radius: 18px;
+
+  padding: 30px;
 
   position: relative;
 }
@@ -969,38 +748,17 @@ footer strong {
 .close {
   position: absolute;
 
-  top: 10px;
-  right: 15px;
+  right: 12px;
 
-  border: none;
+  top: 8px;
 
-  background: transparent;
+  border: 0;
+
+  background: none;
 
   font-size: 30px;
 
   cursor: pointer;
-}
-
-.modal-price {
-  margin: 10px 0;
-
-  color: #a67e20;
-
-  font-size: 40px;
-
-  font-weight: 800;
-}
-
-.sponsor-note {
-  padding: 15px;
-
-  background: #e8f5ec;
-
-  border-radius: 10px;
-
-  color: var(--green);
-
-  font-weight: bold;
 }
 
 
@@ -1008,505 +766,138 @@ footer strong {
    TABLET
 ========================================================= */
 
-@media (max-width: 950px) {
+@media(max-width:800px) {
 
-  .hero {
-    padding: 70px 5%;
-  }
-
-  .hero-content {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .world-race-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .hero-grid,
+  .race-grid,
   .prayer-grid {
     grid-template-columns: 1fr;
   }
 
-}
-
-
-/* =========================================================
-   PHONE
-========================================================= */
-
-@media (max-width: 650px) {
-
-  /* -----------------------------------------
-     NAV
-  ----------------------------------------- */
-
-  nav {
-    min-height: 64px;
-    padding: 0 18px;
-  }
-
-  .logo {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-
-  /* -----------------------------------------
-     HERO
-  ----------------------------------------- */
-
   .hero {
-    min-height: auto;
-
-    padding:
-      55px 18px
-      45px;
+    padding: 55px 18px;
   }
 
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-
-    gap: 35px;
-  }
-
-  .eyebrow {
-    font-size: 8px;
-    letter-spacing: 1.8px;
-  }
-
-  h1 {
-    margin:
-      17px 0 23px;
-
-    font-size:
-      clamp(50px, 17vw, 72px);
-
-    line-height: .88;
-
-    letter-spacing: -2px;
-  }
-
-  .hero-text {
+  .hero p {
     font-size: 15px;
-    line-height: 1.65;
   }
-
-  .button {
-    width: 100%;
-
-    text-align: center;
-
-    padding: 16px;
-  }
-
-
-  /* -----------------------------------------
-     FUNDRAISING
-  ----------------------------------------- */
-
-  .goal-card {
-    padding: 24px 18px;
-
-    border-radius: 18px;
-  }
-
-  .stats {
-    gap: 5px;
-  }
-
-  .stats strong {
-    font-size: 21px;
-  }
-
-  .stats small {
-    font-size: 7px;
-  }
-
-  .money {
-    font-size: 36px;
-  }
-
-
-  /* -----------------------------------------
-     SECTIONS
-  ----------------------------------------- */
 
   section {
-    padding:
-      55px 18px;
+    padding: 55px 16px;
   }
 
-  h2 {
-    font-size:
-      clamp(33px, 10vw, 46px);
-
-    line-height: 1.03;
-  }
-
-  .description {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-
-  /* -----------------------------------------
-     GIVING
-  ----------------------------------------- */
-
-  .giving-options {
+  .giving {
     grid-template-columns: 1fr;
-
-    gap: 12px;
-
-    margin-top: 28px;
   }
 
-  .give-card {
-    padding: 22px;
-  }
-
-  .price {
-    font-size: 35px;
-  }
-
-  .any-amount {
-    padding: 24px 18px;
-  }
-
-
-  /* -----------------------------------------
-     CALENDAR
-  ----------------------------------------- */
-
-  .calendar-area {
-    margin-top: 50px;
-  }
-
-  .calendar-top {
+  .cal-top {
     display: block;
   }
 
-  .calendar-legend {
-    margin-top: 18px;
-
-    gap: 12px;
-
-    font-size: 8px;
-  }
-
-  .legend-dot {
-    width: 11px;
-    height: 11px;
-  }
-
-  .calendar-header {
-    gap: 8px;
-
-    margin-top: 28px;
-  }
-
-  .calendar-header button {
-    flex: 0 0 38px;
-
-    width: 38px;
-    height: 38px;
-
-    font-size: 17px;
-  }
-
-  #monthName {
-    width: auto;
-
-    flex: 1;
-
-    font-size: 19px;
+  .legend {
+    margin-top: 16px;
   }
 
   /*
-     IMPORTANT:
-     The calendar now FITS the phone width.
-     There is NO horizontal scrolling.
+     MOBILE CALENDAR
+
+     Seven equal columns.
+     The entire month stays visible.
   */
 
   .calendar {
     grid-template-columns:
       repeat(7, minmax(0, 1fr));
 
-    gap: 3px;
-  }
-
-  .weekday {
-    min-height: 30px;
-
-    font-size: 7px;
-
-    letter-spacing: .2px;
+    gap: 4px;
   }
 
   .day {
-    min-height: 67px;
-
-    border-width: 1px;
-
-    border-radius: 6px;
-  }
-
-  .day button {
-    padding: 6px;
-  }
-
-  .day > div {
-    padding: 6px !important;
-  }
-
-  .number {
-    font-size: 14px;
-  }
-
-  .date-small {
-    margin-top: 2px;
-
-    font-size: 6px;
-  }
-
-  .status {
-    left: 5px;
-    bottom: 5px;
-
-    font-size: 5.5px;
-
-    letter-spacing: 0;
-  }
-
-
-  /* -----------------------------------------
-     WORLD RACE
-  ----------------------------------------- */
-
-  .world-race-grid {
-    gap: 28px;
-  }
-
-  .world-race-card {
-    padding: 28px 20px;
-
-    border-radius: 18px;
-  }
-
-  .race-card-icon {
-    font-size: 38px;
-  }
-
-  .world-race-card h3 {
-    font-size: 22px;
-  }
-
-  .world-race-card p {
-    font-size: 14px;
-  }
-
-  .race-details {
-    grid-template-columns:
-      repeat(3, 1fr);
-
-    gap: 7px;
-
-    margin-top: 25px;
-  }
-
-  .race-detail {
-    padding:
-      16px 5px;
-  }
-
-  .race-detail strong {
-    font-size: 20px;
-  }
-
-  .race-detail span {
-    font-size: 6px;
-    letter-spacing: .8px;
-  }
-
-  .country-list {
-    gap: 7px;
-  }
-
-  .country-list span {
-    padding: 9px 6px;
-
-    font-size: 9px;
-  }
-
-
-  /* -----------------------------------------
-     MAP
-  ----------------------------------------- */
-
-  .map-wrapper {
-    margin-top: 30px;
-
-    padding:
-      8px 6px 12px;
-
-    border-radius: 17px;
-  }
-
-  /*
-     The SVG is now allowed to shrink
-     naturally with the phone screen.
-  */
-
-  #worldMap {
-    width: 100%;
-    height: auto;
+    height: 78px;
 
     min-width: 0;
   }
 
-  .map-title {
-    padding-left: 5px;
-
-    font-size: 11px;
-  }
-
-  .map-note {
-    padding: 0 5px;
-
-    font-size: 9px;
-
-    line-height: 1.5;
-  }
-
-  .route-label {
-    font-size: 8px;
-
-    stroke-width: 3px;
-  }
-
-  .plane-symbol {
+  .number {
     font-size: 18px;
   }
 
-
-  /* -----------------------------------------
-     PRAYER
-  ----------------------------------------- */
-
-  .prayer-grid {
-    grid-template-columns: 1fr;
-
-    gap: 18px;
+  .status {
+    font-size: 7px;
   }
 
-  .prayer-message {
-    padding: 28px 20px;
-
-    border-radius: 18px;
-  }
-
-  .prayer-message-text {
-    font-size: 15px;
-
-    line-height: 1.75;
-  }
-
-  .prayer-form-card {
-    padding: 22px 12px;
-
-    border-radius: 18px;
-  }
-
-  .google-form {
-    min-height: 700px;
-  }
-
-
-  /* -----------------------------------------
-     MODAL
-  ----------------------------------------- */
-
-  .modal {
-    padding: 14px;
-  }
-
-  .modal-box {
-    padding:
-      30px 20px;
-  }
-
-}
-
-
-/* =========================================================
-   EXTRA SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-  .logo {
+  .weekday {
     font-size: 8px;
   }
 
-  section {
-    padding-left: 14px;
-    padding-right: 14px;
+
+  /*
+     MOBILE MAP
+
+     Slightly taller map so the country
+     names remain readable without making
+     the map huge.
+  */
+
+  .map-box {
+    padding: 8px 5px 12px;
+
+    border-radius: 17px;
+
+    margin-top: 25px;
   }
 
-  .hero {
-    padding-left: 14px;
-    padding-right: 14px;
+  #worldMap {
+    width: 100%;
+
+    height: auto;
   }
 
-  h1 {
-    font-size: 51px;
-  }
-
-  .calendar {
-    gap: 2px;
-  }
-
-  .day {
-    min-height: 61px;
-  }
-
-  .day button {
-    padding: 5px;
-  }
-
-  .number {
+  .route-label {
     font-size: 12px;
+
+    stroke-width: 3.5px;
   }
 
-  .status {
-    font-size: 5px;
+  .plane {
+    font-size: 21px;
   }
 
+  .nav-links {
+    display: none;
+  }
 }
 
 
 /* =========================================================
-   ACCESSIBILITY
+   SMALL PHONES
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media(max-width:380px) {
 
-  html {
-    scroll-behavior: auto;
+  .day {
+    height: 70px;
   }
 
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-    animation: none !important;
+  .number {
+    font-size: 16px;
   }
 
+  .status {
+    font-size: 6px;
+  }
+
+  .calendar {
+    gap: 3px;
+  }
+
+  .route-label {
+    font-size: 11px;
+  }
+
+  .plane {
+    font-size: 19px;
+  }
 }
 
 </style>
@@ -1516,740 +907,676 @@ footer strong {
 <body>
 
 
-<!-- =====================================================
+<!-- =======================================================
      NAVIGATION
-===================================================== -->
+======================================================= -->
 
 <nav>
 
-<div class="logo">
-✦ WORLD RACE 2027–2028
-</div>
+  <div class="logo">
+    ✦ WORLD RACE 2027–2028
+  </div>
 
-<div class="nav-links">
+  <div class="nav-links">
 
-<a href="#give">GIVE</a>
+    <a href="#give">GIVE</a>
 
-<a href="#world-race">WORLD RACE</a>
+    <a href="#race">WORLD RACE</a>
 
-<a href="#map">JOURNEY</a>
+    <a href="#map">JOURNEY</a>
 
-<a href="#prayer">PRAYER</a>
+    <a href="#prayer">PRAYER</a>
 
-</div>
+  </div>
 
 </nav>
 
 
-<!-- =====================================================
+<!-- =======================================================
      HERO
-===================================================== -->
+======================================================= -->
 
 <header class="hero">
 
-<div class="hero-content">
+  <div class="hero-grid">
 
-<div>
+    <div>
 
-<div class="eyebrow">
-AUGUST 21, 2027 — MAY 21, 2028
-</div>
+      <div class="eyebrow">
+        AUGUST 21, 2027 — MAY 21, 2028
+      </div>
 
-<h1>
-SPONSOR<br>
-<span>A DAY</span>
-</h1>
+      <h1>
+        SPONSOR<br>
+        <span>A DAY</span>
+      </h1>
 
-<p class="hero-text">
+      <p>
+        For nine months, I will be stepping into a journey
+        across six countries through the World Race.
+        Come alongside me through prayer, encouragement,
+        and financial support.
+      </p>
 
-For nine months, I will be stepping into
-a journey across six countries through
-the World Race. I would love for you to
-come alongside me—not just financially,
-but through prayer and support.
+      <a class="button" href="#give">
+        CHOOSE YOUR DAY →
+      </a>
 
-</p>
-
-<a
-href="#give"
-class="button"
->
-CHOOSE YOUR DAY →
-</a>
-
-</div>
+    </div>
 
 
-<div class="goal-card">
+    <div class="goal">
 
-<div class="stats">
+      <div class="stats">
 
-<div>
-<strong>275</strong>
-<small>DAYS</small>
-</div>
+        <div>
+          <strong>275</strong>
+          <small>DAYS</small>
+        </div>
 
-<div>
-<strong>6</strong>
-<small>COUNTRIES</small>
-</div>
+        <div>
+          <strong>6</strong>
+          <small>COUNTRIES</small>
+        </div>
 
-<div>
-<strong>$20K</strong>
-<small>GOAL</small>
-</div>
+        <div>
+          <strong>$20K</strong>
+          <small>GOAL</small>
+        </div>
 
-</div>
+      </div>
 
-<div class="goal-label">
-FUNDRAISING PROGRESS
-</div>
 
-<div
-class="money"
-id="raised"
->
-$0
-</div>
+      <div class="label">
+        FUNDRAISING PROGRESS
+      </div>
 
-<div class="goal-total">
-of $20,000
-</div>
+      <div class="money" id="raised">
+        $0
+      </div>
 
-<div class="progress">
+      <div>
+        of $20,000
+      </div>
 
-<div
-class="progress-bar"
-id="progress"
-></div>
+      <div class="progress">
 
-</div>
+        <div
+          class="bar"
+          id="bar">
+        </div>
 
-<div
-class="progress-percent"
-id="progressPercent"
->
-0% funded
-</div>
+      </div>
 
-</div>
+      <small id="percent">
+        0% funded
+      </small>
 
-</div>
+    </div>
+
+  </div>
 
 </header>
 
 
-<!-- =====================================================
+<!-- =======================================================
      GIVING + CALENDAR
-===================================================== -->
+======================================================= -->
 
-<section
-class="giving-section"
-id="give"
->
+<section id="give">
 
-<div class="section-inner">
+  <div class="inner">
 
-<div class="section-label">
-WAYS TO SUPPORT
-</div>
+    <div class="label">
+      WAYS TO SUPPORT
+    </div>
 
-<h2>
-BE PART OF THE JOURNEY
-</h2>
+    <h2>
+      BE PART OF THE JOURNEY
+    </h2>
 
-<p class="description">
+    <p class="desc">
+      Sponsor a day, a week, a month, or give any amount.
+      Every gift helps.
+    </p>
 
-There are lots of ways you can support
-this journey. You can sponsor a day,
-a week, a month, or simply give whatever
-amount you feel led to give.
 
-</p>
+    <div class="giving">
 
 
-<div class="giving-options">
+      <div class="give">
 
-<div class="give-card">
+        <b>ONE DAY</b>
 
-<h3>
-ONE DAY
-</h3>
+        <div class="price">
+          $73
+        </div>
 
-<div class="price">
-$73
-</div>
+        <p>
+          One day of the journey.
+        </p>
 
-<p>
-Sponsor one day of the journey.
-</p>
+      </div>
 
-</div>
 
+      <div class="give">
 
-<div class="give-card">
+        <b>ONE WEEK</b>
 
-<h3>
-ONE WEEK
-</h3>
+        <div class="price">
+          $511
+        </div>
 
-<div class="price">
-$511
-</div>
+        <p>
+          Seven days of the journey.
+        </p>
 
-<p>
-Sponsor seven days of the journey.
-</p>
+      </div>
 
-</div>
 
+      <div class="give">
 
-<div class="give-card">
+        <b>ONE MONTH</b>
 
-<h3>
-ONE MONTH
-</h3>
+        <div class="price">
+          $2,190
+        </div>
 
-<div class="price">
-$2,190
-</div>
+        <p>
+          Thirty days of the journey.
+        </p>
 
-<p>
-Sponsor thirty days of the journey.
-</p>
+      </div>
 
-</div>
+    </div>
 
-</div>
 
+    <div class="any">
 
-<div class="any-amount">
+      <h3>
+        ❤️ EVERY GIFT MATTERS
+      </h3>
 
-<h3>
-❤️ EVERY GIFT MATTERS
-</h3>
+      <p>
+        You don't have to sponsor a whole day.
+        A gift of any amount helps make this journey possible.
+      </p>
 
-<p>
+      <a
+        class="button"
+        href="#"
+        onclick="
+          alert('Your secure donation/payment link can be added here.');
+          return false;
+        "
+      >
+        GIVE ANY AMOUNT
+      </a>
 
-You don't have to sponsor a whole day.
-A gift of any amount helps make this
-journey possible. Whether it's $5, $25,
-$73, or more, I am grateful for your
-support.
+    </div>
 
-</p>
 
-<a
-href="#"
-class="button"
-onclick="
-alert(
-'We will connect the donation/payment system here next!'
-);
-return false;
-"
->
-GIVE ANY AMOUNT
-</a>
+    <!-- =====================================================
+         CALENDAR
+    ====================================================== -->
 
-</div>
+    <div class="calendar-wrap">
 
 
-<!-- =====================================================
-     CALENDAR
-===================================================== -->
+      <div class="cal-top">
 
-<div class="calendar-area">
+        <div>
 
-<div class="calendar-top">
+          <div class="label">
+            275 DAYS
+          </div>
 
-<div>
+          <h2>
+            SPONSOR A DAY
+          </h2>
 
-<div class="section-label">
-275 DAYS
-</div>
+        </div>
 
-<h2>
-SPONSOR A DAY
-</h2>
 
-</div>
+        <div class="legend">
 
+          <span>
+            <i class="dot red"></i>
+            AVAILABLE
+          </span>
 
-<div class="calendar-legend">
+          <span>
+            <i class="dot green"></i>
+            SPONSORED
+          </span>
 
-<div class="legend">
+        </div>
 
-<div
-class="legend-dot legend-available"
-></div>
+      </div>
 
-AVAILABLE
 
-</div>
+      <div class="cal-head">
 
-<div class="legend">
+        <button
+          onclick="prev()"
+          aria-label="Previous month"
+        >
+          ←
+        </button>
 
-<div
-class="legend-dot legend-sponsored"
-></div>
+        <h3 id="month">
+          August 2027
+        </h3>
 
-SPONSORED
+        <button
+          onclick="next()"
+          aria-label="Next month"
+        >
+          →
+        </button>
 
-</div>
+      </div>
 
-</div>
 
-</div>
+      <div
+        class="calendar"
+        id="calendar"
+      >
+      </div>
 
+    </div>
 
-<div class="calendar-header">
-
-<button
-onclick="previousMonth()"
-aria-label="Previous month"
->
-←
-</button>
-
-<h3 id="monthName">
-August 2027
-</h3>
-
-<button
-onclick="nextMonth()"
-aria-label="Next month"
->
-→
-</button>
-
-</div>
-
-
-<div class="calendar">
-
-<div id="calendar"></div>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
-     WORLD RACE
-===================================================== -->
+<!-- =======================================================
+     WHAT IS WORLD RACE
+======================================================= -->
 
 <section
-class="world-race-section"
-id="world-race"
+  class="race"
+  id="race"
 >
 
-<div class="section-inner">
+  <div class="inner">
 
-<div class="world-race-grid">
-
-
-<div class="world-race-text">
-
-<div class="section-label">
-THE WORLD RACE
-</div>
-
-<h2>
-NINE MONTHS.<br>
-<span>ONE MISSION.</span>
-</h2>
-
-<p class="description">
-
-The World Race is a nine-month mission
-journey where young adults travel to
-different countries, live in community
-with a team, and spend their time serving
-others and sharing the love of Jesus.
-
-</p>
-
-<p class="description">
-
-I'll be traveling through South Africa,
-Eswatini, Kenya, Ethiopia, Nepal, and
-Thailand, serving alongside others and
-learning what it looks like to live on
-mission.
-
-</p>
+    <div class="race-grid">
 
 
-<div class="race-details">
+      <div>
 
-<div class="race-detail">
-<strong>9</strong>
-<span>MONTHS</span>
-</div>
+        <div class="label">
+          THE WORLD RACE
+        </div>
 
-<div class="race-detail">
-<strong>6</strong>
-<span>COUNTRIES</span>
-</div>
+        <h2>
+          NINE MONTHS.<br>
+          <em>ONE MISSION.</em>
+        </h2>
 
-<div class="race-detail">
-<strong>17–20</strong>
-<span>AGES</span>
-</div>
+        <p class="desc">
+          The World Race is a nine-month mission journey
+          where young adults travel to different countries,
+          live in community with a team, and spend their
+          time serving others and sharing the love of Jesus.
+        </p>
 
-</div>
-
-</div>
-
-
-<div class="world-race-card">
-
-<div class="race-card-icon">
-✈️
-</div>
-
-<h3>
-SERVE. LIVE. GO.
-</h3>
-
-<p>
-
-This isn't just about traveling to
-different places. It's about serving
-people, building relationships, growing
-in faith, and being part of what God
-is doing around the world.
-
-</p>
+        <p class="desc">
+          I'll be traveling through South Africa, Eswatini,
+          Kenya, Ethiopia, Nepal, and Thailand.
+        </p>
 
 
-<div class="country-list">
+        <div class="details">
 
-<span>🇿🇦 South Africa</span>
-<span>🇸🇿 Eswatini</span>
-<span>🇰🇪 Kenya</span>
-<span>🇪🇹 Ethiopia</span>
-<span>🇳🇵 Nepal</span>
-<span>🇹🇭 Thailand</span>
+          <div class="detail">
 
-</div>
+            <strong>
+              9
+            </strong>
 
-</div>
+            <small>
+              MONTHS
+            </small>
 
-</div>
+          </div>
 
-</div>
+
+          <div class="detail">
+
+            <strong>
+              6
+            </strong>
+
+            <small>
+              COUNTRIES
+            </small>
+
+          </div>
+
+
+          <div class="detail">
+
+            <strong>
+              17–20
+            </strong>
+
+            <small>
+              AGES
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="race-card">
+
+        <div style="font-size:42px">
+          ✈️
+        </div>
+
+        <h2 style="font-size:28px">
+          SERVE. LIVE. GO.
+        </h2>
+
+        <p>
+          This isn't just about traveling.
+          It's about serving people, building relationships,
+          growing in faith, and being part of what God is
+          doing around the world.
+        </p>
+
+
+        <div class="countries">
+
+          <span>
+            🇿🇦 South Africa
+          </span>
+
+          <span>
+            🇸🇿 Eswatini
+          </span>
+
+          <span>
+            🇰🇪 Kenya
+          </span>
+
+          <span>
+            🇪🇹 Ethiopia
+          </span>
+
+          <span>
+            🇳🇵 Nepal
+          </span>
+
+          <span>
+            🇹🇭 Thailand
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      WORLD MAP
-===================================================== -->
+======================================================= -->
 
-<section
-class="map-section"
-id="map"
->
+<section id="map">
 
-<div class="section-inner">
+  <div class="inner">
 
-<div class="section-label">
-THE JOURNEY
-</div>
+    <div class="label">
+      THE JOURNEY
+    </div>
 
-<h2>
-WHERE I'LL GO
-</h2>
+    <h2>
+      WHERE I'LL GO
+    </h2>
 
-<p class="description">
-
-From southern Africa to Southeast Asia,
-this journey will take me across six
-countries.
-
-</p>
+    <p class="desc">
+      From southern Africa to Southeast Asia,
+      this journey will take me across six countries.
+    </p>
 
 
-<div class="map-wrapper">
+    <div class="map-box">
 
-<p class="map-title">
-✈️ MY WORLD RACE ROUTE
-</p>
+      <svg
+        id="worldMap"
+        viewBox="0 0 1000 520"
+        preserveAspectRatio="xMidYMid meet"
+      >
+      </svg>
 
-<svg
-id="worldMap"
-viewBox="0 0 1000 520"
-preserveAspectRatio="xMidYMid meet"
->
-</svg>
+    </div>
 
-<p class="map-note">
-
-The route shown is a visual representation
-of the journey and is not intended to show
-exact flight paths.
-
-</p>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      PRAYER
-===================================================== -->
+======================================================= -->
 
 <section
-class="prayer-section"
-id="prayer"
+  class="prayer"
+  id="prayer"
 >
 
-<div class="section-inner">
+  <div class="inner">
 
-<div class="prayer-grid">
-
-
-<div class="prayer-message">
-
-<div class="eyebrow">
-PRAY WITH ME
-</div>
-
-<h2>
-JOIN ME IN PRAYER
-</h2>
-
-<p class="prayer-message-text">
-
-I would love for you to be part of this
-journey through prayer. As I prepare to
-leave and throughout the World Race,
-I will be sharing the things that I would
-love for you to pray about.
-
-I believe prayer is one of the most
-important ways you can come alongside
-me on this journey.
-
-Thank you for praying for me, for the
-people I will meet, and for the work God
-will do throughout these nine months.
-
-</p>
-
-</div>
+    <div class="prayer-grid">
 
 
-<div class="prayer-form-card">
+      <div class="prayer-card">
 
-<h3>
-SEND A PRAYER
-</h3>
+        <div class="eyebrow">
+          PRAY WITH ME
+        </div>
 
-<p>
+        <h2>
+          JOIN ME IN PRAYER
+        </h2>
 
-Have something you want to pray over
-this journey? I'd love to hear it.
+        <p>
+          I would love for you to be part of this journey
+          through prayer. I will be sharing specific prayer
+          needs throughout the World Race, and I believe
+          prayer is one of the most important ways you can
+          come alongside me.
+        </p>
 
-</p>
+      </div>
 
-<iframe
-class="google-form"
-src="https://docs.google.com/forms/d/e/1FAIpQLSfnIuqkdsoHZDc9llg4JcL-EG1vuWZoPw8kMJ5ivYV-unh8vQ/viewform?embedded=true"
-loading="lazy"
->
-Loading…
-</iframe>
 
-</div>
+      <div class="form-card">
 
-</div>
+        <h2 style="font-size:28px">
+          SEND A PRAYER
+        </h2>
 
-</div>
+        <p>
+          I'd love to hear what you are praying for
+          this journey.
+        </p>
+
+
+        <iframe
+          class="google-form"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfnIuqkdsoHZDc9llg4JcL-EG1vuWZoPw8kMJ5ivYV-unh8vQ/viewform?embedded=true"
+        >
+          Loading…
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================= -->
 
 <footer>
 
-<strong>
-WORLD RACE 2027–2028
-</strong>
+  <b>
+    WORLD RACE 2027–2028
+  </b>
 
-<p>
-Thank you for being part of the journey.
-</p>
+  <p>
+    Thank you for being part of the journey.
+  </p>
 
 </footer>
 
 
-<!-- =====================================================
-     SPONSOR MODAL
-===================================================== -->
+<!-- =======================================================
+     DAY MODAL
+======================================================= -->
 
 <div
-class="modal"
-id="modal"
+  class="modal"
+  id="modal"
 >
 
-<div class="modal-box">
+  <div class="modalbox">
 
-<button
-class="close"
-onclick="closeModal()"
-aria-label="Close"
->
-×
-</button>
+    <button
+      class="close"
+      onclick="closeModal()"
+      aria-label="Close"
+    >
+      ×
+    </button>
 
-<div class="section-label">
-YOUR DAY
-</div>
+    <div class="label">
+      YOUR DAY
+    </div>
 
-<h2 id="modalTitle">
-Day 1
-</h2>
+    <h2 id="mday">
+    </h2>
 
-<p id="modalDate"></p>
+    <p id="mdate">
+    </p>
 
-<div class="modal-price">
-$73
-</div>
+    <div class="price">
+      $73
+    </div>
 
-<div id="modalMessage">
+    <p id="mmsg">
+    </p>
 
-<p>
-Sponsor this day of my World Race
-journey and help make this adventure
-possible.
-</p>
+    <a
+      class="button"
+      href="#"
+      onclick="
+        alert('Your secure sponsorship/payment link can be added here.');
+        return false;
+      "
+    >
+      SPONSOR THIS DAY →
+    </a>
 
-<a
-href="#"
-class="button"
-onclick="
-alert(
-'We will connect the secure sponsorship/payment system here next!'
-);
-return false;
-"
->
-SPONSOR THIS DAY →
-</a>
+  </div>
 
 </div>
 
-</div>
 
-</div>
-
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
 
 <script>
 
-/* =========================================================
-   SPONSORED DAYS
-========================================================= */
-
-const sponsoredDays = {};
-
 
 /* =========================================================
-   FUNDRAISING
+   CALENDAR SETTINGS
 ========================================================= */
 
-const DAY_PRICE = 73;
+const start =
+  new Date(2027, 7, 21);
 
-const GOAL = 20000;
+const end =
+  new Date(2028, 4, 21);
+
+const price =
+  73;
+
+const goal =
+  20000;
+
+let month =
+  new Date(2027, 7, 1);
 
 
-/* =========================================================
-   TRIP DATES
-========================================================= */
+/*
+   Later, this object can be connected
+   to your payment system/database.
 
-const startDate =
-new Date(2027, 7, 21);
+   Example:
 
-const endDate =
-new Date(2028, 4, 21);
+   sponsored["2027-08-21"] = true;
+*/
 
-
-/* =========================================================
-   CURRENT MONTH
-========================================================= */
-
-let currentMonth =
-new Date(2027, 7, 1);
+let sponsored = {};
 
 
 /* =========================================================
-   DATE KEY
+   DATE HELPERS
 ========================================================= */
 
-function dateKey(date) {
+function key(date) {
 
-  const year =
-    date.getFullYear();
-
-  const month =
-    String(
-      date.getMonth() + 1
-    ).padStart(2, "0");
-
-  const day =
-    String(
-      date.getDate()
-    ).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
+  return date
+    .toISOString()
+    .slice(0, 10);
 
 }
 
 
-/* =========================================================
-   DAY NUMBER
-========================================================= */
-
-function dayNumber(date) {
-
-  const difference =
-    date - startDate;
+function num(date) {
 
   return Math.floor(
-    difference /
-    (1000 * 60 * 60 * 24)
+    (date - start) / 86400000
   ) + 1;
 
 }
 
 
 /* =========================================================
-   CALENDAR
+   RENDER CALENDAR
 ========================================================= */
 
-function renderCalendar() {
+function render() {
 
   const calendar =
-    document.getElementById(
-      "calendar"
-    );
+    document.getElementById("calendar");
 
   calendar.innerHTML = "";
 
 
-  const weekdays = [
+  /*
+     WEEKDAYS
+  */
+
+  [
     "SUN",
     "MON",
     "TUE",
@@ -2257,255 +1584,207 @@ function renderCalendar() {
     "THU",
     "FRI",
     "SAT"
-  ];
+  ].forEach(day => {
 
+    const element =
+      document.createElement("div");
 
-  weekdays.forEach(day => {
-
-    const div =
-      document.createElement(
-        "div"
-      );
-
-    div.className =
+    element.className =
       "weekday";
 
-    div.textContent =
+    element.textContent =
       day;
 
-    calendar.appendChild(
-      div
-    );
+    calendar.appendChild(element);
 
   });
 
 
   const year =
-    currentMonth.getFullYear();
+    month.getFullYear();
 
-  const month =
-    currentMonth.getMonth();
-
-
-  document.getElementById(
-    "monthName"
-  ).textContent =
-    currentMonth.toLocaleDateString(
-      undefined,
-      {
-        month: "long",
-        year: "numeric"
-      }
-    );
+  const monthNumber =
+    month.getMonth();
 
 
-  const firstDay =
+  const first =
     new Date(
       year,
-      month,
+      monthNumber,
       1
     ).getDay();
 
 
-  const daysInMonth =
+  const days =
     new Date(
       year,
-      month + 1,
+      monthNumber + 1,
       0
     ).getDate();
 
 
-  const totalCells =
+  const cells =
     Math.ceil(
-      (firstDay + daysInMonth) / 7
+      (first + days) / 7
     ) * 7;
 
 
-  /* BLANK BOXES BEFORE MONTH */
+  document.getElementById("month")
+    .textContent =
+      month.toLocaleDateString(
+        undefined,
+        {
+          month: "long",
+          year: "numeric"
+        }
+      );
+
+
+  /*
+     BLANK BOXES BEFORE MONTH
+  */
 
   for (
     let i = 0;
-    i < firstDay;
+    i < first;
     i++
   ) {
 
-    const blank =
-      document.createElement(
-        "div"
-      );
+    const element =
+      document.createElement("div");
 
-    blank.className =
+    element.className =
       "day empty";
 
-    calendar.appendChild(
-      blank
-    );
+    calendar.appendChild(element);
 
   }
 
 
-  /* ACTUAL DAYS */
+  /*
+     DAYS
+  */
 
   for (
-    let d = 1;
-    d <= daysInMonth;
-    d++
+    let day = 1;
+    day <= days;
+    day++
   ) {
 
     const date =
       new Date(
         year,
-        month,
-        d
+        monthNumber,
+        day
       );
 
 
-    const key =
-      dateKey(date);
+    const active =
+      date >= start &&
+      date <= end;
 
 
-    const isTripDay =
-      date >= startDate &&
-      date <= endDate;
+    const element =
+      document.createElement("div");
 
 
-    const sponsored =
-      sponsoredDays[key];
+    /*
+       DAYS OUTSIDE THE TRIP
+    */
 
+    if (!active) {
 
-    const cell =
-      document.createElement(
-        "div"
-      );
-
-
-    /* DAYS OUTSIDE TRIP */
-
-    if (!isTripDay) {
-
-      cell.className =
+      element.className =
         "day inactive";
 
-      cell.innerHTML = `
-
-        <div style="padding:11px">
-
+      element.innerHTML = `
+        <div style="padding:10px">
           <span class="number">
-            ${d}
+            ${day}
           </span>
-
-          <span class="date-small">
-            ${date.toLocaleDateString(
-              undefined,
-              {
-                month: "short",
-                day: "numeric"
-              }
-            )}
-          </span>
-
         </div>
-
       `;
-
-      calendar.appendChild(
-        cell
-      );
-
-      continue;
 
     }
 
 
-    /* TRIP DAY */
+    /*
+       DAYS DURING THE WORLD RACE
+    */
 
-    cell.className =
-      sponsored
-      ? "day sponsored"
-      : "day available";
+    else {
 
-
-    const button =
-      document.createElement(
-        "button"
-      );
+      const sponsoredDay =
+        !!sponsored[key(date)];
 
 
-    button.innerHTML = `
-
-      <span class="number">
-        ${d}
-      </span>
-
-      <span class="date-small">
-        ${date.toLocaleDateString(
-          undefined,
-          {
-            month: "short",
-            day: "numeric"
-          }
-        )}
-      </span>
-
-      <span class="status">
-
-        ${
-          sponsored
-          ? "✓ SPONSORED"
-          : "AVAILABLE • $73"
-        }
-
-      </span>
-
-    `;
-
-
-    button.onclick =
-      function() {
-
-        openModal(
-          date,
-          sponsored
+      element.className =
+        "day " +
+        (
+          sponsoredDay
+            ? "sponsored"
+            : "available"
         );
 
-      };
+
+      const button =
+        document.createElement("button");
 
 
-    cell.appendChild(
-      button
-    );
+      button.innerHTML = `
+
+        <span class="number">
+          ${day}
+        </span>
+
+        <span class="status">
+
+          ${
+            sponsoredDay
+              ? "✓ SPONSORED"
+              : "SPONSOR $73"
+          }
+
+        </span>
+
+      `;
 
 
-    calendar.appendChild(
-      cell
-    );
+      button.onclick =
+        () =>
+          openDay(
+            date,
+            sponsoredDay
+          );
+
+
+      element.appendChild(button);
+
+    }
+
+
+    calendar.appendChild(element);
 
   }
 
 
-  /* BLANK BOXES AFTER MONTH */
+  /*
+     BLANK BOXES AFTER MONTH
+  */
 
   for (
-    let i =
-      firstDay +
-      daysInMonth;
-
-    i < totalCells;
-
+    let i = first + days;
+    i < cells;
     i++
   ) {
 
-    const blank =
-      document.createElement(
-        "div"
-      );
+    const element =
+      document.createElement("div");
 
-    blank.className =
+    element.className =
       "day empty";
 
-    calendar.appendChild(
-      blank
-    );
+    calendar.appendChild(element);
 
   }
 
@@ -2513,67 +1792,53 @@ function renderCalendar() {
 
 
 /* =========================================================
-   MONTH NAVIGATION
+   CALENDAR NAVIGATION
 ========================================================= */
 
-function previousMonth() {
-
-  const minimum =
-    new Date(
-      2027,
-      7,
-      1
-    );
-
+function prev() {
 
   const newMonth =
     new Date(
-      currentMonth.getFullYear(),
-      currentMonth.getMonth() - 1,
+      month.getFullYear(),
+      month.getMonth() - 1,
       1
     );
 
 
   if (
-    newMonth >= minimum
+    newMonth >=
+    new Date(2027, 7, 1)
   ) {
 
-    currentMonth =
+    month =
       newMonth;
 
-    renderCalendar();
+    render();
 
   }
 
 }
 
 
-function nextMonth() {
-
-  const maximum =
-    new Date(
-      2028,
-      4,
-      1
-    );
-
+function next() {
 
   const newMonth =
     new Date(
-      currentMonth.getFullYear(),
-      currentMonth.getMonth() + 1,
+      month.getFullYear(),
+      month.getMonth() + 1,
       1
     );
 
 
   if (
-    newMonth <= maximum
+    newMonth <=
+    new Date(2028, 4, 1)
   ) {
 
-    currentMonth =
+    month =
       newMonth;
 
-    renderCalendar();
+    render();
 
   }
 
@@ -2581,169 +1846,104 @@ function nextMonth() {
 
 
 /* =========================================================
-   MODAL
+   DAY POPUP
 ========================================================= */
 
-function openModal(
+function openDay(
   date,
-  sponsored
+  sponsoredDay
 ) {
 
-  document.getElementById(
-    "modalTitle"
-  ).textContent =
-    "Day " +
-    dayNumber(date);
+  document.getElementById("mday")
+    .textContent =
+      "Day " + num(date);
 
 
-  document.getElementById(
-    "modalDate"
-  ).textContent =
-    date.toLocaleDateString(
-      undefined,
-      {
-        weekday: "long",
-        month: "long",
-        day: "numeric",
-        year: "numeric"
-      }
-    );
+  document.getElementById("mdate")
+    .textContent =
+      date.toLocaleDateString(
+        undefined,
+        {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        }
+      );
 
 
-  const message =
-    document.getElementById(
-      "modalMessage"
-    );
+  document.getElementById("mmsg")
+    .textContent =
+      sponsoredDay
+        ? "This day has already been sponsored."
+        : "Sponsor this day of the journey and help make the World Race possible.";
 
 
-  if (sponsored) {
-
-    message.innerHTML = `
-
-      <div class="sponsor-note">
-
-        ✓ This day has already been
-        sponsored.
-
-      </div>
-
-    `;
-
-  }
-
-  else {
-
-    message.innerHTML = `
-
-      <p>
-
-        Sponsor this day of my World Race
-        journey and help make this adventure
-        possible.
-
-      </p>
-
-      <a
-        href="#"
-        class="button"
-        onclick="
-          alert(
-            'We will connect the secure sponsorship/payment system here next!'
-          );
-          return false;
-        "
-      >
-
-        SPONSOR THIS DAY →
-
-      </a>
-
-    `;
-
-  }
-
-
-  document.getElementById(
-    "modal"
-  ).style.display =
-    "flex";
+  document.getElementById("modal")
+    .style.display =
+      "flex";
 
 }
 
 
 function closeModal() {
 
-  document.getElementById(
-    "modal"
-  ).style.display =
-    "none";
+  document.getElementById("modal")
+    .style.display =
+      "none";
 
 }
 
 
-window.addEventListener(
-  "click",
+window.onclick =
   function(event) {
 
-    const modal =
-      document.getElementById(
-        "modal"
-      );
-
     if (
-      event.target === modal
+      event.target.id ===
+      "modal"
     ) {
 
       closeModal();
 
     }
 
-  }
-);
+  };
 
 
 /* =========================================================
    FUNDRAISING PROGRESS
 ========================================================= */
 
-function updateProgress() {
-
-  const sponsoredCount =
-    Object.keys(
-      sponsoredDays
-    ).length;
-
+function progress() {
 
   const raised =
-    sponsoredCount *
-    DAY_PRICE;
+    Object.keys(
+      sponsored
+    ).length * price;
 
 
   const percentage =
     Math.min(
       100,
-      (raised / GOAL) * 100
+      raised / goal * 100
     );
 
 
-  document.getElementById(
-    "raised"
-  ).textContent =
-    "$" +
-    raised.toLocaleString();
+  document.getElementById("raised")
+    .textContent =
+      "$" +
+      raised.toLocaleString();
 
 
-  document.getElementById(
-    "progress"
-  ).style.width =
-    percentage + "%";
+  document.getElementById("bar")
+    .style.width =
+      percentage + "%";
 
 
-  document.getElementById(
-    "progressPercent"
-  ).textContent =
-    percentage.toFixed(1) +
-    "% funded";
+  document.getElementById("percent")
+    .textContent =
+      percentage.toFixed(1) +
+      "% funded";
 
 }
 
@@ -2752,17 +1952,16 @@ function updateProgress() {
    WORLD MAP
 ========================================================= */
 
-async function createWorldMap() {
+async function map() {
+
 
   const svg =
-    d3.select(
-      "#worldMap"
-    );
+    d3.select("#worldMap");
 
 
-  const width = 1000;
-  const height = 520;
-
+  /*
+     WORLD COUNTRY DATA
+  */
 
   const world =
     await d3.json(
@@ -2770,36 +1969,37 @@ async function createWorldMap() {
     );
 
 
-  const countries =
+  const features =
     topojson.feature(
       world,
       world.objects.countries
     );
 
 
+  /*
+     WORLD MAP PROJECTION
+  */
+
   const projection =
     d3.geoNaturalEarth1()
       .fitSize(
-        [width, height],
-        countries
+        [1000, 520],
+        features
       );
 
 
   const path =
     d3.geoPath()
-      .projection(
-        projection
-      );
+      .projection(projection);
 
 
-  /* DRAW COUNTRIES */
+  /*
+     DRAW EVERY COUNTRY
+  */
 
-  svg.selectAll(
-    ".country-shape"
-  )
-    .data(
-      countries.features
-    )
+  svg
+    .selectAll(".country-shape")
+    .data(features.features)
     .enter()
     .append("path")
     .attr(
@@ -2812,53 +2012,49 @@ async function createWorldMap() {
     );
 
 
-  /* COUNTRY LOCATIONS */
+  /*
+     WORLD RACE LOCATIONS
+
+     The order here determines
+     the airplane route.
+  */
 
   const locations = {
 
-    "South Africa": [
-      24.0,
-      -30.6
-    ],
+    "South Africa":
+      [24, -30.6],
 
-    "Eswatini": [
-      31.5,
-      -26.5
-    ],
+    "Eswatini":
+      [31.5, -26.5],
 
-    "Kenya": [
-      37.9,
-      0.2
-    ],
+    "Kenya":
+      [37.9, 0.2],
 
-    "Ethiopia": [
-      40.5,
-      9.1
-    ],
+    "Ethiopia":
+      [40.5, 9.1],
 
-    "Nepal": [
-      84.1,
-      28.4
-    ],
+    "Nepal":
+      [84.1, 28.4],
 
-    "Thailand": [
-      100.5,
-      15.8
-    ]
+    "Thailand":
+      [100.5, 15.8]
 
   };
 
 
-  const route =
-    Object.values(
-      locations
-    ).map(
-      coords =>
-        projection(coords)
-    );
+  /*
+     CONVERT LOCATIONS
+     INTO MAP POINTS
+  */
+
+  const points =
+    Object.values(locations)
+      .map(projection);
 
 
-  /* ROUTE */
+  /*
+     DRAW ROUTE
+  */
 
   const line =
     d3.line()
@@ -2868,8 +2064,9 @@ async function createWorldMap() {
       );
 
 
-  svg.append("path")
-    .datum(route)
+  svg
+    .append("path")
+    .datum(points)
     .attr(
       "class",
       "route"
@@ -2880,18 +2077,112 @@ async function createWorldMap() {
     );
 
 
-  /* COUNTRY POINTS */
+  /*
+     COUNTRY DOTS + LABELS
+  */
 
   Object.entries(
     locations
   ).forEach(
     ([name, coords]) => {
 
+
       const point =
         projection(coords);
 
 
-      svg.append("circle")
+      /*
+         DEFAULT LABEL POSITION
+      */
+
+      let x =
+        point[0] + 10;
+
+      let y =
+        point[1] - 10;
+
+      let anchor =
+        "start";
+
+
+      /*
+         SOUTH AFRICA
+
+         Moved DOWN so it doesn't
+         sit underneath Eswatini.
+      */
+
+      if (
+        name ===
+        "South Africa"
+      ) {
+
+        x =
+          point[0] - 3;
+
+        y =
+          point[1] + 32;
+
+        anchor =
+          "middle";
+
+      }
+
+
+      /*
+         ESWATINI
+      */
+
+      if (
+        name ===
+        "Eswatini"
+      ) {
+
+        x =
+          point[0] + 14;
+
+        y =
+          point[1] - 14;
+
+      }
+
+
+      /*
+         ETHIOPIA
+      */
+
+      if (
+        name ===
+        "Ethiopia"
+      ) {
+
+        y =
+          point[1] + 18;
+
+      }
+
+
+      /*
+         THAILAND
+      */
+
+      if (
+        name ===
+        "Thailand"
+      ) {
+
+        y =
+          point[1] + 18;
+
+      }
+
+
+      /*
+         COUNTRY DOT
+      */
+
+      svg
+        .append("circle")
         .attr(
           "class",
           "route-point"
@@ -2910,30 +2201,42 @@ async function createWorldMap() {
         );
 
 
-      svg.append("text")
+      /*
+         COUNTRY NAME
+      */
+
+      svg
+        .append("text")
         .attr(
           "class",
           "route-label"
         )
         .attr(
           "x",
-          point[0] + 10
+          x
         )
         .attr(
           "y",
-          point[1] - 10
+          y
+        )
+        .attr(
+          "text-anchor",
+          anchor
         )
         .text(name);
 
-    }
-  );
+    });
 
 
-  /* INVISIBLE PATH */
+  /*
+     HIDDEN ROUTE FOR
+     AIRPLANE ANIMATION
+  */
 
-  const routePath =
-    svg.append("path")
-      .datum(route)
+  const route =
+    svg
+      .append("path")
+      .datum(points)
       .attr(
         "d",
         line
@@ -2945,93 +2248,71 @@ async function createWorldMap() {
       .attr(
         "stroke",
         "transparent"
-      )
-      .attr(
-        "id",
-        "flightPath"
       );
 
 
-  /* AIRPLANE */
+  const routeNode =
+    route.node();
+
+
+  const routeLength =
+    routeNode.getTotalLength();
+
+
+  /*
+     AIRPLANE
+  */
 
   const plane =
-    svg.append("text")
+    svg
+      .append("text")
       .attr(
         "class",
-        "plane-symbol"
+        "plane"
       )
-      .text("✈")
+      .text("✈");
+
+
+  /*
+     ANIMATE AIRPLANE
+  */
+
+  function animate(time) {
+
+    const progress =
+      (
+        time % 12000
+      ) / 12000;
+
+
+    const point =
+      routeNode.getPointAtLength(
+        progress *
+        routeLength
+      );
+
+
+    plane
       .attr(
         "x",
-        -20
+        point.x - 10
       )
       .attr(
         "y",
-        -20
+        point.y + 8
       );
-
-
-  const pathNode =
-    routePath.node();
-
-
-  const totalLength =
-    pathNode.getTotalLength();
-
-
-  function animatePlane() {
-
-    const duration =
-      12000;
-
-    const start =
-      performance.now();
-
-
-    function move(now) {
-
-      const elapsed =
-        now - start;
-
-
-      const progress =
-        (elapsed % duration) /
-        duration;
-
-
-      const point =
-        pathNode.getPointAtLength(
-          progress *
-          totalLength
-        );
-
-
-      plane
-        .attr(
-          "x",
-          point.x - 12
-        )
-        .attr(
-          "y",
-          point.y + 8
-        );
-
-
-      requestAnimationFrame(
-        move
-      );
-
-    }
 
 
     requestAnimationFrame(
-      move
+      animate
     );
 
   }
 
 
-  animatePlane();
+  requestAnimationFrame(
+    animate
+  );
 
 }
 
@@ -3040,11 +2321,11 @@ async function createWorldMap() {
    START EVERYTHING
 ========================================================= */
 
-renderCalendar();
+render();
 
-updateProgress();
+progress();
 
-createWorldMap();
+map();
 
 </script>
 
