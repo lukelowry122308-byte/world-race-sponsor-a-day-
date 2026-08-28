@@ -467,7 +467,8 @@ h2 {
   fill:#172019;
   paint-order:stroke;
   stroke:white;
-  stroke-width:4px;
+  stroke-width:5px;
+  stroke-linejoin:round;
 }
 
 .plane {
@@ -630,7 +631,7 @@ footer {
 
   .route-label {
     font-size:12px;
-    stroke-width:3.5px;
+    stroke-width:4px;
   }
 
   .plane {
@@ -700,7 +701,7 @@ footer {
 
   .route-label {
     font-size:10px;
-    stroke-width:3px;
+    stroke-width:3.5px;
   }
 
   .plane {
@@ -1264,8 +1265,6 @@ function render() {
         }
       );
 
-  /* EMPTY CELLS BEFORE */
-
   for(let i=0;i<firstDay;i++) {
 
     const cell =
@@ -1276,8 +1275,6 @@ function render() {
     calendar.appendChild(cell);
 
   }
-
-  /* DAYS */
 
   for(let day=1;day<=daysInMonth;day++) {
 
@@ -1334,8 +1331,6 @@ function render() {
     calendar.appendChild(cell);
 
   }
-
-  /* EMPTY CELLS AFTER */
 
   for(
     let i=firstDay+daysInMonth;
@@ -1559,9 +1554,6 @@ async function buildMap() {
 
   /*
      LABELS
-
-     These positions are deliberately separated
-     so Kenya and Ethiopia don't overlap.
   */
 
   Object.entries(locations)
@@ -1591,7 +1583,8 @@ async function buildMap() {
       if(name==="Eswatini") {
 
         x=point[0]+18;
-        y=point[1]-16;
+        y=point[1]-18;
+        anchor="start";
 
       }
 
@@ -1601,12 +1594,13 @@ async function buildMap() {
       if(name==="Kenya") {
 
         /*
-           Kenya label is moved DOWN and LEFT.
-           This leaves room above for Ethiopia.
+          Kenya is intentionally moved
+          DOWN and LEFT so it is clearly
+          separated from Ethiopia.
         */
 
-        x=point[0]-18;
-        y=point[1]+28;
+        x=point[0]-30;
+        y=point[1]+42;
         anchor="end";
 
       }
@@ -1617,12 +1611,14 @@ async function buildMap() {
       if(name==="Ethiopia") {
 
         /*
-           Ethiopia label is moved UP and RIGHT.
-           This is the key fix for the overlap.
+          Ethiopia is intentionally moved
+          FARTHER UP and RIGHT.
+          This creates a much larger visual
+          separation from the Kenya label.
         */
 
-        x=point[0]+22;
-        y=point[1]-24;
+        x=point[0]+38;
+        y=point[1]-38;
         anchor="start";
 
       }
@@ -1632,8 +1628,9 @@ async function buildMap() {
 
       if(name==="Nepal") {
 
-        x=point[0]+12;
-        y=point[1]-12;
+        x=point[0]+15;
+        y=point[1]-15;
+        anchor="start";
 
       }
 
@@ -1642,8 +1639,9 @@ async function buildMap() {
 
       if(name==="Thailand") {
 
-        x=point[0]+12;
-        y=point[1]+22;
+        x=point[0]+15;
+        y=point[1]+25;
+        anchor="start";
 
       }
 
