@@ -20,7 +20,9 @@
   --border:#d4cec1;
 }
 
-* { box-sizing:border-box; }
+* {
+  box-sizing:border-box;
+}
 
 html {
   scroll-behavior:smooth;
@@ -33,8 +35,6 @@ body {
   font-family:Arial,Helvetica,sans-serif;
   overflow-x:hidden;
 }
-
-/* NAV */
 
 nav {
   position:sticky;
@@ -64,8 +64,6 @@ nav {
   font-size:11px;
   font-weight:900;
 }
-
-/* HERO */
 
 .hero {
   background:linear-gradient(135deg,#0b1710,#285338);
@@ -121,8 +119,6 @@ h1 span {
   cursor:pointer;
 }
 
-/* GOAL */
-
 .goal {
   padding:30px;
   background:rgba(0,0,0,.25);
@@ -169,8 +165,6 @@ h1 span {
   transition:width .5s;
 }
 
-/* SECTIONS */
-
 section {
   padding:80px 6%;
 }
@@ -191,8 +185,6 @@ h2 {
   color:#68716b;
   line-height:1.75;
 }
-
-/* SUPPORT */
 
 .giving {
   display:grid;
@@ -223,8 +215,6 @@ h2 {
   padding:25px;
   text-align:center;
 }
-
-/* CALENDAR */
 
 .calendar-wrap {
   margin-top:65px;
@@ -360,8 +350,6 @@ h2 {
   color:#245a38;
 }
 
-/* WORLD RACE */
-
 .race {
   background:white;
 }
@@ -423,8 +411,6 @@ h2 {
   font-weight:bold;
 }
 
-/* MAP */
-
 .map-box {
   margin-top:40px;
   padding:10px;
@@ -472,8 +458,6 @@ h2 {
   font-size:24px;
 }
 
-/* PRAYER */
-
 .prayer {
   background:var(--dark);
   color:white;
@@ -510,8 +494,6 @@ h2 {
   border:none;
 }
 
-/* FOOTER */
-
 footer {
   background:#080e0a;
   color:#aeb8b1;
@@ -525,7 +507,7 @@ footer {
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.72);
   z-index:200;
   align-items:center;
   justify-content:center;
@@ -533,12 +515,14 @@ footer {
 }
 
 .modalbox {
-  max-width:450px;
+  max-width:470px;
   width:100%;
   background:var(--cream);
   border-radius:18px;
   padding:30px;
   position:relative;
+  max-height:90vh;
+  overflow-y:auto;
 }
 
 .close {
@@ -551,7 +535,57 @@ footer {
   cursor:pointer;
 }
 
-/* MOBILE */
+.donation-note {
+  background:#fff;
+  border-left:4px solid var(--gold);
+  padding:15px;
+  border-radius:8px;
+  margin:20px 0;
+  line-height:1.5;
+  font-size:14px;
+}
+
+.confirm-button {
+  display:block;
+  width:100%;
+  margin-top:14px;
+  padding:15px;
+  border:none;
+  border-radius:8px;
+  background:var(--green);
+  color:white;
+  font-weight:900;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.confirm-button:hover {
+  opacity:.9;
+}
+
+.secondary-button {
+  display:block;
+  width:100%;
+  margin-top:10px;
+  padding:13px;
+  border:2px solid var(--border);
+  border-radius:8px;
+  background:white;
+  color:#172019;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.success-message {
+  display:none;
+  background:var(--light-green);
+  border:2px solid #36734d;
+  color:#245a38;
+  padding:16px;
+  border-radius:10px;
+  font-weight:900;
+  margin-top:15px;
+}
 
 @media(max-width:800px) {
 
@@ -640,8 +674,6 @@ footer {
   }
 }
 
-/* SMALL PHONES */
-
 @media(max-width:430px) {
 
   section {
@@ -720,9 +752,11 @@ footer {
   .detail strong {
     font-size:20px;
   }
-}
 
-/* VERY SMALL PHONES */
+  .modalbox {
+    padding:24px 18px;
+  }
+}
 
 @media(max-width:360px) {
 
@@ -752,7 +786,6 @@ footer {
 <body>
 
 <nav>
-
   <div class="logo">
     ✦ WORLD RACE 2027–2028
   </div>
@@ -763,7 +796,6 @@ footer {
     <a href="#map">JOURNEY</a>
     <a href="#prayer">PRAYER</a>
   </div>
-
 </nav>
 
 <header class="hero">
@@ -896,7 +928,7 @@ footer {
         href="https://adventuresinmissions.servicereef.com/events/adventures-in-missions-3/2027-world-race-gap-year-27g0903-mend/participants/luke-lowrya0"
         target="_blank"
         rel="noopener">
-        GIVE ANY AMOUNT
+        GIVE ANY AMOUNT →
       </a>
 
     </div>
@@ -1137,6 +1169,8 @@ footer {
 
 </footer>
 
+<!-- DAY MODAL -->
+
 <div class="modal" id="modal">
 
   <div class="modalbox">
@@ -1157,25 +1191,54 @@ footer {
       $73
     </div>
 
-    <p id="mmsg"></p>
+    <div class="donation-note">
+      <strong>How this works:</strong><br><br>
+      1. Click the button below and complete your
+      donation on the secure Adventures in Missions page.<br><br>
+      2. Come back to this page.<br><br>
+      3. Click <strong>"I've Donated — Mark This Day Sponsored"</strong>.
+      <br><br>
+      <strong>Important:</strong> Opening the donation page
+      does NOT automatically mark this day as sponsored.
+    </div>
 
     <a
-      id="sponsorButton"
+      id="donationButton"
       class="button"
       href="https://adventuresinmissions.servicereef.com/events/adventures-in-missions-3/2027-world-race-gap-year-27g0903-mend/participants/luke-lowrya0"
       target="_blank"
-      rel="noopener">
+      rel="noopener"
+      onclick="rememberDonationDay()">
       SPONSOR THIS DAY →
     </a>
+
+    <button
+      class="confirm-button"
+      onclick="confirmDonation()">
+      ✓ I'VE DONATED — MARK THIS DAY SPONSORED
+    </button>
+
+    <button
+      class="secondary-button"
+      onclick="closeModal()">
+      I'LL DO THIS LATER
+    </button>
+
+    <div
+      class="success-message"
+      id="successMessage">
+      ✓ This day has been marked as sponsored!
+    </div>
 
   </div>
 
 </div>
 
+
 <script>
 
 /* =====================================================
-   CALENDAR
+   SETTINGS
 ===================================================== */
 
 const start = new Date(2027,7,21);
@@ -1185,46 +1248,77 @@ const price = 73;
 const goal = 20000;
 
 let month = new Date(2027,7,1);
+let selectedDate = null;
 
-/*
-=====================================================
-IMPORTANT RESET
 
-The August 21, 2027 test day is FORCED AVAILABLE.
-
-This removes any old browser-saved value for Day 1
-and guarantees that August 21 displays RED.
-=====================================================
-*/
+/* =====================================================
+   LOAD SAVED SPONSORED DAYS
+===================================================== */
 
 let sponsored = {};
 
-/* Remove any old test data */
 try {
-  localStorage.removeItem("worldRaceSponsored");
-  localStorage.removeItem("sponsored");
-  localStorage.removeItem("sponsorDays");
-  localStorage.removeItem("worldRaceDays");
-} catch(e) {}
+
+  sponsored =
+    JSON.parse(
+      localStorage.getItem("worldRaceSponsoredDays")
+    ) || {};
+
+} catch(e) {
+
+  sponsored = {};
+
+}
+
 
 /*
-IMPORTANT:
-There is intentionally NO automatic code here that
-marks a day sponsored when somebody clicks the
-donation button.
+   IMPORTANT:
+   Clear the old test sponsorship for August 21.
 
-A click only opens the payment page.
-The calendar remains RED until sponsorship is actually
-confirmed through a future payment/database system.
+   This does NOT prevent August 21 from being sponsored
+   again later. It simply removes the old test state.
 */
 
+delete sponsored["2027-08-21"];
+
+localStorage.setItem(
+  "worldRaceSponsoredDays",
+  JSON.stringify(sponsored)
+);
+
+
+/* =====================================================
+   DATE HELPERS
+===================================================== */
+
 function key(date) {
-  return date.toISOString().slice(0,10);
+
+  const year = date.getFullYear();
+  const month = String(
+    date.getMonth()+1
+  ).padStart(2,"0");
+
+  const day = String(
+    date.getDate()
+  ).padStart(2,"0");
+
+  return `${year}-${month}-${day}`;
+
 }
 
+
 function num(date) {
-  return Math.floor((date-start)/86400000)+1;
+
+  return Math.floor(
+    (date-start)/86400000
+  )+1;
+
 }
+
+
+/* =====================================================
+   CALENDAR
+===================================================== */
 
 function render() {
 
@@ -1253,13 +1347,23 @@ function render() {
   const monthNumber = month.getMonth();
 
   const firstDay =
-    new Date(year,monthNumber,1).getDay();
+    new Date(
+      year,
+      monthNumber,
+      1
+    ).getDay();
 
   const daysInMonth =
-    new Date(year,monthNumber+1,0).getDate();
+    new Date(
+      year,
+      monthNumber+1,
+      0
+    ).getDate();
 
   const totalCells =
-    Math.ceil((firstDay+daysInMonth)/7)*7;
+    Math.ceil(
+      (firstDay+daysInMonth)/7
+    )*7;
 
   document.getElementById("month")
     .textContent =
@@ -1271,35 +1375,49 @@ function render() {
         }
       );
 
-  /* EMPTY CELLS BEFORE */
+
+  /* CELLS BEFORE MONTH */
 
   for(let i=0;i<firstDay;i++) {
 
     const cell =
       document.createElement("div");
 
-    cell.className = "day empty";
+    cell.className =
+      "day empty";
 
     calendar.appendChild(cell);
 
   }
 
+
   /* DAYS */
 
-  for(let day=1;day<=daysInMonth;day++) {
+  for(
+    let day=1;
+    day<=daysInMonth;
+    day++
+  ) {
 
     const date =
-      new Date(year,monthNumber,day);
+      new Date(
+        year,
+        monthNumber,
+        day
+      );
 
     const active =
-      date>=start && date<=end;
+      date>=start &&
+      date<=end;
 
     const cell =
       document.createElement("div");
 
+
     if(!active) {
 
-      cell.className = "day inactive";
+      cell.className =
+        "day inactive";
 
       cell.innerHTML = `
         <div style="padding:10px">
@@ -1309,28 +1427,25 @@ function render() {
 
     } else {
 
-      /*
-      August 21, 2027 is NEVER considered sponsored.
-      This is the forced reset requested.
-      */
-
-      const isAugust21 =
-        year === 2027 &&
-        monthNumber === 7 &&
-        day === 21;
-
       const isSponsored =
-        !isAugust21 && !!sponsored[key(date)];
+        !!sponsored[key(date)];
 
       cell.className =
         "day " +
-        (isSponsored ? "sponsored":"available");
+        (
+          isSponsored
+          ? "sponsored"
+          : "available"
+        );
 
       const button =
         document.createElement("button");
 
       button.innerHTML = `
-        <span class="number">${day}</span>
+        <span class="number">
+          ${day}
+        </span>
+
         <span class="status">
           ${
             isSponsored
@@ -1340,9 +1455,15 @@ function render() {
         </span>
       `;
 
-      button.onclick = function() {
-        openDay(date,isSponsored);
-      };
+      button.onclick =
+        function() {
+
+          openDay(
+            date,
+            isSponsored
+          );
+
+        };
 
       cell.appendChild(button);
 
@@ -1352,7 +1473,8 @@ function render() {
 
   }
 
-  /* EMPTY CELLS AFTER */
+
+  /* CELLS AFTER MONTH */
 
   for(
     let i=firstDay+daysInMonth;
@@ -1363,13 +1485,19 @@ function render() {
     const cell =
       document.createElement("div");
 
-    cell.className = "day empty";
+    cell.className =
+      "day empty";
 
     calendar.appendChild(cell);
 
   }
 
 }
+
+
+/* =====================================================
+   MONTH NAVIGATION
+===================================================== */
 
 function prev() {
 
@@ -1380,14 +1508,18 @@ function prev() {
       1
     );
 
-  if(newMonth>=new Date(2027,7,1)) {
+  if(
+    newMonth >=
+    new Date(2027,7,1)
+  ) {
 
-    month=newMonth;
+    month = newMonth;
     render();
 
   }
 
 }
+
 
 function next() {
 
@@ -1398,9 +1530,12 @@ function next() {
       1
     );
 
-  if(newMonth<=new Date(2028,4,1)) {
+  if(
+    newMonth <=
+    new Date(2028,4,1)
+  ) {
 
-    month=newMonth;
+    month = newMonth;
     render();
 
   }
@@ -1409,26 +1544,19 @@ function next() {
 
 
 /* =====================================================
-   MODAL
+   OPEN DAY
 ===================================================== */
 
-function openDay(date,alreadySponsored) {
+function openDay(
+  date,
+  alreadySponsored
+) {
 
-  /*
-  August 21 is always available.
-  */
-
-  if(
-    date.getFullYear() === 2027 &&
-    date.getMonth() === 7 &&
-    date.getDate() === 21
-  ) {
-    alreadySponsored = false;
-  }
+  selectedDate = date;
 
   document.getElementById("mday")
     .textContent =
-      "Day "+num(date);
+      "Day " + num(date);
 
   document.getElementById("mdate")
     .textContent =
@@ -1442,74 +1570,186 @@ function openDay(date,alreadySponsored) {
         }
       );
 
-  document.getElementById("mmsg")
-    .textContent =
+  document.getElementById("successMessage")
+    .style.display =
       alreadySponsored
-      ? "This day has already been sponsored."
-      : "Sponsor this day of the journey and help make the World Race possible.";
+      ? "block"
+      : "none";
 
-  const sponsorButton =
-    document.getElementById("sponsorButton");
+  document.getElementById("modal")
+    .style.display =
+      "flex";
 
-  if(alreadySponsored) {
+}
 
-    sponsorButton.style.display = "none";
 
-  } else {
+/* =====================================================
+   REMEMBER THAT THEY CLICKED DONATION
+===================================================== */
 
-    sponsorButton.style.display = "inline-block";
+function rememberDonationDay() {
+
+  if(!selectedDate) return;
+
+  localStorage.setItem(
+    "worldRacePendingDonation",
+    key(selectedDate)
+  );
+
+}
+
+
+/* =====================================================
+   CONFIRM DONATION
+===================================================== */
+
+function confirmDonation() {
+
+  if(!selectedDate) {
+
+    alert(
+      "Please choose a day first."
+    );
+
+    return;
 
   }
 
-  document.getElementById("modal")
-    .style.display="flex";
+  const dateKey =
+    key(selectedDate);
+
+
+  /*
+     Do not allow an inactive date.
+  */
+
+  if(
+    selectedDate < start ||
+    selectedDate > end
+  ) {
+
+    alert(
+      "That date is not part of the World Race journey."
+    );
+
+    return;
+
+  }
+
+
+  /*
+     Mark the day sponsored ONLY HERE.
+  */
+
+  sponsored[dateKey] = {
+    amount:price,
+    confirmed:true,
+    confirmedAt:new Date().toISOString()
+  };
+
+
+  localStorage.setItem(
+    "worldRaceSponsoredDays",
+    JSON.stringify(sponsored)
+  );
+
+
+  /*
+     Clear the pending donation.
+  */
+
+  localStorage.removeItem(
+    "worldRacePendingDonation"
+  );
+
+
+  /*
+     Update everything.
+  */
+
+  render();
+  progress();
+
+
+  document.getElementById("successMessage")
+    .style.display =
+      "block";
+
+
+  /*
+     Change the message.
+  */
+
+  document.getElementById("mday")
+    .textContent =
+      "✓ Day " + num(selectedDate)
+      + " Sponsored!";
 
 }
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
 
 function closeModal() {
 
   document.getElementById("modal")
-    .style.display="none";
+    .style.display =
+      "none";
 
 }
 
-window.onclick=function(event) {
 
-  if(event.target.id==="modal") {
-    closeModal();
-  }
+window.onclick =
+  function(event) {
 
-};
+    if(
+      event.target.id ===
+      "modal"
+    ) {
+
+      closeModal();
+
+    }
+
+  };
 
 
 /* =====================================================
-   FUNDRAISING
+   FUNDRAISING PROGRESS
 ===================================================== */
 
 function progress() {
 
-  /*
-  Only actually confirmed sponsorships count here.
-  Opening the payment page does NOT increase the total.
-  */
+  const sponsoredCount =
+    Object.keys(sponsored).length;
 
   const raised =
-    Object.keys(sponsored).length*price;
+    sponsoredCount * price;
 
   const percentage =
-    Math.min(100,raised/goal*100);
+    Math.min(
+      100,
+      raised / goal * 100
+    );
+
 
   document.getElementById("raised")
     .textContent =
-      "$"+raised.toLocaleString();
+      "$" +
+      raised.toLocaleString();
+
 
   document.getElementById("bar")
     .style.width =
-      percentage+"%";
+      percentage + "%";
+
 
   document.getElementById("percent")
     .textContent =
-      percentage.toFixed(1)+"% funded";
+      percentage.toFixed(1) +
+      "% funded";
 
 }
 
@@ -1523,185 +1763,308 @@ async function buildMap() {
   const svg =
     d3.select("#worldMap");
 
-  const world =
-    await d3.json(
-      "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
-    );
+  try {
 
-  const countries =
-    topojson.feature(
-      world,
-      world.objects.countries
-    );
-
-  const projection =
-    d3.geoNaturalEarth1()
-      .fitSize(
-        [1000,520],
-        countries
+    const world =
+      await d3.json(
+        "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
       );
 
-  const path =
-    d3.geoPath()
-      .projection(projection);
-
-  svg
-    .selectAll(".country-shape")
-    .data(countries.features)
-    .enter()
-    .append("path")
-    .attr("class","country-shape")
-    .attr("d",path);
-
-  const locations = {
-
-    "South Africa":
-      [24,-30.6],
-
-    "Eswatini":
-      [31.5,-26.5],
-
-    "Kenya":
-      [37.9,0.2],
-
-    "Ethiopia":
-      [40.5,9.1],
-
-    "Nepal":
-      [84.1,28.4],
-
-    "Thailand":
-      [100.5,15.8]
-
-  };
-
-  const points =
-    Object.values(locations)
-      .map(projection);
-
-  const line =
-    d3.line()
-      .curve(
-        d3.curveCatmullRom.alpha(.5)
+    const countries =
+      topojson.feature(
+        world,
+        world.objects.countries
       );
 
-  svg
-    .append("path")
-    .datum(points)
-    .attr("class","route")
-    .attr("d",line);
+    const projection =
+      d3.geoNaturalEarth1()
+        .fitSize(
+          [1000,520],
+          countries
+        );
 
-  Object.entries(locations)
-    .forEach(([name,coordinates]) => {
+    const path =
+      d3.geoPath()
+        .projection(projection);
 
-      const point =
-        projection(coordinates);
 
-      let x=point[0]+10;
-      let y=point[1]-10;
-      let anchor="start";
+    svg
+      .selectAll(".country-shape")
+      .data(countries.features)
+      .enter()
+      .append("path")
+      .attr("class","country-shape")
+      .attr("d",path);
 
-      if(name==="South Africa") {
 
-        x=point[0]-3;
-        y=point[1]+32;
-        anchor="middle";
+    const locations = {
 
-      }
+      "South Africa":
+        [24,-30.6],
 
-      if(name==="Eswatini") {
+      "Eswatini":
+        [31.5,-26.5],
 
-        x=point[0]+18;
-        y=point[1]-16;
+      "Kenya":
+        [37.9,0.2],
 
-      }
+      "Ethiopia":
+        [40.5,9.1],
 
-      if(name==="Kenya") {
+      "Nepal":
+        [84.1,28.4],
 
-        x=point[0]-18;
-        y=point[1]+28;
-        anchor="end";
+      "Thailand":
+        [100.5,15.8]
 
-      }
+    };
 
-      if(name==="Ethiopia") {
 
-        x=point[0]+22;
-        y=point[1]-24;
-        anchor="start";
+    const points =
+      Object.values(locations)
+        .map(projection);
 
-      }
 
-      if(name==="Nepal") {
+    const line =
+      d3.line()
+        .curve(
+          d3.curveCatmullRom.alpha(.5)
+        );
 
-        x=point[0]+12;
-        y=point[1]-12;
 
-      }
-
-      if(name==="Thailand") {
-
-        x=point[0]+12;
-        y=point[1]+22;
-
-      }
-
-      svg
-        .append("circle")
-        .attr("class","route-point")
-        .attr("cx",point[0])
-        .attr("cy",point[1])
-        .attr("r",7);
-
-      svg
-        .append("text")
-        .attr("class","route-label")
-        .attr("x",x)
-        .attr("y",y)
-        .attr("text-anchor",anchor)
-        .text(name);
-
-    });
-
-  const animatedRoute =
     svg
       .append("path")
       .datum(points)
-      .attr("d",line)
-      .attr("fill","none")
-      .attr("stroke","transparent");
+      .attr("class","route")
+      .attr("d",line);
 
-  const routeNode =
-    animatedRoute.node();
 
-  const routeLength =
-    routeNode.getTotalLength();
+    Object.entries(locations)
+      .forEach(
+        ([name,coordinates]) => {
 
-  const plane =
-    svg
-      .append("text")
-      .attr("class","plane")
-      .text("✈");
+          const point =
+            projection(coordinates);
 
-  function animate(time) {
+          let x =
+            point[0] + 10;
 
-    const progress =
-      (time%12000)/12000;
+          let y =
+            point[1] - 10;
 
-    const point =
-      routeNode.getPointAtLength(
-        progress*routeLength
+          let anchor =
+            "start";
+
+
+          if(
+            name ===
+            "South Africa"
+          ) {
+
+            x =
+              point[0]-3;
+
+            y =
+              point[1]+32;
+
+            anchor =
+              "middle";
+
+          }
+
+
+          if(
+            name ===
+            "Eswatini"
+          ) {
+
+            x =
+              point[0]+18;
+
+            y =
+              point[1]-16;
+
+          }
+
+
+          if(
+            name ===
+            "Kenya"
+          ) {
+
+            x =
+              point[0]-18;
+
+            y =
+              point[1]+28;
+
+            anchor =
+              "end";
+
+          }
+
+
+          if(
+            name ===
+            "Ethiopia"
+          ) {
+
+            x =
+              point[0]+22;
+
+            y =
+              point[1]-24;
+
+            anchor =
+              "start";
+
+          }
+
+
+          if(
+            name ===
+            "Nepal"
+          ) {
+
+            x =
+              point[0]+12;
+
+            y =
+              point[1]-12;
+
+          }
+
+
+          if(
+            name ===
+            "Thailand"
+          ) {
+
+            x =
+              point[0]+12;
+
+            y =
+              point[1]+22;
+
+          }
+
+
+          svg
+            .append("circle")
+            .attr(
+              "class",
+              "route-point"
+            )
+            .attr(
+              "cx",
+              point[0]
+            )
+            .attr(
+              "cy",
+              point[1]
+            )
+            .attr(
+              "r",
+              7
+            );
+
+
+          svg
+            .append("text")
+            .attr(
+              "class",
+              "route-label"
+            )
+            .attr(
+              "x",
+              x
+            )
+            .attr(
+              "y",
+              y
+            )
+            .attr(
+              "text-anchor",
+              anchor
+            )
+            .text(name);
+
+        }
       );
 
-    plane
-      .attr("x",point.x-10)
-      .attr("y",point.y+8);
 
-    requestAnimationFrame(animate);
+    const animatedRoute =
+      svg
+        .append("path")
+        .datum(points)
+        .attr("d",line)
+        .attr(
+          "fill",
+          "none"
+        )
+        .attr(
+          "stroke",
+          "transparent"
+        );
+
+
+    const routeNode =
+      animatedRoute.node();
+
+    const routeLength =
+      routeNode.getTotalLength();
+
+
+    const plane =
+      svg
+        .append("text")
+        .attr(
+          "class",
+          "plane"
+        )
+        .text("✈");
+
+
+    function animate(time) {
+
+      const animationProgress =
+        (time % 12000) /
+        12000;
+
+      const point =
+        routeNode.getPointAtLength(
+          animationProgress *
+          routeLength
+        );
+
+      plane
+        .attr(
+          "x",
+          point.x-10
+        )
+        .attr(
+          "y",
+          point.y+8
+        );
+
+      requestAnimationFrame(
+        animate
+      );
+
+    }
+
+    requestAnimationFrame(
+      animate
+    );
+
+  } catch(error) {
+
+    console.error(
+      "Map failed to load:",
+      error
+    );
 
   }
-
-  requestAnimationFrame(animate);
 
 }
 
